@@ -10,6 +10,7 @@ import Home from "../pages/home/Home";
 import Hotel from "../pages/hotel/Hotel";
 import HotelList from "../pages/HotelList";
 import Login from "../pages/Login";
+import NotFound from "../pages/NotFound";
 import Service from "../pages/Service";
 import Signup from "../pages/Signup";
 
@@ -56,6 +57,10 @@ const routes = createBrowserRouter([
       {
         path: "/hotels",
         element: <HotelList />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
