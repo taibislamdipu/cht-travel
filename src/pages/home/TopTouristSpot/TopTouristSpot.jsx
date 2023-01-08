@@ -19,7 +19,7 @@ const TopTouristSpot = () => {
       </h2>
 
       <ScrollContainer
-        className="flex cursor-grab p-1"
+        className="flex cursor-grab p-2"
         hideScrollbars={false}
         activationDistance
       >
