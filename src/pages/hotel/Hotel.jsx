@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import HotelReviewCard from "./HotelReviewCard";
 import NearbyHotelCard from "./NearbyHotelCard";
 import Filter from "../../components/reusable/Filter";
+import { BsFillInfoCircleFill } from "react-icons/bs";
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
@@ -112,6 +113,34 @@ const Hotel = () => {
         {/* search filter components*/}
         <Filter />
       </section>
+
+      <section>
+        <div className="flex gap-4">
+          <h3>Rooms & Rates</h3>
+          <p>( 1 night: 01/19/2023 - 01/20/2023 )</p>
+        </div>
+        <div className="border mt-2">
+          <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
+          <div className="flex justify-between items-center px-4 py-8 border-b">
+            <div>
+              <div className="flex gap-2">
+                <p className="font-bold">1 King Bed</p>
+                <span>Room Details</span>
+              </div>
+              <p className="flex gap-2 items-center">
+                <BsFillInfoCircleFill />
+                Prepaid - Book Now, Pay Now
+              </p>
+            </div>
+
+            <div className="text-center space-y-2">
+              <h2 className="text-3xl font-bold">$145</h2>
+              <button className="btn">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="space-y-4">
         <h3>Guest Ratings</h3>
         <div className="flex items-center gap-4">
