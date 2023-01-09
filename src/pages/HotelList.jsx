@@ -9,8 +9,9 @@ import {
 import { IoLocationSharp } from "react-icons/io5";
 import SuggestedHotelCard from "../components/SuggestedHotel/SuggestedHotelCard";
 import staticMapImg from "../assets/images/staticMapImg.png";
+import { Link } from "react-router-dom";
 const HotelList = () => {
-  const data = [
+  const hotelList = [
     { id: "1" },
     { id: "2" },
     { id: "3" },
@@ -71,8 +72,10 @@ const HotelList = () => {
             </div>
           </div>
           <div className="space-y-4">
-            {data.map((suggestedHotel) => (
-              <SuggestedHotelCard />
+            {hotelList.map((suggestedHotel) => (
+              <Link to={`/hotels/hotel/${suggestedHotel.id}`}>
+                <SuggestedHotelCard />
+              </Link>
             ))}
           </div>
           <div>

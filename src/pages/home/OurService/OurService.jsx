@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 const OurService = () => {
   const services = [
     {
-      name: "Service 1",
+      name: "Hotels",
       icon: <BiBed />,
+      path: "/hotels",
     },
     {
       name: "Service 2",
@@ -37,7 +38,7 @@ const OurService = () => {
       <ScrollContainer>
         <section className="mt-6 flex grid-cols-5 gap-4 lg:grid">
           {services.map((service, i) => (
-            <Link to="">
+            <Link to={service?.path}>
               <div
                 key={i}
                 className="flex items-center justify-between gap-8 rounded-md border border-black p-4 transition duration-200 hover:bg-black hover:text-white"
