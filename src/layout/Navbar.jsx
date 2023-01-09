@@ -92,7 +92,9 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <Link className="btn-ghost btn text-xl normal-case">CHT Travel</Link>
+        <Link to="/" className="btn-ghost btn text-xl normal-case">
+          CHT Travel
+        </Link>
       </div>
 
       {/* for web */}
@@ -131,8 +133,7 @@ const Navbar = () => {
             <Link to="/contact">Contacts</Link>
           </li>
           <li>
-            {/* <Link to="/cart">Cart</Link> */}
-            <Link to="/hotel">Cart</Link>
+            <Link to="/cart">Cart</Link>
           </li>
         </ul>
       </div>

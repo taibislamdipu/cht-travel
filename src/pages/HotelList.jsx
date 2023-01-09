@@ -73,7 +73,7 @@ const HotelList = () => {
           </div>
           <div className="space-y-4">
             {hotelList.map((suggestedHotel) => (
-              <Link to={`/hotels/hotel/${suggestedHotel.id}`}>
+              <Link to={`hotel/${suggestedHotel?.id}`}>
                 <SuggestedHotelCard />
               </Link>
             ))}

@@ -5,9 +5,10 @@ import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 
-const SuggestedHotelCard = () => {
+const SuggestedHotelCard = ({ hotelId }) => {
+  console.log("hotelId--->", hotelId);
   return (
-    <section className="grid grid-cols-8 gap-3 border p-3">
+    <section className="grid grid-cols-8 gap-3 border hover:shadow-lg transition p-3">
       <div className="col-span-2">
         <div>
           <img className="max-h-44 w-full" src={hotelImgSmall} alt="" />

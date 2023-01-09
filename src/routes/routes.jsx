@@ -51,7 +51,7 @@ const routes = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "/hotel",
+        path: "/hotels/hotel/:id",
         element: <Hotel />,
       },
       {
