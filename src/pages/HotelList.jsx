@@ -38,7 +38,13 @@ const HotelList = () => {
           <hr />
           <div>
             <h3 className="text-base font-semibold">Hotel Name</h3>
-            <input type="text" name="" id="" className="" />
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              type="text"
+              name=""
+              id=""
+              className=""
+            />
           </div>
           <div>
             <h3 className="text-base font-semibold">Set Your Budget</h3>
