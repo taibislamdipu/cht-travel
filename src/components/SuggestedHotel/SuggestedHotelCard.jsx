@@ -5,8 +5,7 @@ import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 
-const SuggestedHotelCard = ({ hotelId }) => {
-  console.log("hotelId--->", hotelId);
+const SuggestedHotelCard = ({ hotel_name, address, price }) => {
   return (
     <section className="grid grid-cols-8 gap-3 border hover:shadow-lg transition p-3">
       <div className="col-span-2">
@@ -15,8 +14,8 @@ const SuggestedHotelCard = ({ hotelId }) => {
         </div>
       </div>
       <div className="col-span-4 space-y-3 border-r">
-        <h3 className="text-base font-semibold">Hilton Los Angeles Airport</h3>
-        <p>5711 West Century Boulevard, Los Angeles , CA | Map</p>
+        <h3 className="text-base font-semibold">{hotel_name}</h3>
+        <p>{address} | Map</p>
         <ul className="space-y-1">
           <li className="flex items-center gap-1">
             <BsFillInfoCircleFill />
@@ -34,7 +33,7 @@ const SuggestedHotelCard = ({ hotelId }) => {
       </div>
       <div className="col-span-2 space-y-2 text-center">
         <div>
-          <h2 className="text-4xl font-bold">$145</h2>
+          <h2 className="text-4xl font-bold">${price}</h2>
           <p>
             <small>per night</small>
           </p>

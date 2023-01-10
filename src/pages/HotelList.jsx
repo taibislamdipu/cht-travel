@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Filter from "../components/reusable/Filter";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import {
@@ -10,6 +10,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import SuggestedHotelCard from "../components/SuggestedHotel/SuggestedHotelCard";
 import staticMapImg from "../assets/images/staticMapImg.png";
 import { Link } from "react-router-dom";
+import { data } from "../../public/data.js";
 const HotelList = () => {
   const hotelList = [
     { id: "1" },
@@ -19,10 +20,12 @@ const HotelList = () => {
     { id: "5" },
   ];
 
+  const [search, setSearch] = useState("");
+
   return (
     <div className="space-y-8 py-20 lg:mx-40">
       <div>
-        <Filter />
+        <Filter setSearch={setSearch} />
       </div>
       <div className="grid grid-cols-12 gap-6">
         <section className="col-span-3 space-y-4 border p-4">
@@ -72,13 +75,28 @@ const HotelList = () => {
             </div>
           </div>
           <div className="space-y-4">
-            {hotelList.map((suggestedHotel) => (
-              <Link to={`hotel/${suggestedHotel?.id}`}>
-                <SuggestedHotelCard />
-              </Link>
-            ))}
+            {data
+              .filter((item) => {
+                return search.toLocaleLowerCase() === ""
+                  ? item
+                  : item.hotel_name.toLocaleLowerCase().includes(search);
+              })
+              .map((item) => (
+                <Link to={`hotel/${item?.id}`}>
+                  <SuggestedHotelCard
+                    hotel_name={item?.hotel_name}
+                    address={item?.address}
+                    price={item?.price}
+                  />
+                </Link>
+              ))}
+            {data.filter((item) => {
+              return search.toLocaleLowerCase() === ""
+                ? item
+                : item.hotel_name.toLocaleLowerCase().includes(search);
+            }).length === 0 && <p>No results found.</p>}
           </div>
-          <div>
+          {/* <div>
             <h3>Pagination</h3>
             <div className="flex items-center justify-between">
               <button className="btn">
@@ -88,7 +106,7 @@ const HotelList = () => {
                 Next Page <AiOutlineRight color="white" />
               </button>
             </div>
-          </div>
+          </div> */}
         </section>
       </div>
     </div>

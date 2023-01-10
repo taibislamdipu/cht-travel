@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import Search from "./Search";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Filter = () => {
+const Filter = ({ setSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
+
   return (
     <div className="flex space-x-1 bg-slate-200 p-4">
-      <Search />
+      <input
+        onChange={(e) => setSearch(e.target.value)}
+        type="text"
+        placeholder="Search here"
+        className="input-bordered input w-full max-w-xs"
+      />
 
       <DatePicker
         className="input-bordered input hidden w-auto max-w-xs text-black lg:flex"
