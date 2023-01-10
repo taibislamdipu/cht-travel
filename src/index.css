@@ -13,6 +13,12 @@ h3 {
   @apply text-xl font-semibold;
 }
 
+/* .tooltip {
+  --tooltip-color: white;
+  --tooltip-text-color: red !important;
+  border: 1px solid red !important;
+} */
+
 @layer base {
   html {
     font-family: "Poppins", sans-serif;
