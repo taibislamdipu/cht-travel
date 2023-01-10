@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import RoomDetails from "./RoomDetails";
 
 const RoomsRate = () => {
@@ -39,7 +40,9 @@ const RoomsRate = () => {
         >
           <h2 className="text-3xl font-bold">$145</h2>
         </div>
-        <button className="btn">BOOK NOW</button>
+        <Link to="/booking">
+          <button className="btn">BOOK NOW</button>
+        </Link>
       </div>
     </div>
   );
