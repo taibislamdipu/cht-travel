@@ -23,7 +23,7 @@ const HotelList = () => {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="space-y-8 py-20 lg:mx-40">
+    <div className="space-y-8 py-20">
       <div>
         <Filter setSearch={setSearch} />
       </div>

@@ -140,7 +140,7 @@ const RoomBooking = () => {
   };
 
   return (
-    <div className="space-y-8 py-20 lg:mx-40">
+    <div className="space-y-8 py-20">
       <div className="lg:grid grid-cols-12 gap-6">
         <section className="col-span-8 space-y-4">
           {!isTabletOrMobile && <HotelAlert />}
