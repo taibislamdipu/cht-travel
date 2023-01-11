@@ -8,6 +8,7 @@ import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
 import Home from "../pages/home/Home";
 import Hotel from "../pages/hotel/Hotel";
+import RoomBooking from "../pages/hotel/RoomBooking";
 import HotelList from "../pages/HotelList";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
@@ -57,6 +58,10 @@ const routes = createBrowserRouter([
       {
         path: "/hotels",
         element: <HotelList />,
+      },
+      {
+        path: "/booking",
+        element: <RoomBooking />,
       },
       {
         path: "*",
