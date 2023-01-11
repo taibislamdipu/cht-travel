@@ -1,14 +1,17 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-
+import toast from "react-hot-toast";
 const AddHotel = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
+  const url = "http://localhost:5000/api/add-hotel";
+
   const submit = (data) => {
     const product = {
-      model: data.model,
+      hotelName: data.hotelName,
       brand: data.brand,
       status: data.status === "true" ? true : false,
       price: data.price,
@@ -21,7 +24,19 @@ const AddHotel = () => {
       spec: [],
     };
 
-    console.log(product);
+    // console.log(product);
+
+    axios
+      .post(url, product)
+      .then((res) => {
+        if (res?.data?.acknowledged) {
+          toast.success("Successfully created hotel!");
+        }
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        console.log(err);
+      });
   };
 
   return (
@@ -31,12 +46,13 @@ const AddHotel = () => {
         onSubmit={handleSubmit(submit)}
       >
         <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="model">
-            Model
+          <label className="mb-2" htmlFor="hotelName">
+            Hotel Name
           </label>
-          <input type="text" id="model" {...register("model")} />
+          <input type="text" id="hotelName" {...register("hotelName")} />
         </div>
-        <div className="flex w-full max-w-xs flex-col">
+
+        {/* <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="image">
             Image
           </label>
@@ -131,7 +147,7 @@ const AddHotel = () => {
             id="keyFeature4"
             {...register("keyFeature4")}
           />
-        </div>
+        </div> */}
 
         <div className="flex w-full items-center justify-between">
           <button
