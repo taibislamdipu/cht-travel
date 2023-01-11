@@ -1,27 +1,45 @@
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 const AddHotel = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  const submit = (data) => {
-    const product = {
-      model: data.model,
-      brand: data.brand,
-      status: data.status === "true" ? true : false,
-      price: data.price,
-      keyFeature: [
-        data.keyFeature1,
-        data.keyFeature2,
-        data.keyFeature3,
-        data.keyFeature4,
-      ],
-      spec: [],
-    };
+  // const submit = (data) => {
+  //   const product = {
+  //     name: data?.name,
+  //     // image: data?.image,
+  //     // price: data?.price,
+  //     // description: data?.description,
+  //     // room: data?.room,
+  //     // location: data?.location,
+  //   };
 
-    console.log(product);
+  //   axios
+  //     .post("https://cht-travel-server.vercel.app/addHotels", product)
+  //     .then((res) => {
+  //       if (res?.data) {
+  //         reset();
+  //       }
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
+
+  const submit = (data) => {
+    console.log(data);
+
+    axios
+      .post("https://cht-travel-server.vercel.app/addHotels", data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -31,11 +49,13 @@ const AddHotel = () => {
         onSubmit={handleSubmit(submit)}
       >
         <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="model">
-            Model
+          <label className="mb-2" htmlFor="name">
+            Hotel Name
           </label>
-          <input type="text" id="model" {...register("model")} />
+          <input type="text" id="name" {...register("name")} />
         </div>
+
+        {/* image */}
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="image">
             Image
@@ -44,22 +64,36 @@ const AddHotel = () => {
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-3" htmlFor="brand">
-            Brand
+          <label className="mb-3" htmlFor="room">
+            Total Room
           </label>
-          <select name="brand" id="brand" {...register("brand")}>
-            <option value="amd">AMD</option>
-            <option value="intel">Intel</option>
+          <select name="room" id="room" {...register("room")}>
+            {/* need to do it by map, will do later */}
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
           </select>
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="price">
-            Image
-          </label>
-          <input type="text" name="price" id="price" {...register("price")} />
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
+          <label className="mb-2" htmlFor="description">
+            Description
+          </label>
+          <textarea id="description" {...register("description")} />
+        </div>
+
+        <div className="flex w-full max-w-xs flex-col">
+          <label className="mb-2" htmlFor="price">
+            Price
+          </label>
+          <input type="number" name="price" id="price" {...register("price")} />
+        </div>
+
+        {/* <div className="flex w-full max-w-xs flex-col">
           <h1 className="mb-3">Availability</h1>
           <div className="flex gap-3">
             <div>
@@ -86,50 +120,17 @@ const AddHotel = () => {
               </label>
             </div>
           </div>
-        </div>
-        <div className="flex w-full max-w-xs flex-col"></div>
+        </div> */}
+
         <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="keyFeature1">
-            Key Feature 1
+          <label className="mb-2" htmlFor="location">
+            Location
           </label>
           <input
             type="text"
-            name="keyFeature1"
-            id="keyFeature1"
-            {...register("keyFeature1")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="keyFeature2">
-            Key Feature 2
-          </label>
-          <input
-            type="text"
-            name="keyFeature2"
-            id="keyFeature2"
-            {...register("keyFeature2")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="keyFeature3">
-            Key Feature 3
-          </label>
-          <input
-            type="text"
-            name="keyFeature3"
-            id="keyFeature3"
-            {...register("keyFeature3")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="keyFeature4">
-            Key Feature 4
-          </label>
-          <input
-            type="text"
-            name="keyFeature4"
-            id="keyFeature4"
-            {...register("keyFeature4")}
+            name="location"
+            id="location"
+            {...register("location")}
           />
         </div>
 
