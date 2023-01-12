@@ -7,7 +7,7 @@ const AddHotel = () => {
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
-  const url = "http://localhost:5000/api/add-hotel";
+  const url = "https://cht-travel-server-one.vercel.app/api/add-hotel";
 
   const submit = (data) => {
     const product = {
