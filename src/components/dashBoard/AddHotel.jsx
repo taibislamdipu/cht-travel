@@ -7,7 +7,7 @@ const AddHotel = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  const url = "https://cht-travel-server-one.vercel.app/api/add-hotel";
+  // const url = "https://cht-travel-server-one.vercel.app/api/add-hotel";
 
   const submit = (data) => {
     const product = {
@@ -24,11 +24,12 @@ const AddHotel = () => {
       .then((res) => {
         if (res?.data) {
           // reset();
-          alert(res.data);
+          toast.success("Successfully added!");
         }
       })
       .catch(function (error) {
         console.log(error);
+        toast.error(error.message);
       });
   };
 
