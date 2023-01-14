@@ -7,37 +7,24 @@ const AddHotel = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  // const submit = (data) => {
-  //   const product = {
-  //     name: data?.name,
-  //     // image: data?.image,
-  //     // price: data?.price,
-  //     // description: data?.description,
-  //     // room: data?.room,
-  //     // location: data?.location,
-  //   };
-
-  //   axios
-  //     .post("https://cht-travel-server.vercel.app/addHotels", product)
-  //     .then((res) => {
-  //       if (res?.data) {
-  //         reset();
-  //       }
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
   const submit = (data) => {
-    console.log(data);
+    const product = {
+      name: data?.name,
+      // image: data?.image,
+      // price: data?.price,
+      // description: data?.description,
+      // room: data?.room,
+      // location: data?.location,
+    };
 
     axios
-      .post("https://cht-travel-server.vercel.app/addHotels", data)
-      .then((response) => {
-        console.log(response);
+      .post("https://cht-travel-server.vercel.app/addHotels", product)
+      .then((res) => {
+        if (res?.data) {
+          reset();
+        }
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
       });
   };

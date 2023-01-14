@@ -1,68 +1,29 @@
 import React from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import bandarbanImg1 from "../../../assets/images/bandarban-img1.jpg";
+import bandarbanImg2 from "../../../assets/images/bandarban-img2.jpg";
+import bandarbanImg3 from "../../../assets/images/bandarban-img3.jpg";
 
 const HeroSlider = () => {
+  const data = [
+    { id: "1" },
+    // { id: "2", img: { bandarbanImg1 } },
+    // { id: "3", img: { bandarbanImg1 } },
+  ];
+
   return (
-    <div className="carousel w-full py-5">
-      <div id="slide1" className="carousel-item relative w-full">
-        <img
-          src="https://placeimg.com/800/200/arch"
-          alt=""
-          className="w-full"
-        />
-        <h3 className=" absolute inset-1/2 text-5xl font-semibold text-white">
-          Bandarban
-        </h3>
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide4" className="btn-circle btn">
-            ❮
-          </a>
-          <a href="#slide2" className="btn-circle btn">
-            ❯
-          </a>
+    <Carousel showThumbs={false}>
+      {data.map((item) => (
+        <div key={item?.id}>
+          <div>
+            {" "}
+            <img className="w-full" src={bandarbanImg1} />
+          </div>
+          <p className="legend">Legend 1</p>
         </div>
-      </div>
-      <div id="slide2" className="carousel-item relative w-full">
-        <img
-          src="https://placeimg.com/800/200/arch"
-          alt=""
-          className="w-full"
-        />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide1" className="btn-circle btn">
-            ❮
-          </a>
-          <a href="#slide3" className="btn-circle btn">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide3" className="carousel-item relative w-full">
-        <img
-          src="https://placeimg.com/800/200/arch"
-          alt=""
-          className="w-full"
-        />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide2" className="btn-circle btn">
-            ❮
-          </a>
-          <a href="#slide4" className="btn-circle btn">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide4" className="carousel-item relative w-full">
-        <img src="https://placeimg.com/800/200/arch" className="w-full" />
-        <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide3" className="btn-circle btn">
-            ❮
-          </a>
-          <a href="#slide1" className="btn-circle btn">
-            ❯
-          </a>
-        </div>
-      </div>
-    </div>
+      ))}
+    </Carousel>
   );
 };
 
