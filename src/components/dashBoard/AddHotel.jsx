@@ -12,11 +12,11 @@ const AddHotel = () => {
   const submit = (data) => {
     const product = {
       name: data?.name,
-      // image: data?.image,
-      // price: data?.price,
-      // description: data?.description,
-      // room: data?.room,
-      // location: data?.location,
+      image: data?.image,
+      price: data?.price,
+      description: data?.description,
+      room: data?.room,
+      location: data?.location,
     };
 
     axios
@@ -87,7 +87,7 @@ const AddHotel = () => {
           <input type="number" name="price" id="price" {...register("price")} />
         </div>
 
-        {/* <div className="flex w-full max-w-xs flex-col">
+        <div className="flex w-full max-w-xs flex-col">
           <h1 className="mb-3">Availability</h1>
           <div className="flex gap-3">
             <div>
@@ -114,7 +114,7 @@ const AddHotel = () => {
               </label>
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="location">
