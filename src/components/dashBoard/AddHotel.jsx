@@ -7,7 +7,7 @@ const AddHotel = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  // const url = "https://cht-travel-server-one.vercel.app/api/add-hotel";
+  // const url = "https://cht-travel-server-production.up.railway.app";
 
   const submit = (data) => {
     const product = {
@@ -20,7 +20,10 @@ const AddHotel = () => {
     };
 
     axios
-      .post("https://cht-travel-server.vercel.app/addHotels", product)
+      .post(
+        "https://cht-travel-server-production.up.railway.app/addHotels",
+        product
+      )
       .then((res) => {
         if (res?.data) {
           // reset();
