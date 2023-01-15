@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import ServiceCard from "../../../components/ServiceCard/ServiceCard";
 
 const OurService = () => {
-  const services = [
+  let currentYear = new Date().getFullYear();
+
+  const data = [
     {
       name: "Hotels",
       icon: <BiBed />,
@@ -36,20 +38,27 @@ const OurService = () => {
   ];
 
   return (
-    <div className="mb-20 mt-10">
-      <h2 className="bg-slate-400 p-4 text-center font-semibold">
-        Our Services
-      </h2>
+    <div className="mb-20 mt-10 space-y-3">
+      <div>
+        <h2 className="text-2xl font-bold text-black">Our Services</h2>
+        <p className="">
+          We've got everything you need to go big in {currentYear}.
+        </p>
+      </div>
 
-      <ScrollContainer className="p-2">
-        <section className="mt-6 flex grid-cols-4 gap-4 lg:grid">
-          {services.map((service, i) => (
-            <Link to={service?.path}>
-              <ServiceCard service={service} key={i} />
-            </Link>
-          ))}
-        </section>
-      </ScrollContainer>
+      <section>
+        <ScrollContainer>
+          <div className="flex pb-8">
+            <div className="lg:grid-cols-3 gap-4 lg:grid flex ">
+              {data.map((service, i) => (
+                <Link to={service?.path}>
+                  <ServiceCard service={service} key={i} />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </ScrollContainer>
+      </section>
     </div>
   );
 };
