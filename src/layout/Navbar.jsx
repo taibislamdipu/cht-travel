@@ -64,6 +64,9 @@ const Navbar = () => {
                 <li>
                   <a>Transportation</a>
                 </li>
+                <li>
+                  <a>Tourist Sight</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -122,6 +125,9 @@ const Navbar = () => {
               </li>
               <li>
                 <a>Transportation</a>
+              </li>
+              <li>
+                <a>Tourist Sight</a>
               </li>
             </ul>
           </li>
