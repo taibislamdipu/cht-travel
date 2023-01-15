@@ -96,7 +96,7 @@ const HotelList = () => {
                   : item.hotel_name.toLocaleLowerCase().includes(search);
               })
               .map((item) => (
-                <Link to={`hotel/${item?.id}`}>
+                <Link to={`hotel/${item?.id}`} key={item?.id}>
                   <SuggestedHotelCard
                     hotel_name={item?.hotel_name}
                     address={item?.address}
