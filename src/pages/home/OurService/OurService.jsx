@@ -21,14 +21,17 @@ const OurService = () => {
     {
       name: "Service 3",
       icon: <BiBed />,
+      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
     {
       name: "Service 4",
       icon: <BiBed />,
+      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
     {
       name: "Service 5",
       icon: <BiBed />,
+      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
   ];
 
