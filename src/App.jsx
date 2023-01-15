@@ -7,7 +7,7 @@ import auth from "./firebase/firebase.config";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { setUser } from "./features/auth/authSlice";
-
+import ScrollToTop from "react-scroll-to-top";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,6 +22,7 @@ function App() {
     <div className="App">
       <Toaster />
       <RouterProvider router={routes} />
+      <ScrollToTop smooth />
     </div>
   );
 }
