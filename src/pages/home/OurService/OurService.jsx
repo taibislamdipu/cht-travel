@@ -33,7 +33,7 @@ const OurService = () => {
   ];
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 mt-10">
       <h2 className="bg-slate-400 p-4 text-center font-semibold">
         Our Services
       </h2>
