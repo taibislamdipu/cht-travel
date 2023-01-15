@@ -35,12 +35,27 @@ const OurService = () => {
       icon: <BiBed />,
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
+    {
+      name: "Service 5",
+      icon: <BiBed />,
+      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+    },
+    {
+      name: "Service 5",
+      icon: <BiBed />,
+      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+    },
+    {
+      name: "Service 5",
+      icon: <BiBed />,
+      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+    },
   ];
 
   return (
     <div className="mb-20 mt-10 space-y-3">
       <div>
-        <h2 className="text-2xl font-bold text-black">Our Services</h2>
+        <h2 className="section-title">Our Services</h2>
         <p className="">
           We've got everything you need to go big in {currentYear}.
         </p>
@@ -49,7 +64,7 @@ const OurService = () => {
       <section>
         <ScrollContainer>
           <div className="flex pb-8">
-            <div className="lg:grid-cols-3 gap-4 lg:grid flex ">
+            <div className="xl:grid-cols-4 lg:grid-cols-2 gap-4 lg:grid flex ">
               {data.map((service, i) => (
                 <Link to={service?.path}>
                   <ServiceCard service={service} key={i} />

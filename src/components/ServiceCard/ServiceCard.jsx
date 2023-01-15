@@ -8,7 +8,11 @@ const ServiceCard = ({ service }) => {
       className="card lg:w-full hover:opacity-90 w-72 bg-base-100 hover:shadow-xl shadow-md transition"
     >
       <figure>
-        <img src={service?.image} className="h-52 w-full " alt="Shoes" />
+        <img
+          src={service?.image}
+          className="h-52 object-cover w-full"
+          alt="Shoes"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title service-element">{service?.name}</h2>
