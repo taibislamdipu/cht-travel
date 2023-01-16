@@ -18,7 +18,10 @@ const AddHotel = () => {
     };
 
     axios
-      .post("https://cht-travel-server.vercel.app/addHotels", product)
+      .post(
+        "https://cht-travel-server-production.up.railway.app/addHotels",
+        product
+      )
       .then((res) => {
         if (res?.data) {
           reset();
