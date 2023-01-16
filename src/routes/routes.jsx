@@ -78,7 +78,7 @@ const routes = createBrowserRouter([
         element: <DashboardHotel />,
       },
       {
-        path: "add-product",
+        path: "add-hotel",
         element: <AddHotel />,
       },
     ],

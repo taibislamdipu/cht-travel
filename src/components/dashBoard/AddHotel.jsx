@@ -2,19 +2,21 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-
+import toast from "react-hot-toast";
 const AddHotel = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
+  // const url = "https://cht-travel-server-production.up.railway.app";
+
   const submit = (data) => {
     const product = {
       name: data?.name,
-      // image: data?.image,
-      // price: data?.price,
-      // description: data?.description,
-      // room: data?.room,
-      // location: data?.location,
+      image: data?.image,
+      price: data?.price,
+      description: data?.description,
+      room: data?.room,
+      location: data?.location,
     };
 
     axios
@@ -24,11 +26,13 @@ const AddHotel = () => {
       )
       .then((res) => {
         if (res?.data) {
-          reset();
+          // reset();
+          toast.success("Successfully added!");
         }
       })
       .catch(function (error) {
         console.log(error);
+        toast.error(error.message);
       });
   };
 
@@ -83,7 +87,7 @@ const AddHotel = () => {
           <input type="number" name="price" id="price" {...register("price")} />
         </div>
 
-        {/* <div className="flex w-full max-w-xs flex-col">
+        <div className="flex w-full max-w-xs flex-col">
           <h1 className="mb-3">Availability</h1>
           <div className="flex gap-3">
             <div>
@@ -110,7 +114,7 @@ const AddHotel = () => {
               </label>
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="location">

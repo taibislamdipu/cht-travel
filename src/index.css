@@ -17,6 +17,10 @@ h3 {
   @apply text-xl font-semibold;
 }
 
+.link {
+  @apply text-[#007bff] hover:text-[#2e8ef5];
+}
+
 @layer base {
   html {
     font-family: "Poppins", sans-serif;
