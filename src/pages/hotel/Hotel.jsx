@@ -184,6 +184,18 @@ const Hotel = () => {
           </div>
         )}
       </section>
+
+      <section>
+        <h3>Map</h3>
+        <div>
+          <img
+            src="https://i.ibb.co/vhVHmx0/static-Map.png"
+            className="w-full"
+            alt=""
+          />
+        </div>
+      </section>
+
       <section className="py-10 text-white">
         {/* search filter components*/}
         <Filter />

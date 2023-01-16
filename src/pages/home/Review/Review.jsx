@@ -17,7 +17,11 @@ const Review = () => {
 
   return (
     <div className="">
-      <h2 className="bg-slate-400 p-4 text-center font-semibold">Reviews</h2>
+      <div>
+        <h2 className="section-title">Reviews</h2>
+        <p>What users feel about CHT-Travel</p>
+      </div>
+
       <ScrollContainer className="flex cursor-grab p-1">
         <div>
           <section className="mt-6 flex gap-4">

@@ -14,23 +14,22 @@ const TopTouristSpot = () => {
 
   return (
     <div className="mb-20">
-      <h2 className="bg-slate-400 p-4 text-center font-semibold">
-        Top Tourist Spot
-      </h2>
+      <div>
+        <h2 className="section-title">Top Tourist Spot</h2>
+        <p>Book these experiences for a close-up look at Bangladesh</p>
+      </div>
 
-      <ScrollContainer
-        className="flex cursor-grab p-2"
-        // hideScrollbars={false}
-        activationDistance
-      >
+      <ScrollContainer className="flex cursor-grab">
         <div>
           <section className="mt-6 flex gap-4">
-            {data.map((service, i) => (
-              <div className="spot">
-                <div>
-                  <img src={spotImg} alt="" />
+            {data.map((item, i) => (
+              <div className="spot" key={i}>
+                <div class="relative">
+                  <img src={spotImg} className="spot" />
+                  <h2 class="absolute text-3xl text-white font-bold bottom-5 left-5">
+                    Bottom Left
+                  </h2>
                 </div>
-                <h3>Bandarban</h3>
               </div>
             ))}
           </section>

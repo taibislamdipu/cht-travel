@@ -6,7 +6,7 @@ const Filter = ({ setSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <div className="flex space-x-1 bg-slate-200 p-4">
+    <div className="lg:flex space-x-1 bg-slate-200 p-4">
       <input
         onChange={(e) => setSearch(e.target.value)}
         type="text"

@@ -13,6 +13,14 @@ body {
   @apply border border-red-400;
 }
 
+.scroll-to-top {
+  padding: 5px !important;
+}
+
+.section-title {
+  @apply text-2xl font-bold text-black;
+}
+
 h3 {
   @apply text-xl font-semibold;
 }
