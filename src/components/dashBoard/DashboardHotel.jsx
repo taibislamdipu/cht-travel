@@ -1,17 +1,22 @@
 import React, { useEffect } from "react";
-import { useGetHotelQuery } from "../../api/hotelSlice";
+import { useGetHotelQuery, useRemoveHotelMutation } from "../../api/hotelSlice";
+import toast from "react-hot-toast";
+import DeleteHotel from "./DeleteHotel";
 
 const DashboardHotel = () => {
-  const { data, isLoading, isError } = useGetHotelQuery();
+  const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
 
   useEffect(() => {
     if (isLoading) {
-      toast.loading("Loading...", { id: "getHotel" });
+      toast.loading("Loading Hotels...", { id: "getHotel" });
+    }
+    if (!isLoading && isSuccess) {
+      toast.success("Hotels loaded", { id: "getHotel" });
     }
     if (!isLoading && isError) {
       toast.error("something went wrong", { id: "getHotel" });
     }
-  }, [isLoading, isError]);
+  }, [isLoading, isSuccess, isError]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center ">
@@ -44,7 +49,7 @@ const DashboardHotel = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-100 text-sm">
-              {data.map(({ name, location, price, status, _id }) => (
+              {data?.map(({ name, location, price, status, _id }) => (
                 <tr key={_id}>
                   <td className="p-2">
                     <input type="checkbox" className="h-5 w-5" value="id-1" />
@@ -73,9 +78,9 @@ const DashboardHotel = () => {
                       {price}
                     </div>
                   </td>
-                  <td className="p-2">
+                  {/* <td className="p-2">
                     <div className="flex justify-center">
-                      <button>
+                      <button onClick={() => removeHotel(_id)}>
                         <svg
                           className="h-8 w-8 rounded-full p-1 hover:bg-gray-100 hover:text-blue-600"
                           fill="none"
@@ -92,7 +97,8 @@ const DashboardHotel = () => {
                         </svg>
                       </button>
                     </div>
-                  </td>
+                  </td> */}
+                  <DeleteHotel id={_id} />
                 </tr>
               ))}
             </tbody>

@@ -5,8 +5,7 @@ import { useAddHotelMutation } from "../../api/hotelSlice";
 const AddHotel = () => {
   const { register, handleSubmit, reset } = useForm();
 
-  const [postHotel, { isLoading, isError, isSuccess, error }] =
-    useAddHotelMutation();
+  const [postHotel, { isLoading, isError, isSuccess }] = useAddHotelMutation();
 
   useEffect(() => {
     if (!isLoading && isSuccess) {
