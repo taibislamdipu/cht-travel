@@ -12,6 +12,7 @@ import { FaPaw } from "react-icons/fa";
 import { BiBus } from "react-icons/bi";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { BsCheck, BsGlobe } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -29,6 +30,29 @@ const Hotel = () => {
     { id: "10" },
   ];
   const rates = [{ id: "1" }, { id: "2" }, { id: "3" }];
+
+  const title = [
+    { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
+    { id: "2", name: "Hotel Description", link: "#hotelDescription" },
+    { id: "3", name: "Amenities", link: "#amenities" },
+    { id: "4", name: "Guest Review", link: "#hotelReview" },
+  ];
+
+  const ServicesNav = () => {
+    return (
+      <>
+        {title.map((item) => (
+          <a
+            key={item?.id}
+            href={item?.link}
+            className="bg-indigo-300 p-2 hover:bg-indigo-400"
+          >
+            <span>{item?.name}</span>
+          </a>
+        ))}
+      </>
+    );
+  };
 
   return (
     <div className="space-y-8 py-20">
@@ -53,28 +77,22 @@ const Hotel = () => {
               <span>
                 <IoLocationSharp />
               </span>
-              View Map
+
+              <a href="#googleMap" className="link">
+                View Map
+              </a>
             </div>
           </div>
         </div>
         <div>
-          <button className="btn">Choose a room</button>
+          <a href="#roomsRates">
+            <button className="btn">Choose a room</button>
+          </a>
         </div>
       </section>
       <section className="">
         <div className="grid grid-cols-4 text-center">
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
+          <ServicesNav />
         </div>
         <section className="h-fit grid-cols-6 bg-slate-100 lg:grid">
           <div className="col-span-4">
@@ -133,8 +151,8 @@ const Hotel = () => {
                 </a>
               </div>
               <div className="grid grid-cols-2 lg:gap-0 gap-2">
-                {data.map((item) => (
-                  <div className="flex gap-1 items-center">
+                {data.map((item, i) => (
+                  <div className="flex gap-1 items-center" key={i}>
                     <span>
                       <BiBus />
                     </span>
@@ -146,7 +164,10 @@ const Hotel = () => {
           </div>
         </section>
       </section>
-      <section className="grid-cols-3 gap-4 space-y-2 lg:grid">
+      <section
+        className="grid-cols-3 gap-4 space-y-2 lg:grid"
+        id="hotelDescription"
+      >
         <div className="col-span-2">
           <h3>Hotel Description</h3>
           <p>
@@ -185,7 +206,7 @@ const Hotel = () => {
         )}
       </section>
 
-      <section>
+      <section id="googleMap">
         <h3>Map</h3>
         <div>
           <img
@@ -280,16 +301,16 @@ const Hotel = () => {
         </div>
         <hr />
         <div>
-          {data.map((review) => (
-            <HotelReviewCard />
+          {data.map((review, i) => (
+            <HotelReviewCard key={i} />
           ))}
         </div>
       </section>
       <section className="space-y-4">
         <h3>Nearby Hotels</h3>
         <div className="flex grid-cols-3 flex-wrap gap-4 lg:grid">
-          {data.slice(0, 3).map((hotel) => (
-            <NearbyHotelCard />
+          {data.slice(0, 3).map((hotel, i) => (
+            <NearbyHotelCard key={i} />
           ))}
         </div>
       </section>
