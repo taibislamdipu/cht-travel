@@ -3,6 +3,7 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { RiChat1Fill } from "react-icons/ri";
 import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 import { useMediaQuery } from "react-responsive";
+import PaymentForm from "../../components/PaymentForm/PaymentForm";
 
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -58,12 +59,15 @@ const RoomBooking = () => {
     return (
       <div>
         <h2 className="font-bold">Your Information</h2>
-        <div>
+        {/* <div>
           <img
             className="w-full"
             src="https://i.ibb.co/F0crNjH/bill-form-demo.png"
             alt=""
           />
+        </div> */}
+        <div>
+          <PaymentForm />
         </div>
       </div>
     );
