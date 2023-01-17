@@ -45,7 +45,7 @@ const Login = () => {
   return (
     <div>
       <div className="bg-[#EBF0F4] flex justify-center py-14">
-        <div className="bg-white border shadow-lg  p-8 md:flex md:items-center mb-6">
+        <div className="bg-white border-2 rounded-lg border-t-success shadow-lg p-8 mb-6">
           <form onSubmit={handleSubmit(onSubmit)} className="md:w-96">
             <div className="space-y-3">
               <button
@@ -66,29 +66,25 @@ const Login = () => {
               <h3>Sign In</h3>
 
               <div className="">
-                <label>
-                  <span className="font-bold text-sm">Email Address</span>
-                  <input
-                    className="input input-bordered w-full"
-                    type="email"
-                    {...register("email")}
-                    id="email"
-                    placeholder="someone@example.com"
-                  />
-                </label>
+                <label className="font-bold text-sm">Email Address</label>
+                <input
+                  className="input input-bordered w-full"
+                  type="email"
+                  {...register("email")}
+                  id="email"
+                  placeholder="someone@example.com"
+                />
               </div>
 
               <div className="">
-                <label>
-                  <span className="font-bold text-sm">Password</span>
-                  <input
-                    className="input input-bordered w-full"
-                    type="password"
-                    id="password"
-                    {...register("password")}
-                    placeholder="password"
-                  />
-                </label>
+                <label className="font-bold text-sm">Password</label>
+                <input
+                  className="input input-bordered w-full"
+                  type="password"
+                  id="password"
+                  {...register("password")}
+                  placeholder="password"
+                />
               </div>
 
               <div className="relative !mt-8">
