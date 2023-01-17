@@ -10,12 +10,15 @@ import HotelImageGallery from "./HotelImageGallery";
 import { RiChat1Fill } from "react-icons/ri";
 import { FaPaw } from "react-icons/fa";
 import { BiBus } from "react-icons/bi";
-import ScrollContainer from "react-indiana-drag-scroll";
 import { BsCheck, BsGlobe } from "react-icons/bs";
-import { Link } from "react-router-dom";
+
+import AmenitiesCard from "./AmenitiesCard";
+import { amenities } from "../../../public/amenities.js";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
+  console.log("amenities--->", amenities);
 
   const data = [
     { id: "1" },
@@ -246,21 +249,14 @@ const Hotel = () => {
 
       <section className="space-y-2" id="amenities">
         <h3>Amenities</h3>
-        <ScrollContainer>
-          <div className="flex grid-cols-5 lg:grid bg-slate-200 px-6 pt-8 pb-4">
-            {data.map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-2 flex-col justify-center p-6 items-center"
-              >
-                <span>
-                  <BiBus size={23} />
-                </span>
-                <p className="text-sm">Free Airport Shuttle</p>
-              </div>
+
+        <section className="bg-slate-200 p-4">
+          <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
+            {amenities.map((item, i) => (
+              <AmenitiesCard item={item} key={i} />
             ))}
           </div>
-        </ScrollContainer>
+        </section>
 
         <div className="pt-4 space-y-2">
           <h5>Internet Access</h5>
