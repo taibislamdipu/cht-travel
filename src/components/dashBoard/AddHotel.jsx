@@ -9,18 +9,14 @@ const AddHotel = () => {
     useAddHotelMutation();
 
   useEffect(() => {
-    // if (isLoading) {
-    //   toast.loading("posting...", { id: "addHotel" });
-    // }
     if (!isLoading && isSuccess) {
       toast.success("hotel added", { id: "addHotel" });
-
       reset();
     }
     if (!isLoading && isError) {
-      toast.error(error, { id: "addHotel" });
+      toast.error("something went wrong", { id: "addHotel" });
     }
-  }, [isLoading, isError, error, reset, isSuccess]);
+  }, [isLoading, isError, reset, isSuccess]);
 
   const submit = (data) => {
     const hotel = {

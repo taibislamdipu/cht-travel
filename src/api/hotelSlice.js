@@ -8,14 +8,14 @@ export const hotelApi = createApi({
   tagTypes: ["Hotels"],
   endpoints: (builder) => ({
     getHotel: builder.query({
-      query: () => ({ url: "/products" }),
+      query: () => ({ url: "hotels" }),
       providesTags: ["Hotels"],
     }),
     addHotel: builder.mutation({
       query: (data) => ({ url: "addHotels", method: "POST", body: data }),
-      // invalidatesTags: ["Hotels"],
+      invalidatesTags: ["Hotels"],
     }),
   }),
 });
 
-export const { useAddHotelMutation } = hotelApi;
+export const { useGetHotelQuery, useAddHotelMutation } = hotelApi;
