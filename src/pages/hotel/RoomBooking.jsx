@@ -150,13 +150,13 @@ const RoomBooking = () => {
           <section>
             <CartDetails />
           </section>
-          <section className="border">
-            <div className="flex">
-              <div className="">
+          <section className="space-y-3 md:space-y-0">
+            <div className="flex gap-2">
+              <div className="w-32 h-28">
                 <img
                   className="w-full"
                   src={hotelImgSmall}
-                  style={{ width: "75px", height: "75px" }}
+                  // style={{ width: "75px", height: "75px" }}
                   alt=""
                 />
               </div>

@@ -103,7 +103,7 @@ const Navbar = () => {
             <span className="font-bold text-xl normal-case">CHT-Travel</span>
           ) : (
             <div>
-              <img className="w-20 h-16" src={chtTravelLogoTwo} alt="" />
+              <img className="w-20 h-20" src={chtTravelLogoTwo} alt="" />
             </div>
           )}
         </Link>

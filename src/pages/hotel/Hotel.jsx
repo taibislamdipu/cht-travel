@@ -18,20 +18,14 @@ import { amenities } from "../../../public/amenities.js";
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
-  console.log("amenities--->", amenities);
-
   const data = [
     { id: "1" },
     { id: "2" },
     { id: "3" },
     { id: "4" },
     { id: "5" },
-    { id: "6" },
-    { id: "7" },
-    { id: "8" },
-    { id: "9" },
-    { id: "10" },
   ];
+
   const rates = [{ id: "1" }, { id: "2" }, { id: "3" }];
 
   const title = [
@@ -252,7 +246,7 @@ const Hotel = () => {
 
         <section className="bg-slate-200 p-4">
           <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
-            {amenities.map((item, i) => (
+            {amenities.slice(0, 10).map((item, i) => (
               <AmenitiesCard item={item} key={i} />
             ))}
           </div>
@@ -270,13 +264,13 @@ const Hotel = () => {
 
         <div className="pt-4 space-y-2">
           <h5>All Amenities</h5>
-          <div className="grid-cols-3 lg:grid">
-            {data.map((item) => (
-              <div className="flex items-center">
+          <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
+            {amenities.map((item) => (
+              <div className="flex items-center" key={item?.id}>
                 <span className="text-success">
                   <BsCheck size={23} />
                 </span>
-                <span className="text-sm">Pets Allowed</span>
+                <span className="text-sm">{item?.amenities_name}</span>
               </div>
             ))}
           </div>
