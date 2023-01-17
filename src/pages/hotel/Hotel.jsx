@@ -47,7 +47,7 @@ const Hotel = () => {
             href={item?.link}
             className="bg-indigo-300 p-2 hover:bg-indigo-400"
           >
-            <span>{item?.name}</span>
+            <span className="lg:text-base text-sm">{item?.name}</span>
           </a>
         ))}
       </>
