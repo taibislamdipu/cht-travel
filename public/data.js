@@ -7,13 +7,23 @@ export const data = [
     address: "09310 Monterey Place",
     price: 58,
     availability: false,
+    rooms_rates: [
+      { room: "1 Single Bed", price: 50 },
+      { room: "1 King Bed", price: 70 },
+      { room: "2 Bed", price: 100 },
+    ],
   },
   {
     id: 2,
     hotel_name: "Lemke Group",
     address: "10 Farwell Circle",
     price: 105,
-    availability: false,
+    availability: true,
+    rooms_rates: [
+      { room: "1 King Bed", price: 105 },
+      { room: "1 King Bed", price: 105 },
+      { room: "1 King Bed", price: 105 },
+    ],
   },
   {
     id: 3,

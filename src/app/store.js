@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { hotelApi } from "../api/hotelSlice";
 import authSlice from "../features/auth/authSlice";
+import bookingSlice from "../features/bookingSlice";
 import searchSlice from "../features/searchSlice";
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     [hotelApi.reducerPath]: hotelApi.reducer,
     auth: authSlice,
     search: searchSlice,
+    booking: bookingSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(hotelApi.middleware),

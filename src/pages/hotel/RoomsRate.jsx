@@ -1,10 +1,23 @@
 import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addBookingDetails } from "../../features/bookingSlice";
 import RoomDetails from "./RoomDetails";
 
 const RoomsRate = ({ hotelData }) => {
   const price = hotelData?.price;
+  const name = hotelData?.hotel_name;
+  const address = hotelData?.address;
+
+  console.log("name--->", name);
+  console.log("address--->", address);
+
+  const dispatch = useDispatch();
+
+  const handleBookNow = () => {
+    dispatch(addBookingDetails({ price, name, address }));
+  };
   return (
     <div className="flex justify-between items-center px-4 py-10 border-b">
       <div>
@@ -39,10 +52,12 @@ const RoomsRate = ({ hotelData }) => {
           className="tooltip tooltip-open tooltip-warning tooltip-top"
           data-tip="Only 1 room left!"
         >
-          <h2 className="text-3xl font-bold">${price}</h2>
+          <h2 className="text-3xl font-bold">$ {price}</h2>
         </div>
         <Link to="/booking">
-          <button className="btn">BOOK NOW</button>
+          <button className="btn" onClick={handleBookNow}>
+            BOOK NOW
+          </button>
         </Link>
       </div>
     </div>

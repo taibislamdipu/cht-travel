@@ -13,7 +13,6 @@ const HotelList = () => {
   const [search, setSearch] = useState("");
 
   const { searchQuery } = useSelector((state) => state?.search);
-  console.log("searchQuery--->", searchQuery);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
@@ -99,7 +98,8 @@ const HotelList = () => {
               .filter((item) => {
                 return search.toLocaleLowerCase() === ""
                   ? item
-                  : item?.hotel_name.toLocaleLowerCase().includes(search);
+                  : item?.hotel_name.toLocaleLowerCase().includes(search) &&
+                      item.availability === true;
               })
               .map((item) => (
                 <Link to={`hotel/${item?.id}`} key={item?.id}>

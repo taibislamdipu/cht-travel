@@ -4,9 +4,14 @@ import { RiChat1Fill } from "react-icons/ri";
 import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 import { useMediaQuery } from "react-responsive";
 import PaymentForm from "../../components/PaymentForm/PaymentForm";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
+  const { price, name, address } = useSelector((state) => state?.booking?.data);
 
   const HotelAlert = () => {
     return (
@@ -28,7 +33,7 @@ const RoomBooking = () => {
           <div>
             <div className="flex items-center gap-2">
               <span>$</span>
-              <h4 className="text-2xl font-bold">215</h4>
+              <h4 className="text-2xl font-bold">{price}</h4>
             </div>
             <p className="font-semibold text-[#5D6A7E]">per night</p>
           </div>
@@ -40,15 +45,15 @@ const RoomBooking = () => {
             <p>Taxes and Fees</p>
           </div>
           <div>
-            <p>$215.46</p>
-            <p>$215.46</p>
+            <p>${price}</p>
+            <p>$0</p>
           </div>
         </div>
         <div className="bg-[#333333] font-semibold flex justify-between text-white lg:p-4 p-2 rounded-b-md">
           <h4>Total Trip Price</h4>
           <div className="flex items-center gap-1">
             <span>$</span>
-            <h4>262.43 USD</h4>
+            <h4>{price} USD</h4>
           </div>
         </div>
       </section>
@@ -145,6 +150,12 @@ const RoomBooking = () => {
 
   return (
     <div className="space-y-8 py-20">
+      <Link to={-1} className="inline-block ">
+        <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
+          <AiOutlineArrowLeft />
+          <h2 className="">Go Back</h2>
+        </div>
+      </Link>
       <div className="lg:grid grid-cols-12 gap-6">
         <section className="col-span-8 space-y-4">
           {!isTabletOrMobile && <HotelAlert />}
@@ -165,7 +176,7 @@ const RoomBooking = () => {
                 />
               </div>
               <div className="">
-                <h4 className="font-bold">Hilton Los Angeles Airport</h4>
+                <h4 className="font-bold">{name}</h4>
                 <p>
                   <small>
                     Thursday, Jan, 19, 2023 03:00 PM - Friday, Jan, 20, 2023
@@ -187,9 +198,7 @@ const RoomBooking = () => {
               <div className="space-y-2">
                 <div>
                   <h4 className="text-base font-semibold">Address:</h4>
-                  <p className="text-sm">
-                    5711 West Century Boulevard, Los Angeles, CA, 90045, US
-                  </p>
+                  <p className="text-sm">{address}</p>
                 </div>
                 <div>
                   <h4 className="text-base font-semibold">Room Type</h4>
