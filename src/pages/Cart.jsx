@@ -18,11 +18,14 @@ const Cart = () => {
         <section className="col-span-2 border-b pb-4 md:pb-0">
           <div className="flex gap-2">
             <div>
-              <img
-                src="https://i.ibb.co/3CH6qB6/hotel-Image.jpg"
-                className="w-96 h-32 md:w-32 md:h-32"
-                alt=""
-              />
+              <div>
+                <img
+                  src="https://i.ibb.co/3CH6qB6/hotel-Image.jpg"
+                  className="w-96 h-32 md:w-32 md:h-32"
+                  alt=""
+                />
+              </div>
+              <p>Remove</p>
             </div>
             <div>
               <h3 className="text-black">
