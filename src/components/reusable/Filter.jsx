@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from "react-redux";
+import { handleSearch } from "../../features/searchSlice";
 
 const Filter = ({ setSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
+  const dispatch = useDispatch();
   const searchQuery = {
     startDate: startDate.toLocaleDateString(),
     endDate: endDate.toLocaleDateString(),
   };
-  const handleSearch = () => {
-    console.log("searchQuery--->", searchQuery);
+
+  const handleClick = () => {
+    dispatch(handleSearch(searchQuery));
   };
 
   return (
@@ -66,7 +69,7 @@ const Filter = ({ setSearch }) => {
           <option>4 Person</option>
         </select>
       </div>
-      <button className="btn" onClick={handleSearch}>
+      <button className="btn" onClick={handleClick}>
         Search
       </button>
     </div>

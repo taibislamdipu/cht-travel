@@ -8,8 +8,13 @@ import staticMapImg from "../assets/images/staticMapImg.png";
 import { Link } from "react-router-dom";
 import { data } from "../../public/data.js";
 import { useMediaQuery } from "react-responsive";
+import { useSelector } from "react-redux";
 const HotelList = () => {
   const [search, setSearch] = useState("");
+
+  const { searchQuery } = useSelector((state) => state?.search);
+  console.log("searchQuery--->", searchQuery);
+
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
   // number of hotels available
