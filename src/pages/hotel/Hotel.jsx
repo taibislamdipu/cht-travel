@@ -18,7 +18,7 @@ import { BsCheck, BsGlobe } from "react-icons/bs";
 
 import AmenitiesCard from "./AmenitiesCard";
 import { amenities } from "../../../public/amenities.js";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { data } from "../../../public/data.js";
 
@@ -27,7 +27,7 @@ const Hotel = () => {
   const { id } = useParams();
 
   const hotelData = data.find((d) => d.id == id);
-  const { hotel_name, address, price } = hotelData;
+  const { hotel_name, address } = hotelData;
 
   const title = [
     { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
