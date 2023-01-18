@@ -24,9 +24,9 @@ const TopTouristSpot = () => {
           <section className="mt-6 flex gap-4">
             {data.map((item, i) => (
               <div className="spot" key={i}>
-                <div class="relative">
+                <div className="relative">
                   <img src={spotImg} className="spot" />
-                  <h2 class="absolute text-3xl text-white font-bold bottom-5 left-5">
+                  <h2 className="absolute text-3xl text-white font-bold bottom-5 left-5">
                     Bottom Left
                   </h2>
                 </div>

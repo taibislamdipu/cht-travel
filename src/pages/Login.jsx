@@ -59,8 +59,8 @@ const Login = () => {
                 Login with Google
               </button>
 
-              <fieldset class="border-t border-slate-200">
-                <legend class="mx-auto px-4">OR</legend>
+              <fieldset className="border-t border-slate-200">
+                <legend className="mx-auto px-4">OR</legend>
               </fieldset>
 
               <h3>Sign In</h3>

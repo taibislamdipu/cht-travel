@@ -52,8 +52,6 @@ const OurService = () => {
     },
   ];
 
-  console.log("data--->", data);
-
   return (
     <div className="mb-20 mt-10 space-y-3">
       <div>
