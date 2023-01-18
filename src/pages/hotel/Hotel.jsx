@@ -217,7 +217,7 @@ const Hotel = () => {
         </div>
       </section>
 
-      <section className="py-10 text-white">
+      <section className="py-10">
         {/* search filter components*/}
         <Filter />
       </section>
