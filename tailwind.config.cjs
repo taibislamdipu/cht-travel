@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         success: "#098e2b",
+        fontPrimaryColor: "#444444",
       },
       screens: {
         sm: "640px",

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  color: #444444;
+  @apply text-fontPrimaryColor;
 }
 
 .test {

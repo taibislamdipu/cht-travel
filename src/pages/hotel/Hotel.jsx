@@ -1,6 +1,10 @@
 import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
-import { AiFillTag, AiOutlineCheckCircle } from "react-icons/ai";
+import {
+  AiFillTag,
+  AiOutlineArrowLeft,
+  AiOutlineCheckCircle,
+} from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 import HotelReviewCard from "./HotelReviewCard";
 import NearbyHotelCard from "./NearbyHotelCard";
@@ -14,6 +18,7 @@ import { BsCheck, BsGlobe } from "react-icons/bs";
 
 import AmenitiesCard from "./AmenitiesCard";
 import { amenities } from "../../../public/amenities.js";
+import { Link } from "react-router-dom";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -56,7 +61,12 @@ const Hotel = () => {
       <section className="flex justify-between">
         <div className="lg:space-y-0 space-y-2">
           <div className="flex">
-            <h2 className="text-2xl font-bold">Hilton Los Angeles Airport</h2>
+            <Link to="/hotels" className="inline-block ">
+              <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
+                <AiOutlineArrowLeft />
+                <h2 className="">Hilton Los Angeles Airport</h2>
+              </div>
+            </Link>
             <div className="rating">
               <input
                 type="radio"
