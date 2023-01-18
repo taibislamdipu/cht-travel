@@ -94,8 +94,7 @@ const HotelList = () => {
               .filter((item) => {
                 return search.toLocaleLowerCase() === ""
                   ? item
-                  : item?.hotel_name.toLocaleLowerCase().includes(search) &&
-                      item?.availability === true;
+                  : item?.hotel_name.toLocaleLowerCase().includes(search);
               })
               .map((item) => (
                 <Link to={`hotel/${item?.id}`} key={item?.id}>
