@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Filter from "../components/reusable/Filter";
 import { BsFillInfoCircleFill } from "react-icons/bs";
-import {
-  AiOutlineUnorderedList,
-  AiOutlineRight,
-  AiOutlineLeft,
-} from "react-icons/ai";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
 import SuggestedHotelCard from "../components/SuggestedHotel/SuggestedHotelCard";
 import staticMapImg from "../assets/images/staticMapImg.png";
@@ -13,16 +9,13 @@ import { Link } from "react-router-dom";
 import { data } from "../../public/data.js";
 import { useMediaQuery } from "react-responsive";
 const HotelList = () => {
-  const hotelList = [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-    { id: "4" },
-    { id: "5" },
-  ];
-
   const [search, setSearch] = useState("");
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
+  // number of hotels available
+  const count = Object.values(data).filter(
+    (item) => item?.availability === true
+  ).length;
 
   return (
     <div className="space-y-8 py-20">
@@ -89,11 +82,20 @@ const HotelList = () => {
             </div>
           </div>
           <div>
+            <h2>
+              <span className="font-bold text-black">
+                {count} of {data?.length}
+              </span>{" "}
+              hotels are available in Bandarban
+            </h2>
+          </div>
+          <div>
             {data
               .filter((item) => {
                 return search.toLocaleLowerCase() === ""
                   ? item
-                  : item.hotel_name.toLocaleLowerCase().includes(search);
+                  : item?.hotel_name.toLocaleLowerCase().includes(search) &&
+                      item?.availability === true;
               })
               .map((item) => (
                 <Link to={`hotel/${item?.id}`} key={item?.id}>

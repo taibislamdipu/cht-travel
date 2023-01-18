@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 const Filter = ({ setSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  console.log("startDate--->", startDate);
 
   return (
     <div className="lg:flex space-x-1 bg-slate-200 p-4">
@@ -19,6 +18,7 @@ const Filter = ({ setSearch }) => {
         Checkin
         <DatePicker
           className="input-bordered input hidden w-auto max-w-xs text-black lg:flex"
+          placeholderText={"Checkin"}
           selected={startDate}
           onChange={(date) => setStartDate(date)}
           selectsStart
@@ -32,6 +32,7 @@ const Filter = ({ setSearch }) => {
         Checkout
         <DatePicker
           className="input-bordered input hidden w-auto max-w-xs text-black lg:flex"
+          placeholderText={"Checkout"}
           selected={endDate}
           onChange={(date) => setEndDate(date)}
           selectsEnd

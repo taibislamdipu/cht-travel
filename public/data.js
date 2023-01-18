@@ -6,7 +6,7 @@ export const data = [
     hotel_name: "Heller Inc",
     address: "09310 Monterey Place",
     price: 58,
-    availability: true,
+    availability: false,
   },
   {
     id: 2,
