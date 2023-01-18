@@ -1,19 +1,28 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useGetHotelQuery, useRemoveHotelMutation } from "../../api/hotelSlice";
+import toast from "react-hot-toast";
+import DeleteHotel from "./DeleteHotel";
 
 const DashboardHotel = () => {
-  //   const products = useSelector((state) => state.product.products);
-  const dispatch = useDispatch();
+  const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
 
   useEffect(() => {
-    // dispatch(loadProductData());
-  }, [dispatch]);
+    if (isLoading) {
+      toast.loading("Loading Hotels...", { id: "getHotel" });
+    }
+    if (!isLoading && isSuccess) {
+      toast.success("Hotels loaded", { id: "getHotel" });
+    }
+    if (!isLoading && isError) {
+      toast.error("something went wrong", { id: "getHotel" });
+    }
+  }, [isLoading, isSuccess, isError]);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center ">
       <div className="mx-auto w-full max-w-7xl rounded-lg  border border-gray-200 bg-white shadow-lg">
         <header className="border-b border-gray-100 px-5 py-4">
-          <div className="font-semibold text-gray-800">Products</div>
+          <div className="font-semibold text-gray-800">Hotels</div>
         </header>
 
         <div className="overflow-x-auto p-3">
@@ -22,13 +31,13 @@ const DashboardHotel = () => {
               <tr>
                 <th></th>
                 <th className="p-2">
-                  <div className="text-left font-semibold">Product Name</div>
+                  <div className="text-left font-semibold">Hotel Name</div>
                 </th>
                 <th className="p-2">
-                  <div className="text-left font-semibold">Brand</div>
+                  <div className="text-left font-semibold">Location</div>
                 </th>
                 <th className="p-2">
-                  <div className="text-left font-semibold">In Stock</div>
+                  <div className="text-left font-semibold">Avaibility</div>
                 </th>
                 <th className="p-2">
                   <div className="text-left font-semibold">Price</div>
@@ -40,23 +49,27 @@ const DashboardHotel = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-100 text-sm">
-              {/* {products.map(({ model, brand, price, status, _id }) => (
-                <tr>
+              {data?.map(({ name, location, price, status, _id }) => (
+                <tr key={_id}>
                   <td className="p-2">
                     <input type="checkbox" className="h-5 w-5" value="id-1" />
                   </td>
                   <td className="p-2">
-                    <div className="font-medium text-gray-800">{model}</div>
+                    <div className="font-medium text-gray-800">{name}</div>
                   </td>
                   <td className="p-2">
-                    <div className="text-left capitalize">{brand}</div>
+                    <div className="text-left capitalize">{location}</div>
                   </td>
                   <td className="p-2">
                     <div className="text-left">
                       {status ? (
-                        <p className="font-medium text-green-500">Available</p>
+                        <p classNameName="font-medium text-green-500">
+                          Available
+                        </p>
                       ) : (
-                        <p className="font-medium text-red-500">Stock out</p>
+                        <p classNameName="font-medium text-red-500">
+                          Stock out
+                        </p>
                       )}
                     </div>
                   </td>
@@ -65,9 +78,9 @@ const DashboardHotel = () => {
                       {price}
                     </div>
                   </td>
-                  <td className="p-2">
+                  {/* <td className="p-2">
                     <div className="flex justify-center">
-                      <button>
+                      <button onClick={() => removeHotel(_id)}>
                         <svg
                           className="h-8 w-8 rounded-full p-1 hover:bg-gray-100 hover:text-blue-600"
                           fill="none"
@@ -84,9 +97,10 @@ const DashboardHotel = () => {
                         </svg>
                       </button>
                     </div>
-                  </td>
+                  </td> */}
+                  <DeleteHotel id={_id} />
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </table>
         </div>
