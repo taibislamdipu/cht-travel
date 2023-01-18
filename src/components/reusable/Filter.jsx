@@ -6,6 +6,14 @@ const Filter = ({ setSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  const searchQuery = {
+    startDate: startDate.toLocaleDateString(),
+    endDate: endDate.toLocaleDateString(),
+  };
+  const handleSearch = () => {
+    console.log("searchQuery--->", searchQuery);
+  };
+
   return (
     <div className="lg:flex space-x-1 bg-slate-200 p-4">
       <input
@@ -58,7 +66,9 @@ const Filter = ({ setSearch }) => {
           <option>4 Person</option>
         </select>
       </div>
-      <button className="btn">Search</button>
+      <button className="btn" onClick={handleSearch}>
+        Search
+      </button>
     </div>
   );
 };
