@@ -3,7 +3,8 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import RoomDetails from "./RoomDetails";
 
-const RoomsRate = () => {
+const RoomsRate = ({ hotelData }) => {
+  const price = hotelData?.price;
   return (
     <div className="flex justify-between items-center px-4 py-10 border-b">
       <div>
@@ -38,7 +39,7 @@ const RoomsRate = () => {
           className="tooltip tooltip-open tooltip-warning tooltip-top"
           data-tip="Only 1 room left!"
         >
-          <h2 className="text-3xl font-bold">$145</h2>
+          <h2 className="text-3xl font-bold">${price}</h2>
         </div>
         <Link to="/booking">
           <button className="btn">BOOK NOW</button>

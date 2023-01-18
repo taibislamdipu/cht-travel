@@ -18,20 +18,16 @@ import { BsCheck, BsGlobe } from "react-icons/bs";
 
 import AmenitiesCard from "./AmenitiesCard";
 import { amenities } from "../../../public/amenities.js";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { data } from "../../../public/data.js";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const { id } = useParams();
 
-  const data = [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-    { id: "4" },
-    { id: "5" },
-  ];
-
-  const rates = [{ id: "1" }, { id: "2" }, { id: "3" }];
+  const hotelData = data.find((d) => d.id == id);
+  const { hotel_name, address, price } = hotelData;
 
   const title = [
     { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
@@ -64,7 +60,7 @@ const Hotel = () => {
             <Link to="/hotels" className="inline-block ">
               <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
                 <AiOutlineArrowLeft />
-                <h2 className="">Hilton Los Angeles Airport</h2>
+                <h2 className="">{hotel_name}</h2>
               </div>
             </Link>
             <div className="rating">
@@ -76,10 +72,7 @@ const Hotel = () => {
             </div>
           </div>
           <div className="lg:flex lg:space-y-0 space-y-2 items-center">
-            <p>
-              Neighborhood: LAX - Los Angeles Airport 5711 West Century
-              Boulevard, Los Angeles , CA
-            </p>
+            <p>{address}</p>
             <div className="flex items-center">
               <span>
                 <IoLocationSharp />
@@ -158,7 +151,7 @@ const Hotel = () => {
                 </a>
               </div>
               <div className="grid grid-cols-2 lg:gap-0 gap-2">
-                {data.map((item, i) => (
+                {data.slice(0, 6).map((item, i) => (
                   <div className="flex gap-1 items-center" key={i}>
                     <span>
                       <BiBus />
@@ -236,8 +229,8 @@ const Hotel = () => {
         </div>
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
-          {rates.map((rate) => (
-            <RoomsRate />
+          {data.slice(0, 3).map((hotelData) => (
+            <RoomsRate hotelData={hotelData} />
           ))}
         </div>
       </section>
@@ -301,7 +294,7 @@ const Hotel = () => {
         </div>
         <hr />
         <div>
-          {data.map((review, i) => (
+          {data.slice(0, 3).map((review, i) => (
             <HotelReviewCard key={i} />
           ))}
         </div>
