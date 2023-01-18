@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Filter from "./hotel/Filter";
+import Filter from "../components/reusable/Filter";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { IoLocationSharp } from "react-icons/io5";
