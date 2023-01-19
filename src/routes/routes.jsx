@@ -60,11 +60,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/booking",
-        element: (
-          <PrivateRoute>
-            <RoomBooking />
-          </PrivateRoute>
-        ),
+        element: <RoomBooking />,
       },
       {
         path: "*",

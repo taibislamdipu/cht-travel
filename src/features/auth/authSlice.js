@@ -9,6 +9,8 @@ import auth from "../../firebase/firebase.config";
 
 const initialState = {
   email: "",
+  displayName: "",
+  photoURL: "",
   role: "",
   isLoading: true,
   isError: false,
@@ -43,9 +45,13 @@ const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.email = "";
+      state.displayName = "";
+      state.photoURL = "";
     },
     setUser: (state, action) => {
-      state.email = action.payload;
+      state.email = action?.payload?.email;
+      state.displayName = action?.payload?.displayName;
+      state.photoURL = action?.payload?.photoURL;
       state.isLoading = false;
     },
   },
