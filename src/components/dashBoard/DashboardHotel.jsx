@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
-import { useGetHotelQuery, useRemoveHotelMutation } from "../../api/hotelSlice";
+import { useGetHotelQuery } from "../../api/hotelSlice";
 import toast from "react-hot-toast";
 import DeleteHotel from "./DeleteHotel";
+import { GrEdit } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const DashboardHotel = () => {
   const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
@@ -98,7 +100,13 @@ const DashboardHotel = () => {
                       </button>
                     </div>
                   </td> */}
-                  <DeleteHotel id={_id} />
+                  <td className="p-2 flex justify-center items-center space-x-3">
+                    <Link to={`hotel/${_id}`}>
+                      <GrEdit size={18}></GrEdit>
+                    </Link>
+
+                    <DeleteHotel id={_id} />
+                  </td>
                 </tr>
               ))}
             </tbody>

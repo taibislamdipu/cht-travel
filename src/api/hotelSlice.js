@@ -20,12 +20,15 @@ export const hotelApi = createApi({
       invalidatesTags: ["Hotels"],
     }),
     updateHotel: builder.mutation({
-      query: (data) => ({
+      query: ({ id, ...data }) => ({
         url: `updateHotel/${id}`,
         method: "PUT",
         body: data,
       }),
       invalidatesTags: ["Hotels"],
+    }),
+    getSingleHotel: builder.query({
+      query: (id) => ({ url: `hotel/${id}` }),
     }),
   }),
 });
@@ -35,4 +38,5 @@ export const {
   useAddHotelMutation,
   useRemoveHotelMutation,
   useUpdateHotelMutation,
+  useGetSingleHotelQuery,
 } = hotelApi;
