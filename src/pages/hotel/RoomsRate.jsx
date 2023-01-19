@@ -10,9 +10,6 @@ const RoomsRate = ({ hotelData }) => {
   const name = hotelData?.hotel_name;
   const address = hotelData?.address;
 
-  console.log("name--->", name);
-  console.log("address--->", address);
-
   const dispatch = useDispatch();
 
   const handleBookNow = () => {

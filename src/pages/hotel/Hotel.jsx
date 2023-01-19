@@ -29,8 +29,6 @@ const Hotel = () => {
   const hotelData = data.find((d) => d.id == id);
   const { hotel_name, address, rooms_rates } = hotelData;
 
-  console.log("hotelData--->", hotelData);
-
   const title = [
     { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
     { id: "2", name: "Hotel Description", link: "#hotelDescription" },
@@ -231,16 +229,16 @@ const Hotel = () => {
         </div>
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
-          {/* {rooms_rates ? (
-            rooms_rates.map((hotelData) => <RoomsRate hotelData={hotelData} />)
+
+          {rooms_rates ? (
+            hotelData?.rooms_rates.map((item, i) => (
+              <RoomsRate hotelData={hotelData} key={i} />
+            ))
           ) : (
             <>
               <h3 className="p-4">Sorry, No rooms available now!</h3>
             </>
-          )} */}
-          {hotelData?.rooms_rates.map((item) => (
-            <RoomsRate hotelData={hotelData} />
-          ))}
+          )}
         </div>
       </section>
 
