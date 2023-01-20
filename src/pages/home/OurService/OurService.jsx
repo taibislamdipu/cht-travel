@@ -66,8 +66,8 @@ const OurService = () => {
           <div className="flex pb-8">
             <div className="xl:grid-cols-4 lg:grid-cols-2 gap-4 lg:grid flex ">
               {data.map((service, i) => (
-                <Link to={service?.path}>
-                  <ServiceCard service={service} key={i} />
+                <Link to={service?.path} key={i}>
+                  <ServiceCard service={service} />
                 </Link>
               ))}
             </div>

@@ -15,8 +15,7 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import Service from "../pages/Service";
 import Signup from "../pages/Signup";
-
-import PrivateRoute from "../utils/PrivateRoute";
+import PrivateRoute from "../utils/PrivateRoute.jsx";
 
 const routes = createBrowserRouter([
   {

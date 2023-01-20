@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import loginImage from "../assets/signup.svg";
 import { useForm, useWatch } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import toast from "react-hot-toast";
 import { createUser, googleLogin } from "../features/auth/authSlice";
+import { FcGoogle } from "react-icons/fc";
+import { FiChevronLeft } from "react-icons/fi";
+import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
+import Footer from "../layout/Footer";
 
 const Signup = () => {
   const { handleSubmit, register, reset, control } = useForm();
@@ -44,24 +47,37 @@ const Signup = () => {
   const onSubmit = (data) => {
     console.log(data);
     dispatch(createUser({ email: data.email, password: data.password }));
-    navigate("/home");
+    navigate("/");
   };
 
   return (
-    <div className="flex h-screen items-center pt-14">
-      <div className="w-1/2">
-        <img src={loginImage} className="h-full w-full" alt="" />
-      </div>
-      <div className="grid w-1/2 place-items-center">
-        <div className="grid place-items-center rounded-lg bg-[#FFFAF4] p-10">
-          <h1 className="mb-10 text-2xl font-medium">Sign up</h1>
-          <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
+      <div className="bg-[#EBF0F4] flex justify-center py-14">
+        <div className="bg-white border-2 rounded-lg border-t-success shadow-lg p-8 mb-6 space-y-4">
+          <div className="flex items-center gap-2">
+            <span>
+              <Link to="/login">
+                <FiChevronLeft size={30} color={"#098e2b"} />
+              </Link>
+            </span>
+            <div>
+              <img className="w-20" src={chtTravelLogoTwo} alt="" />
+            </div>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold">Sign up</h1>
+            <p className="text-sm">
+              Create an account to easily use cht-travel.com services.
+            </p>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="md:w-96">
             <div className="space-y-3">
-              <div className="flex flex-col items-start">
-                <label htmlFor="email" className="ml-5">
-                  Email
+              <div>
+                <label htmlFor="email" className="font-bold text-sm">
+                  Email Address
                 </label>
                 <input
+                  className="input input-bordered w-full"
                   type="email"
                   name="email"
                   id="email"
@@ -69,11 +85,12 @@ const Signup = () => {
                 />
               </div>
 
-              <div className="flex flex-col items-start">
-                <label htmlFor="password" className="ml-5">
+              <div>
+                <label htmlFor="password" className="font-bold text-sm">
                   Password
                 </label>
                 <input
+                  className="input input-bordered w-full"
                   type="password"
                   name="password"
                   id="password"
@@ -81,10 +98,11 @@ const Signup = () => {
                 />
               </div>
               <div className="flex flex-col items-start">
-                <label htmlFor="confirm-password" className="ml-5">
+                <label htmlFor="confirm-password" className="font-bold text-sm">
                   Confirm Password
                 </label>
                 <input
+                  className="input input-bordered w-full"
                   type="password"
                   id="confirm-password"
                   {...register("confirmPassword")}
@@ -100,7 +118,7 @@ const Signup = () => {
                 </button>
               </div>
               <div>
-                <p>
+                <p className="text-center">
                   Already have an account?{" "}
                   <span
                     className="cursor-pointer text-primary hover:underline"
@@ -113,15 +131,19 @@ const Signup = () => {
 
               <button
                 type="button"
-                className="w-full rounded-full bg-primary py-3 font-bold text-white"
+                className="w-full rounded-full border hover:shadow-md transition py-3 font-bold flex items-center justify-center gap-2"
                 onClick={handleGoogleLogin}
               >
+                <span>
+                  <FcGoogle size={23} />
+                </span>
                 Login with Google
               </button>
             </div>
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

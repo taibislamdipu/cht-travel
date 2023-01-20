@@ -25,8 +25,8 @@ const Review = () => {
       <ScrollContainer className="flex cursor-grab p-1">
         <div>
           <section className="mt-6 flex gap-4">
-            {data.map((review, i) => (
-              <div className="review-card">
+            {data.map((item) => (
+              <div className="review-card" key={item?.id}>
                 <div className="space-y-4 rounded-lg hover:shadow-lg p-4">
                   <div>
                     <p>4.7 *</p>

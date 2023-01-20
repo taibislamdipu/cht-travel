@@ -1,6 +1,10 @@
 import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
-import { AiFillTag, AiOutlineCheckCircle } from "react-icons/ai";
+import {
+  AiFillTag,
+  AiOutlineArrowLeft,
+  AiOutlineCheckCircle,
+} from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 import HotelReviewCard from "./HotelReviewCard";
 import NearbyHotelCard from "./NearbyHotelCard";
@@ -10,32 +14,55 @@ import HotelImageGallery from "./HotelImageGallery";
 import { RiChat1Fill } from "react-icons/ri";
 import { FaPaw } from "react-icons/fa";
 import { BiBus } from "react-icons/bi";
-import ScrollContainer from "react-indiana-drag-scroll";
 import { BsCheck, BsGlobe } from "react-icons/bs";
+
+import AmenitiesCard from "./AmenitiesCard";
+import { amenities } from "../../../public/amenities.js";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { data } from "../../../public/data.js";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const { id } = useParams();
 
-  const data = [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-    { id: "4" },
-    { id: "5" },
-    { id: "6" },
-    { id: "7" },
-    { id: "8" },
-    { id: "9" },
-    { id: "10" },
+  const hotelData = data.find((d) => d.id == id);
+  const { hotel_name, address, rooms_rates } = hotelData;
+
+  const title = [
+    { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
+    { id: "2", name: "Hotel Description", link: "#hotelDescription" },
+    { id: "3", name: "Amenities", link: "#amenities" },
+    { id: "4", name: "Guest Review", link: "#hotelReview" },
   ];
-  const rates = [{ id: "1" }, { id: "2" }, { id: "3" }];
+
+  const ServicesNav = () => {
+    return (
+      <>
+        {title.map((item) => (
+          <a
+            key={item?.id}
+            href={item?.link}
+            className="bg-indigo-300 p-2 hover:bg-indigo-400"
+          >
+            <span className="lg:text-base text-sm">{item?.name}</span>
+          </a>
+        ))}
+      </>
+    );
+  };
 
   return (
     <div className="space-y-8 py-20">
       <section className="flex justify-between">
         <div className="lg:space-y-0 space-y-2">
           <div className="flex">
-            <h2 className="text-2xl font-bold">Hilton Los Angeles Airport</h2>
+            <Link to="/hotels" className="inline-block ">
+              <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
+                <AiOutlineArrowLeft />
+                <h2 className="">{hotel_name}</h2>
+              </div>
+            </Link>
             <div className="rating">
               <input
                 type="radio"
@@ -45,36 +72,27 @@ const Hotel = () => {
             </div>
           </div>
           <div className="lg:flex lg:space-y-0 space-y-2 items-center">
-            <p>
-              Neighborhood: LAX - Los Angeles Airport 5711 West Century
-              Boulevard, Los Angeles , CA
-            </p>
+            <p>{address}</p>
             <div className="flex items-center">
               <span>
                 <IoLocationSharp />
               </span>
-              View Map
+
+              <a href="#googleMap" className="link">
+                View Map
+              </a>
             </div>
           </div>
         </div>
         <div>
-          <button className="btn">Choose a room</button>
+          <a href="#roomsRates">
+            <button className="btn">Choose a room</button>
+          </a>
         </div>
       </section>
       <section className="">
         <div className="grid grid-cols-4 text-center">
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
-          <span className="bg-indigo-300 p-2 hover:bg-indigo-400">
-            Rooms & Rates
-          </span>
+          <ServicesNav />
         </div>
         <section className="h-fit grid-cols-6 bg-slate-100 lg:grid">
           <div className="col-span-4">
@@ -133,8 +151,8 @@ const Hotel = () => {
                 </a>
               </div>
               <div className="grid grid-cols-2 lg:gap-0 gap-2">
-                {data.map((item) => (
-                  <div className="flex gap-1 items-center">
+                {data.slice(0, 6).map((item, i) => (
+                  <div className="flex gap-1 items-center" key={i}>
                     <span>
                       <BiBus />
                     </span>
@@ -146,7 +164,10 @@ const Hotel = () => {
           </div>
         </section>
       </section>
-      <section className="grid-cols-3 gap-4 space-y-2 lg:grid">
+      <section
+        className="grid-cols-3 gap-4 space-y-2 lg:grid"
+        id="hotelDescription"
+      >
         <div className="col-span-2">
           <h3>Hotel Description</h3>
           <p>
@@ -185,7 +206,7 @@ const Hotel = () => {
         )}
       </section>
 
-      <section>
+      <section id="googleMap">
         <h3>Map</h3>
         <div>
           <img
@@ -196,7 +217,7 @@ const Hotel = () => {
         </div>
       </section>
 
-      <section className="py-10 text-white">
+      <section className="py-10">
         {/* search filter components*/}
         <Filter />
       </section>
@@ -208,9 +229,16 @@ const Hotel = () => {
         </div>
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
-          {rates.map((rate) => (
-            <RoomsRate />
-          ))}
+
+          {rooms_rates ? (
+            hotelData?.rooms_rates.map((item, i) => (
+              <RoomsRate hotelData={hotelData} key={i} />
+            ))
+          ) : (
+            <>
+              <h3 className="p-4">Sorry, No rooms available now!</h3>
+            </>
+          )}
         </div>
       </section>
 
@@ -225,21 +253,14 @@ const Hotel = () => {
 
       <section className="space-y-2" id="amenities">
         <h3>Amenities</h3>
-        <ScrollContainer>
-          <div className="flex grid-cols-5 lg:grid bg-slate-200 px-6 pt-8 pb-4">
-            {data.map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-2 flex-col justify-center p-6 items-center"
-              >
-                <span>
-                  <BiBus size={23} />
-                </span>
-                <p className="text-sm">Free Airport Shuttle</p>
-              </div>
+
+        <section className="bg-slate-200 p-4">
+          <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
+            {amenities.slice(0, 10).map((item, i) => (
+              <AmenitiesCard item={item} key={i} />
             ))}
           </div>
-        </ScrollContainer>
+        </section>
 
         <div className="pt-4 space-y-2">
           <h5>Internet Access</h5>
@@ -253,13 +274,13 @@ const Hotel = () => {
 
         <div className="pt-4 space-y-2">
           <h5>All Amenities</h5>
-          <div className="grid-cols-3 lg:grid">
-            {data.map((item) => (
-              <div className="flex items-center">
+          <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
+            {amenities.map((item) => (
+              <div className="flex items-center" key={item?.id}>
                 <span className="text-success">
                   <BsCheck size={23} />
                 </span>
-                <span className="text-sm">Pets Allowed</span>
+                <span className="text-sm">{item?.amenities_name}</span>
               </div>
             ))}
           </div>
@@ -280,16 +301,16 @@ const Hotel = () => {
         </div>
         <hr />
         <div>
-          {data.map((review) => (
-            <HotelReviewCard />
+          {data.slice(0, 3).map((review, i) => (
+            <HotelReviewCard key={i} />
           ))}
         </div>
       </section>
       <section className="space-y-4">
         <h3>Nearby Hotels</h3>
         <div className="flex grid-cols-3 flex-wrap gap-4 lg:grid">
-          {data.slice(0, 3).map((hotel) => (
-            <NearbyHotelCard />
+          {data.slice(0, 3).map((hotel, i) => (
+            <NearbyHotelCard key={i} />
           ))}
         </div>
       </section>

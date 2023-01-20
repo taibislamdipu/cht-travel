@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
+import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
+import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
   const { email, error, isError, isLoading, role } = useSelector(
@@ -11,6 +13,7 @@ const Navbar = () => {
   );
 
   const dispatch = useDispatch();
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -95,8 +98,14 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <Link to="/" className="btn-ghost btn text-xl normal-case">
-          CHT Travel
+        <Link to="/">
+          {isTabletOrMobile ? (
+            <span className="font-bold text-xl normal-case">CHT-Travel</span>
+          ) : (
+            <div>
+              <img className="w-20 h-20" src={chtTravelLogoTwo} alt="" />
+            </div>
+          )}
         </Link>
       </div>
 
