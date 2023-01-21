@@ -21,8 +21,6 @@ const HotelList = () => {
     (item) => item?.availability === true
   ).length;
 
-  console.log("API hit");
-
   return (
     <div className="py-20  bg-[#F2F2F2]">
       <div className="customContainer space-y-8">
