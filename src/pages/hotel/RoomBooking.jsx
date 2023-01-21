@@ -32,7 +32,7 @@ const RoomBooking = () => {
           <h4 className="font-semibold">1 King Bed</h4>
           <div>
             <div className="flex items-center gap-2">
-              <span>$</span>
+              <span>BDT</span>
               <h4 className="text-2xl font-bold">{price}</h4>
             </div>
             <p className="font-semibold text-[#5D6A7E]">per night</p>
@@ -45,15 +45,15 @@ const RoomBooking = () => {
             <p>Taxes and Fees</p>
           </div>
           <div>
-            <p>${price}</p>
-            <p>$0</p>
+            <p>BDT {price}</p>
+            <p>BDT 0</p>
           </div>
         </div>
         <div className="bg-[#333333] font-semibold flex justify-between text-white lg:p-4 p-2 rounded-b-md">
           <h4>Total Trip Price</h4>
           <div className="flex items-center gap-1">
-            <span>$</span>
-            <h4>{price} USD</h4>
+            <span>BDT</span>
+            <h4>{price}</h4>
           </div>
         </div>
       </section>

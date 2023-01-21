@@ -19,16 +19,19 @@ const Filter = ({ setSearch }) => {
 
   return (
     <div className="lg:flex space-x-1 bg-slate-200 p-4">
-      <input
-        onChange={(e) => setSearch(e.target.value)}
-        type="text"
-        placeholder="Search here"
-        className="input-bordered input w-full max-w-xs"
-      />
+      <span className="flex flex-col gap-1">
+        <div className="">Search Hotel Name</div>
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search hotel name"
+          className="input-bordered input w-full max-w-xs"
+        />
+      </span>
       <span className="flex flex-col gap-1">
         Checkin
         <DatePicker
-          className="input-bordered input hidden w-auto max-w-xs text-black lg:flex"
+          className="input-bordered input  w-auto max-w-xs text-black flex"
           placeholderText={"Checkin"}
           selected={startDate}
           onChange={(date) => setStartDate(date)}
@@ -42,7 +45,7 @@ const Filter = ({ setSearch }) => {
       <span className="flex flex-col gap-1">
         Checkout
         <DatePicker
-          className="input-bordered input hidden w-auto max-w-xs text-black lg:flex"
+          className="input-bordered input w-auto max-w-xs text-black flex"
           placeholderText={"Checkout"}
           selected={endDate}
           onChange={(date) => setEndDate(date)}
@@ -55,23 +58,34 @@ const Filter = ({ setSearch }) => {
         />
       </span>
 
-      <div className="hidden lg:flex">
-        <select className="select-bordered select text-black">
-          <option selected>1 room</option>
-          <option> 2 room</option>
-          <option> 3 room</option>
-        </select>
-      </div>
-      <div className="hidden lg:flex">
-        <select className="select-bordered select text-black">
-          <option selected>1 Person</option>
-          <option>2 Person</option>
-          <option>4 Person</option>
-        </select>
-      </div>
-      <button className="btn" onClick={handleClick}>
-        Search
-      </button>
+      <span className="flex gap-2">
+        <span className="flex flex-col gap-1">
+          No. of Room
+          <div className="flex">
+            <select className="select-bordered w-full select text-black">
+              <option selected>1 room</option>
+              <option> 2 room</option>
+              <option> 3 room</option>
+            </select>
+          </div>
+        </span>
+        <span className="flex flex-col gap-1">
+          No. of People
+          <div className="flex">
+            <select className="select-bordered select text-black">
+              <option selected>1 Person</option>
+              <option>2 Person</option>
+              <option>4 Person</option>
+            </select>
+          </div>
+        </span>
+      </span>
+      <span className="flex flex-col gap-1">
+        <span className="text-slate-200">Search</span>
+        <button className="btn w-auto max-w-xs" onClick={handleClick}>
+          Search
+        </button>
+      </span>
     </div>
   );
 };

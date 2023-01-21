@@ -65,7 +65,7 @@ const Signup = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-2xl font-bold">Sign up</h1>
+            <h2 className="text-2xl text-black font-bold">Sign up</h2>
             <p className="text-sm">
               Create an account to easily use cht-travel.com services.
             </p>
@@ -73,7 +73,7 @@ const Signup = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="md:w-96">
             <div className="space-y-3">
               <div>
-                <label htmlFor="email" className="font-bold text-sm">
+                <label htmlFor="email" className="font-bold text-black text-sm">
                   Email Address
                 </label>
                 <input
@@ -86,7 +86,10 @@ const Signup = () => {
               </div>
 
               <div>
-                <label htmlFor="password" className="font-bold text-sm">
+                <label
+                  htmlFor="password"
+                  className="font-bold text-black text-sm"
+                >
                   Password
                 </label>
                 <input
@@ -98,7 +101,10 @@ const Signup = () => {
                 />
               </div>
               <div className="flex flex-col items-start">
-                <label htmlFor="confirm-password" className="font-bold text-sm">
+                <label
+                  htmlFor="confirm-password"
+                  className="text-black font-bold text-sm"
+                >
                   Confirm Password
                 </label>
                 <input
@@ -111,7 +117,7 @@ const Signup = () => {
               <div className="!mt-8 ">
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-primary py-3 font-bold text-white disabled:cursor-not-allowed disabled:bg-gray-300"
+                  className="w-full rounded-lg bg-primary py-3 font-bold text-white disabled:cursor-not-allowed disabled:bg-gray-300"
                   disabled={disabled}
                 >
                   Sign up
@@ -131,7 +137,7 @@ const Signup = () => {
 
               <button
                 type="button"
-                className="w-full rounded-full border hover:shadow-md transition py-3 font-bold flex items-center justify-center gap-2"
+                className="w-full text-black rounded-lg border hover:shadow-md transition py-3 font-bold flex items-center justify-center gap-2"
                 onClick={handleGoogleLogin}
               >
                 <span>
