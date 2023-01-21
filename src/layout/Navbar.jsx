@@ -154,20 +154,23 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-2">
         {email ? (
-          <button className="btn" onClick={handleSignOut}>
+          <button className="btn btn-sm" onClick={handleSignOut}>
             Logout
           </button>
         ) : (
-          <Link to="/login" className="btn">
+          <Link to="/login" className="btn btn-sm">
             Login
           </Link>
         )}
 
         {email && (
-          <Link to="/dashboard" className="btn">
+          <Link to="/dashboard" className="btn btn-sm">
             Dashboard
           </Link>
         )}
+        <div className="">
+          Eng <span className="font-bold">| বাংলা</span>
+        </div>
       </div>
     </nav>
   );
