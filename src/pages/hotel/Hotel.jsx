@@ -217,10 +217,9 @@ const Hotel = () => {
         </div>
       </section>
 
-      <section className="py-10">
-        {/* search filter components*/}
+      {/* <section className="py-10">
         <Filter />
-      </section>
+      </section> */}
 
       <section id="roomsRates">
         <div className="flex gap-4">
