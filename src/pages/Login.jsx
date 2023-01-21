@@ -44,13 +44,16 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-[#EBF0F4] flex justify-center py-14">
+      <h2 className="text-center bg-[#EBF0F4] font-bold py-6 lg:text-2xl text-black text-lg">
+        Welcome Back
+      </h2>
+      <div className="bg-[#EBF0F4] flex justify-center">
         <div className="bg-white border-2 rounded-lg border-t-success shadow-lg p-8 mb-6">
           <form onSubmit={handleSubmit(onSubmit)} className="md:w-96">
             <div className="space-y-3">
               <button
                 type="button"
-                className="w-full rounded-full border hover:shadow-md transition py-3 font-bold flex items-center justify-center gap-2"
+                className="w-full rounded-md border text-black hover:shadow-md transition py-3 font-bold flex items-center justify-center gap-2"
                 onClick={handleGoogleLogin}
               >
                 <span>
@@ -63,10 +66,12 @@ const Login = () => {
                 <legend className="mx-auto px-4">OR</legend>
               </fieldset>
 
-              <h3>Sign In</h3>
+              <h2 className="text-2xl font-bold text-black">Sign In</h2>
 
               <div className="">
-                <label className="font-bold text-sm">Email Address</label>
+                <label className="font-bold text-sm text-black">
+                  Email Address
+                </label>
                 <input
                   className="input input-bordered w-full"
                   type="email"
@@ -77,7 +82,7 @@ const Login = () => {
               </div>
 
               <div className="">
-                <label className="font-bold text-sm">Password</label>
+                <label className="font-bold text-sm text-black">Password</label>
                 <input
                   className="input input-bordered w-full"
                   type="password"
@@ -92,7 +97,7 @@ const Login = () => {
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-primary py-3 font-bold text-white"
+                  className="w-full rounded-md bg-primary py-3 font-bold text-white"
                 >
                   Sign In
                 </button>

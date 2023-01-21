@@ -15,7 +15,9 @@ const ServiceCard = ({ service }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title service-element">{service?.name}</h2>
+        <h2 className="card-title service-element text-black">
+          {service?.name}
+        </h2>
         <p className="service-element">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </p>

@@ -6,9 +6,11 @@ import { addBookingDetails } from "../../features/bookingSlice";
 import RoomDetails from "./RoomDetails";
 
 const RoomsRate = ({ hotelData }) => {
-  const price = hotelData?.price;
+  // const price = hotelData?.price;
   const name = hotelData?.hotel_name;
   const address = hotelData?.address;
+
+  var price = Intl.NumberFormat().format(hotelData?.price);
 
   const dispatch = useDispatch();
 
@@ -49,7 +51,7 @@ const RoomsRate = ({ hotelData }) => {
           className="tooltip tooltip-open tooltip-warning tooltip-top"
           data-tip="Only 1 room left!"
         >
-          <h2 className="text-3xl font-bold">$ {price}</h2>
+          <h2 className="text-2xl text-black font-bold">BDT {price}</h2>
         </div>
         <Link to="/booking">
           <button className="btn" onClick={handleBookNow}>

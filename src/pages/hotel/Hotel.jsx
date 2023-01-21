@@ -144,7 +144,7 @@ const Hotel = () => {
             <hr />
             <div className="space-y-3">
               <div className="flex gap-2">
-                <h5 className="font-bold">Featured Amenities</h5>
+                <h5 className="font-bold text-black">Featured Amenities</h5>
                 <a href="#amenities" className="link">
                   {" "}
                   View More
@@ -169,7 +169,7 @@ const Hotel = () => {
         id="hotelDescription"
       >
         <div className="col-span-2">
-          <h3>Hotel Description</h3>
+          <h3 className="font-bold text-black text-lg">Hotel Description</h3>
           <p>
             Offering free 24-hour shuttle service to Los Angeles International
             Airport, this hotel features a spacious outdoor pool and whirlpool.
@@ -190,7 +190,7 @@ const Hotel = () => {
         </div>
         {!isTabletOrMobile && (
           <div className="bg-slate-200 p-4">
-            <h6>Why book with us?</h6>
+            <h6 className="font-bold text-black">Why book with us?</h6>
             <ul>
               <li className="flex items-center gap-2">
                 <AiOutlineCheckCircle /> Low Rates
@@ -207,10 +207,10 @@ const Hotel = () => {
       </section>
 
       <section id="googleMap">
-        <h3>Map</h3>
+        <h3 className="font-bold text-black text-lg">Map</h3>
         <div>
           <img
-            src="https://i.ibb.co/vhVHmx0/static-Map.png"
+            src="https://i.ibb.co/fqfDqHZ/static-Map.png"
             className="w-full"
             alt=""
           />
@@ -224,7 +224,7 @@ const Hotel = () => {
 
       <section id="roomsRates">
         <div className="flex gap-4">
-          <h3>Rooms & Rates</h3>
+          <h3 className="font-bold text-black text-lg">Rooms & Rates</h3>
           <p>( 1 night: 01/19/2023 - 01/20/2023 )</p>
         </div>
         <div className="border mt-2">
@@ -252,7 +252,7 @@ const Hotel = () => {
       </section>
 
       <section className="space-y-2" id="amenities">
-        <h3>Amenities</h3>
+        <h3 className="font-bold text-black text-lg">Amenities</h3>
 
         <section className="bg-slate-200 p-4">
           <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
@@ -263,7 +263,7 @@ const Hotel = () => {
         </section>
 
         <div className="pt-4 space-y-2">
-          <h5>Internet Access</h5>
+          <h5 className="font-bold">Internet Access</h5>
           <div className="flex items-center gap-2">
             <span>
               <BsGlobe />
@@ -273,7 +273,7 @@ const Hotel = () => {
         </div>
 
         <div className="pt-4 space-y-2">
-          <h5>All Amenities</h5>
+          <h5 className="font-bold">All Amenities</h5>
           <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
             {amenities.map((item) => (
               <div className="flex items-center" key={item?.id}>
@@ -288,7 +288,7 @@ const Hotel = () => {
       </section>
 
       <section className="space-y-4 pt-6" id="hotelReview">
-        <h3>Guest Ratings</h3>
+        <h3 className="font-bold text-black text-lg">Guest Ratings</h3>
         <div className="flex items-center gap-4">
           <span className="rounded-full border-4 border-solid border-sky-500 bg-indigo-200 p-6 text-2xl font-bold">
             7.1
@@ -307,7 +307,7 @@ const Hotel = () => {
         </div>
       </section>
       <section className="space-y-4">
-        <h3>Nearby Hotels</h3>
+        <h3 className="font-bold text-black text-lg">Nearby Hotels</h3>
         <div className="flex grid-cols-3 flex-wrap gap-4 lg:grid">
           {data.slice(0, 3).map((hotel, i) => (
             <NearbyHotelCard key={i} />
@@ -315,7 +315,7 @@ const Hotel = () => {
         </div>
       </section>
       <section>
-        <h3>Important Information</h3>
+        <h3 className="font-bold text-black text-lg">Important Information</h3>
         <p>
           Guests are required to show a photo ID and credit card upon check-in.
           Please note that all Special Requests are subject to availability and

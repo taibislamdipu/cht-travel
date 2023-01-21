@@ -21,10 +21,6 @@ body {
   @apply text-2xl font-bold text-black;
 }
 
-h3 {
-  @apply text-xl font-semibold;
-}
-
 .link {
   @apply text-[#007bff] hover:text-[#2e8ef5];
 }
@@ -48,7 +44,7 @@ h3 {
   [type="week"],
   select,
   select[multiple] {
-    @apply rounded-full border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary;
+    @apply rounded-lg border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary;
   }
 
   textarea {
