@@ -14,7 +14,7 @@ const TopTouristSpot = () => {
 
   return (
     <div className="mb-20 py-10">
-      <div className="lg:mx-40 px-4">
+      <div className="customContainer">
         <div>
           <h2 className="text-2xl font-bold text-black">Top Tourist Spot</h2>
           <p>Book these experiences for a close-up look at Bangladesh</p>

@@ -8,7 +8,7 @@ const Main = () => {
     // <div className="lg:mx-40 px-4">
     <div>
       <ScrollToTopComponent>
-        <div className="lg:mx-40 px-4">
+        <div className="lg:mx-44">
           <Navbar />
         </div>
         <Outlet />

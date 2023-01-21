@@ -41,11 +41,11 @@ const HotelList = () => {
   ).length;
 
   return (
-    <div className="py-20  bg-[#F2F2F2]">
+    <div className=" bg-[#F2F2F2]">
+      <div className="pb-4">
+        <Filter setSearch={setSearch} handleSearchBtn={handleSearchBtn} />
+      </div>
       <div className="customContainer space-y-8">
-        <div>
-          <Filter setSearch={setSearch} handleSearchBtn={handleSearchBtn} />
-        </div>
         <div className="lg:grid grid-cols-12 gap-6 ">
           {!isTabletOrMobile && (
             <section className="col-span-3 space-y-4 bg-white border p-4 ">

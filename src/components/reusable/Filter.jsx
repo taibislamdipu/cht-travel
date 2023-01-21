@@ -18,7 +18,7 @@ const Filter = ({ setSearch, handleSearchBtn }) => {
   // };
 
   return (
-    <div className="lg:flex space-x-1 bg-white p-4">
+    <div className="lg:flex space-x-1 bg-white py-10 lg:px-44 px-4">
       <span className="flex flex-col gap-1">
         <div className="">Search Hotel Name</div>
         <input
