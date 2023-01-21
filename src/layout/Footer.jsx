@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer lg:px-40 px-10 bg-[#FAF1ED] p-10 ">
+      <footer className="footer lg:px-44 px-10 bg-[#FAF1ED] p-10 ">
         <div className="text-black">
           <span className="font-bold text-lg text-black">Services</span>
           <a className="font-bold">Branding</a>
@@ -25,7 +25,7 @@ const Footer = () => {
           <a className="font-bold">Cookie policy</a>
         </div>
       </footer>
-      <footer className="lg:px-40 px-10 footer border-t border-base-300 bg-[#FAF1ED] py-4 text-base-content">
+      <footer className="lg:px-44 px-10 footer border-t border-base-300 bg-[#FAF1ED] py-4 text-base-content">
         <div className="grid-flow-col items-center">
           <svg
             width="24"
