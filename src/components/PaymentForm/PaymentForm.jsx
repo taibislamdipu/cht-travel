@@ -14,7 +14,7 @@ const PaymentForm = () => {
   const onSubmit = (data) => {
     // data.service = service;
     data.status = "Pending";
-    fetch("http://localhost:5000/init", {
+    fetch("https://cht-travel-server-production.up.railway.app/init", {
       method: "POST",
       headers: {
         "content-type": "application/json",
