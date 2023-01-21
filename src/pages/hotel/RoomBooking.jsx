@@ -27,7 +27,7 @@ const RoomBooking = () => {
   };
   const CartDetails = () => {
     return (
-      <section className="border rounded-md">
+      <section className="border rounded-md ">
         <div className="flex justify-between lg:p-4 p-2">
           <h4 className="font-semibold">1 King Bed</h4>
           <div>
@@ -149,7 +149,7 @@ const RoomBooking = () => {
   };
 
   return (
-    <div className="space-y-8 py-20">
+    <div className="space-y-8 py-20 customContainer">
       <Link to={-1} className="inline-block ">
         <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
           <AiOutlineArrowLeft />

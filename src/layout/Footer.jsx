@@ -3,29 +3,29 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer bg-base-200 p-10 text-base-content">
-        <div>
-          <span className="footer-title">Services</span>
-          <a className="link-hover link">Branding</a>
-          <a className="link-hover link">Design</a>
-          <a className="link-hover link">Marketing</a>
-          <a className="link-hover link">Advertisement</a>
+      <footer className="footer lg:px-40 px-10 bg-[#FAF1ED] p-10 ">
+        <div className="text-black">
+          <span className="font-bold text-lg text-black">Services</span>
+          <a className="font-bold">Branding</a>
+          <a className="font-bold">Design</a>
+          <a className="font-bold">Marketing</a>
+          <a className="font-bold">Advertisement</a>
         </div>
         <div>
-          <span className="footer-title">Company</span>
-          <a className="link-hover link">About us</a>
-          <a className="link-hover link">Contact</a>
-          <a className="link-hover link">Jobs</a>
-          <a className="link-hover link">Press kit</a>
+          <span className="font-bold text-lg text-black">Company</span>
+          <a className="font-bold">About us</a>
+          <a className="font-bold">Contact</a>
+          <a className="font-bold">Jobs</a>
+          <a className="font-bold">Press kit</a>
         </div>
         <div>
-          <span className="footer-title">Legal</span>
-          <a className="link-hover link">Terms of use</a>
-          <a className="link-hover link">Privacy policy</a>
-          <a className="link-hover link">Cookie policy</a>
+          <span className="font-bold text-lg text-black">Legal</span>
+          <a className="font-bold">Terms of use</a>
+          <a className="font-bold">Privacy policy</a>
+          <a className="font-bold">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer border-t border-base-300 bg-base-200 px-10 py-4 text-base-content">
+      <footer className="lg:px-40 px-10 footer border-t border-base-300 bg-[#FAF1ED] py-4 text-base-content">
         <div className="grid-flow-col items-center">
           <svg
             width="24"
@@ -40,7 +40,7 @@ const Footer = () => {
           </svg>
           <p>
             CHT Travel <br />
-            Providing reliable tech since 2023
+            Providing reliable travel since 2023
           </p>
         </div>
         <div className="md:place-self-center md:justify-self-end">

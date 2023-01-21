@@ -17,12 +17,12 @@ const About = () => {
   ];
 
   return (
-    <div className="mb-20">
+    <div className="mb-20 customContainer">
       <div className="lg:flex gap-8">
         <div>
           <img src={chtTravelLogo} alt="" />
         </div>
-        <div className="mt-6 space-y-6">
+        <div className="py-10 space-y-6">
           <div className="space-y-4">
             <h1 className="text-3xl font-normal">About us</h1>
             <p>

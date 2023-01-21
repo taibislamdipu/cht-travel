@@ -18,7 +18,7 @@ const Filter = ({ setSearch }) => {
   };
 
   return (
-    <div className="lg:flex space-x-1 bg-slate-200 p-4">
+    <div className="lg:flex space-x-1 bg-white p-4">
       <span className="flex flex-col gap-1">
         <div className="">Search Hotel Name</div>
         <input
@@ -81,7 +81,7 @@ const Filter = ({ setSearch }) => {
         </span>
       </span>
       <span className="flex flex-col gap-1">
-        <span className="text-slate-200">Search</span>
+        <span>Search</span>
         <button className="btn w-auto max-w-xs" onClick={handleClick}>
           Search
         </button>

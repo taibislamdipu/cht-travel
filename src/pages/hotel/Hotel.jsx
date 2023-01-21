@@ -53,7 +53,7 @@ const Hotel = () => {
   };
 
   return (
-    <div className="space-y-8 py-20">
+    <div className="space-y-8 py-20 customContainer">
       <section className="flex justify-between">
         <div className="lg:space-y-0 space-y-2">
           <div className="flex">
