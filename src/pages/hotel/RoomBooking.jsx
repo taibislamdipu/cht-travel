@@ -11,7 +11,10 @@ import { useSelector } from "react-redux";
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
-  const { price, name, address } = useSelector((state) => state?.booking?.data);
+  const { cart } = useSelector((state) => state.cart);
+  console.log("cart---> ", cart[0]);
+
+  const { address, hotel_name, price } = cart[0];
 
   const HotelAlert = () => {
     return (
@@ -176,7 +179,7 @@ const RoomBooking = () => {
                 />
               </div>
               <div className="">
-                <h4 className="font-bold">{name}</h4>
+                <h4 className="font-bold">{hotel_name}</h4>
                 <p>
                   <small>
                     Thursday, Jan, 19, 2023 03:00 PM - Friday, Jan, 20, 2023

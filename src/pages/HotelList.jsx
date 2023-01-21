@@ -45,7 +45,7 @@ const HotelList = () => {
       <div className="pb-4">
         <Filter setSearch={setSearch} handleSearchBtn={handleSearchBtn} />
       </div>
-      <div className="customContainer space-y-8">
+      <div className="customContainer space-y-8 pb-20">
         <div className="lg:grid grid-cols-12 gap-6 ">
           {!isTabletOrMobile && (
             <section className="col-span-3 space-y-4 bg-white border p-4 ">

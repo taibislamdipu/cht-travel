@@ -244,7 +244,7 @@ const Hotel = () => {
       <section className="bg-slate-200 p-8">
         <div className="space-y-2">
           <h3 className="text-xl flex gap-2 font-semibold">
-            Pet Policy <FaPaw />
+            <FaPaw /> Pet Policy
           </h3>
           <p>Pets are allowed. Charges may apply.</p>
         </div>
