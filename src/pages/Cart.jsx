@@ -1,8 +1,14 @@
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Footer from "../layout/Footer";
 const Cart = () => {
+  const { cart } = useSelector((state) => state.cart);
+  console.log("cart---> ", cart[0]);
+
+  const { address, hotel_name, price } = cart[0];
+
   return (
     <div>
       <div className="mt-20 space-y-4 customContainer">
@@ -29,14 +35,8 @@ const Cart = () => {
                 <p>Remove</p>
               </div>
               <div>
-                <h3 className="text-black">
-                  Sonargaon & Panam City Tour | Old capital Day Tour Around
-                  Dhaka
-                </h3>
-                <p>
-                  Sonargaon & Panam City Tour | Old capital Day Tour Around
-                  Dhaka - 10:00 AM
-                </p>
+                <h3 className="text-black">{address}</h3>
+                <p>{address}</p>
                 <p>Friday, January 20, 2023 | 10:00 AM</p>
                 <h4 className="text-black font-bold">Total BDT 17,675.19</h4>
               </div>
