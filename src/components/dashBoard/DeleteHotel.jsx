@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const DeleteHotel = ({ id }) => {
   const [removeHotel, { isError }] = useRemoveHotelMutation();
-  console.log(useRemoveHotelMutation());
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -26,7 +25,7 @@ const DeleteHotel = ({ id }) => {
   };
 
   return (
-    <td className="p-2">
+    <div className="p-2">
       <div className="flex justify-center">
         <button onClick={() => handleDelete(id)}>
           <svg
@@ -45,7 +44,7 @@ const DeleteHotel = ({ id }) => {
           </svg>
         </button>
       </div>
-    </td>
+    </div>
   );
 };
 
