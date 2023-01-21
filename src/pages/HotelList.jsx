@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "../components/reusable/Filter";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { AiOutlineUnorderedList } from "react-icons/ai";
@@ -6,11 +6,30 @@ import { IoLocationSharp } from "react-icons/io5";
 import SuggestedHotelCard from "../components/SuggestedHotel/SuggestedHotelCard";
 import staticMapImg from "../assets/images/staticMapImg.png";
 import { Link } from "react-router-dom";
-import { data } from "../../public/data.js";
+// import { data } from "../../public/data.js";
 import { useMediaQuery } from "react-responsive";
 import { useSelector } from "react-redux";
+import axios from "axios";
 const HotelList = () => {
   const [search, setSearch] = useState("");
+
+  const [data, setHotels] = useState([]);
+
+  const handleSearchBtn = () => {
+    const isAvailable = data.filter((hotel) => hotel?.availability === true);
+    setHotels(isAvailable);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios("data.json");
+      setHotels(result.data);
+    };
+
+    fetchData();
+  }, []);
+
+  console.log("data--->", data);
 
   const { searchQuery } = useSelector((state) => state?.search);
 
@@ -25,7 +44,7 @@ const HotelList = () => {
     <div className="py-20  bg-[#F2F2F2]">
       <div className="customContainer space-y-8">
         <div>
-          <Filter setSearch={setSearch} />
+          <Filter setSearch={setSearch} handleSearchBtn={handleSearchBtn} />
         </div>
         <div className="lg:grid grid-cols-12 gap-6 ">
           {!isTabletOrMobile && (
@@ -94,7 +113,7 @@ const HotelList = () => {
             <div>
               <h2>
                 <span className="font-bold text-black">
-                  {count} of {data?.length}
+                  {data.length} of 20
                 </span>{" "}
                 hotels are available in Bandarban
               </h2>
