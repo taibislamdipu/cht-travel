@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AddHotel from "../components/dashBoard/AddHotel";
 import DashboardHotel from "../components/dashBoard/DashboardHotel";
 import UpdateHotel from "../components/dashBoard/UpdateHotel";
+import Success from "../components/reusable/Success";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import Main from "../layout/Main";
 import Blog from "../pages/Blog";
@@ -62,6 +63,10 @@ const routes = createBrowserRouter([
       {
         path: "/booking",
         element: <RoomBooking />,
+      },
+      {
+        path: "/success",
+        element: <Success />,
       },
       {
         path: "*",
