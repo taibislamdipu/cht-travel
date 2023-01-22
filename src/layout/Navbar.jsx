@@ -7,7 +7,7 @@ import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import { useMediaQuery } from "react-responsive";
 import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
-import { GrMapLocation } from "react-icons/gr";
+import { CiMap } from "react-icons/ci";
 import { BiHotel } from "react-icons/bi";
 
 const Navbar = () => {
@@ -141,15 +141,15 @@ const Navbar = () => {
                   Hotels
                 </Link>
               </li>
-              <li>
+              <li className="text-gray-400 cursor-not-allowed">
                 <a>
                   <AiFillCar size={23} />
                   Transportation
                 </a>
               </li>
-              <li>
+              <li className="text-gray-400 cursor-not-allowed">
                 <a>
-                  <GrMapLocation size={23} />
+                  <CiMap size={23} />
                   Tourist Sight
                 </a>
               </li>
