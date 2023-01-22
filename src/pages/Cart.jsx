@@ -39,11 +39,11 @@ const Cart = () => {
                 </button>
               </div>
               <div>
-                <h3 className="text-black">{hotel.address}</h3>
-                <p>{hotel.address}</p>
+                <h3 className="text-black">{hotel?.hotel_name}</h3>
+                <p>{hotel?.address}</p>
                 <p>Friday, January 20, 2023 | 10:00 AM</p>
                 <h4 className="text-black font-bold">
-                  Total BDT {hotel.price}
+                  Total BDT {hotel?.price}
                 </h4>
               </div>
             </div>

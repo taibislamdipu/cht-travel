@@ -27,9 +27,7 @@ const HotelList = () => {
     fetchData();
   }, []);
 
-  console.log("data--->", data);
-
-  const { searchQuery } = useSelector((state) => state?.search);
+  const { searchQuery, hotels } = useSelector((state) => state?.search);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
@@ -111,13 +109,26 @@ const HotelList = () => {
             <div>
               <h2>
                 <span className="font-bold text-black">
-                  {data.length} of 20
+                  {hotels?.length} of 20
                 </span>{" "}
                 hotels are available in Bandarban
               </h2>
             </div>
+
+            {/* <div>
+              {hotels.map((item, i) => (
+                <SuggestedHotelCard
+                  key={i}
+                  hotel_name={item?.hotel_name}
+                  address={item?.address}
+                  price={item?.price}
+                  isTabletOrMobile={isTabletOrMobile}
+                />
+              ))}
+            </div> */}
+
             <div>
-              {data
+              {hotels
                 .filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
