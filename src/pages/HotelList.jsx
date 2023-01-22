@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Filter from "../components/reusable/Filter";
 import { BsFillInfoCircleFill } from "react-icons/bs";
-import { AiOutlineUnorderedList } from "react-icons/ai";
-import { IoLocationSharp } from "react-icons/io5";
 import SuggestedHotelCard from "../components/SuggestedHotel/SuggestedHotelCard";
 import staticMapImg from "../assets/images/staticMapImg.png";
 import { Link } from "react-router-dom";
