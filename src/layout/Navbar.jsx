@@ -8,7 +8,7 @@ import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
-  const { email, error, isError, isLoading, role } = useSelector(
+  const { email, photoURL, error, isError, isLoading, role } = useSelector(
     (state) => state?.auth
   );
 
@@ -175,6 +175,11 @@ const Navbar = () => {
           <div className="">
             Eng <span className="font-bold">| বাংলা</span>
           </div>
+          {photoURL && (
+            <div>
+              <img src={photoURL} className="rounded-full w-10" alt="" />
+            </div>
+          )}
         </div>
       )}
     </nav>

@@ -24,7 +24,7 @@ const About = () => {
         </div>
         <div className="py-10 space-y-6">
           <div className="space-y-4">
-            <h1 className="text-3xl font-normal">About us</h1>
+            <h2 className="text-2xl font-bold text-black">About us</h2>
             <p>
               <span className="font-bold">CHT Travel</span> is a company that
               helps you find the right hotel in your travel destination. We
@@ -36,7 +36,7 @@ const About = () => {
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-3xl font-normal">Our Services</h1>
+            <h2 className="text-2xl font-bold text-black">Our Services</h2>
             <ul className="grid grid-cols-2 gap-2 list-disc">
               {services.map((item) => (
                 <li className="mx-8" key={item?.id}>

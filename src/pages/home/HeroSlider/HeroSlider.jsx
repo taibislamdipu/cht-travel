@@ -23,7 +23,13 @@ const HeroSlider = () => {
 
   return (
     <div className="mt-10 lg:mx-40 px-4">
-      <Carousel showThumbs={false}>
+      <Carousel
+        autoPlay={true}
+        swipeable={true}
+        stopOnHover={true}
+        showThumbs={false}
+        emulateTouch={true}
+      >
         {data.map((item) => (
           <div key={item?.id}>
             <div>
