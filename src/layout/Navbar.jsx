@@ -6,6 +6,9 @@ import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import { useMediaQuery } from "react-responsive";
+import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
+import { GrMapLocation } from "react-icons/gr";
+import { BiHotel } from "react-icons/bi";
 
 const Navbar = () => {
   const { email, photoURL, error, isError, isLoading, role } = useSelector(
@@ -114,7 +117,7 @@ const Navbar = () => {
 
       {/* for web */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-2 text-black font-bold">
+        <ul className="menu menu-horizontal px-1 space-x-2 text-black font-bold ">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -133,13 +136,22 @@ const Navbar = () => {
             </a>
             <ul className="z-10 bg-white p-2 space-y-2">
               <li>
-                <Link to="/hotels">Hotels</Link>
+                <Link to="/hotels">
+                  <BiHotel size={23} />
+                  Hotels
+                </Link>
               </li>
               <li>
-                <a>Transportation</a>
+                <a>
+                  <AiFillCar size={23} />
+                  Transportation
+                </a>
               </li>
               <li>
-                <a>Tourist Sight</a>
+                <a>
+                  <GrMapLocation size={23} />
+                  Tourist Sight
+                </a>
               </li>
             </ul>
           </li>
@@ -151,7 +163,10 @@ const Navbar = () => {
             <Link to="/contact">Contacts</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+              <AiOutlineShoppingCart size={23} />
+              Cart
+            </Link>
           </li>
         </ul>
       </div>

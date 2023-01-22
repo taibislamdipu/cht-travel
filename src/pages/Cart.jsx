@@ -1,23 +1,25 @@
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeFromCart } from "../features/cartSlice";
 import Footer from "../layout/Footer";
+import OurService from "./home/OurService/OurService";
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
-  console.log("cart---> ", cart[0]);
+  const dispatch = useDispatch();
 
-  const { address, hotel_name, price } = cart[0];
+  console.log(cart.length);
 
-  return (
-    <div>
+  const CartCard = ({ hotel }) => {
+    return (
       <div className="mt-20 space-y-4 customContainer">
         <h1 className="text-black text-3xl font-bold">Cart</h1>
 
-        <Link to="/" className="inline-block">
+        <Link to={-1} className="inline-block">
           <div className="flex items-center transition hover:text-stone-500 gap-2 ">
             <AiOutlineArrowLeft />
-            <p className="underline">See all things to do</p>
+            <p className="underline">Go Back</p>
           </div>
         </Link>
 
@@ -32,13 +34,17 @@ const Cart = () => {
                     alt=""
                   />
                 </div>
-                <p>Remove</p>
+                <button onClick={() => dispatch(removeFromCart(hotel))}>
+                  Remove
+                </button>
               </div>
               <div>
-                <h3 className="text-black">{address}</h3>
-                <p>{address}</p>
+                <h3 className="text-black">{hotel.address}</h3>
+                <p>{hotel.address}</p>
                 <p>Friday, January 20, 2023 | 10:00 AM</p>
-                <h4 className="text-black font-bold">Total BDT 17,675.19</h4>
+                <h4 className="text-black font-bold">
+                  Total BDT {hotel.price}
+                </h4>
               </div>
             </div>
           </section>
@@ -52,11 +58,11 @@ const Cart = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-sm">Subtotal</span>
-                <span className="text-sm">BDT 17,675.19</span>
+                <span className="text-sm">BDT {hotel.price}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-base font-bold">Total (1)</span>
-                <span className="text-base font-bold">BDT 17,675.19</span>
+                <span className="text-base font-bold">BDT {hotel.price}</span>
               </div>
             </div>
 
@@ -64,6 +70,36 @@ const Cart = () => {
           </section>
         </section>
       </div>
+    );
+  };
+
+  return (
+    <div>
+      {!cart.length && (
+        <>
+          <div className="customContainer my-20 space-y-6">
+            <h1 className="text-black text-3xl font-bold">Cart</h1>
+            <h2 className="text-2xl text-black font-bold">
+              Your Cart is Empty
+            </h2>
+            <h3 className="text-2xl text-black font-bold">
+              Add Things to Do to your cart. Now you can shop for tours,
+              attractions, and <br /> experiences.{" "}
+              <Link to="/" className="underline text-[#545454]">
+                Explore Now
+              </Link>
+            </h3>
+          </div>
+          <div>
+            <OurService />
+          </div>
+        </>
+      )}
+
+      {cart.map((hotel, i) => (
+        <CartCard hotel={hotel} key={i} />
+      ))}
+
       <Footer />
     </div>
   );
