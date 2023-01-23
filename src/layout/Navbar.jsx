@@ -6,9 +6,12 @@ import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import { useMediaQuery } from "react-responsive";
+import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
+import { CiMap } from "react-icons/ci";
+import { BiHotel } from "react-icons/bi";
 
 const Navbar = () => {
-  const { email, error, isError, isLoading, role } = useSelector(
+  const { email, photoURL, error, isError, isLoading, role } = useSelector(
     (state) => state?.auth
   );
 
@@ -42,7 +45,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu rounded-box menu-compact text-black font-bold mt-3 w-52 bg-base-100 p-2 shadow"
+            className="dropdown-content menu rounded-box space-y-2 menu-compact text-black font-bold mt-3 w-52 bg-base-100 p-2 shadow"
           >
             <li>
               <Link to="/">Home</Link>
@@ -60,7 +63,7 @@ const Navbar = () => {
                   <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                 </svg>
               </a>
-              <ul className="bg-white p-2">
+              <ul className="bg-white p-2 space-y-1">
                 <li>
                   <Link to="/hotels">Hotels</Link>
                 </li>
@@ -81,6 +84,15 @@ const Navbar = () => {
             <li>
               <Link to="/cart">Cart</Link>
             </li>
+            <li>
+              <Link> Eng | বাংলা</Link>
+            </li>
+
+            {email && (
+              <Link to="/dashboard" className="btn">
+                Dashboard
+              </Link>
+            )}
             {email ? (
               <button className="btn" onClick={handleSignOut}>
                 Logout
@@ -88,12 +100,6 @@ const Navbar = () => {
             ) : (
               <Link to="/login" className="btn">
                 Login
-              </Link>
-            )}
-
-            {email && (
-              <Link to="/dashboard" className="btn">
-                Dashboard
               </Link>
             )}
           </ul>
@@ -111,7 +117,7 @@ const Navbar = () => {
 
       {/* for web */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-black font-bold">
+        <ul className="menu menu-horizontal px-1 space-x-2 text-black font-bold ">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -128,15 +134,24 @@ const Navbar = () => {
                 <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
               </svg>
             </a>
-            <ul className="z-10 bg-white p-2">
+            <ul className="z-10 bg-white p-2 space-y-2">
               <li>
-                <Link to="/hotels">Hotels</Link>
+                <Link to="/hotels">
+                  <BiHotel size={23} />
+                  Hotels
+                </Link>
               </li>
-              <li>
-                <a>Transportation</a>
+              <li className="text-gray-400 cursor-not-allowed">
+                <a>
+                  <AiFillCar size={23} />
+                  Transportation
+                </a>
               </li>
-              <li>
-                <a>Tourist Sight</a>
+              <li className="text-gray-400 cursor-not-allowed">
+                <a>
+                  <CiMap size={23} />
+                  Tourist Sight
+                </a>
               </li>
             </ul>
           </li>
@@ -148,27 +163,40 @@ const Navbar = () => {
             <Link to="/contact">Contacts</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+              <AiOutlineShoppingCart size={23} />
+              Cart
+            </Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-end gap-2">
-        {email ? (
-          <button className="btn" onClick={handleSignOut}>
-            Logout
-          </button>
-        ) : (
-          <Link to="/login" className="btn">
-            Login
-          </Link>
-        )}
+      {!isTabletOrMobile && (
+        <div className="navbar-end gap-2">
+          {email ? (
+            <button className="btn btn-sm" onClick={handleSignOut}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login" className="btn btn-sm">
+              Login
+            </Link>
+          )}
 
-        {email && (
-          <Link to="/dashboard" className="btn">
-            Dashboard
-          </Link>
-        )}
-      </div>
+          {email && (
+            <Link to="/dashboard" className="btn btn-sm">
+              Dashboard
+            </Link>
+          )}
+          <div className="">
+            Eng <span className="font-bold">| বাংলা</span>
+          </div>
+          {photoURL && (
+            <div>
+              <img src={photoURL} className="rounded-full w-10" alt="" />
+            </div>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

@@ -53,9 +53,9 @@ const OurService = () => {
   ];
 
   return (
-    <div className="mb-20 mt-10 space-y-3">
+    <div className="mb-20 mt-10 space-y-3 lg:mx-40 px-4">
       <div>
-        <h2 className="section-title">Our Services</h2>
+        <h2 className="text-2xl font-bold text-black">Our Services</h2>
         <p className="">
           We've got everything you need to go big in {currentYear}.
         </p>

@@ -11,7 +11,10 @@ import { useSelector } from "react-redux";
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
-  const { price, name, address } = useSelector((state) => state?.booking?.data);
+  const { cart } = useSelector((state) => state.cart);
+  console.log("cart---> ", cart[0]);
+
+  const { address, hotel_name, price } = cart[0];
 
   const HotelAlert = () => {
     return (
@@ -27,7 +30,7 @@ const RoomBooking = () => {
   };
   const CartDetails = () => {
     return (
-      <section className="border rounded-md">
+      <section className="border rounded-md ">
         <div className="flex justify-between lg:p-4 p-2">
           <h4 className="font-semibold">1 King Bed</h4>
           <div>
@@ -149,7 +152,7 @@ const RoomBooking = () => {
   };
 
   return (
-    <div className="space-y-8 py-20">
+    <div className="space-y-8 py-20 customContainer">
       <Link to={-1} className="inline-block ">
         <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
           <AiOutlineArrowLeft />
@@ -176,7 +179,7 @@ const RoomBooking = () => {
                 />
               </div>
               <div className="">
-                <h4 className="font-bold">{name}</h4>
+                <h4 className="font-bold">{hotel_name}</h4>
                 <p>
                   <small>
                     Thursday, Jan, 19, 2023 03:00 PM - Friday, Jan, 20, 2023

@@ -53,7 +53,7 @@ const Hotel = () => {
   };
 
   return (
-    <div className="space-y-8 py-20">
+    <div className="space-y-8 py-20 customContainer">
       <section className="flex justify-between">
         <div className="lg:space-y-0 space-y-2">
           <div className="flex">
@@ -217,10 +217,9 @@ const Hotel = () => {
         </div>
       </section>
 
-      <section className="py-10">
-        {/* search filter components*/}
+      {/* <section className="py-10">
         <Filter />
-      </section>
+      </section> */}
 
       <section id="roomsRates">
         <div className="flex gap-4">
@@ -245,7 +244,7 @@ const Hotel = () => {
       <section className="bg-slate-200 p-8">
         <div className="space-y-2">
           <h3 className="text-xl flex gap-2 font-semibold">
-            Pet Policy <FaPaw />
+            <FaPaw /> Pet Policy
           </h3>
           <p>Pets are allowed. Charges may apply.</p>
         </div>

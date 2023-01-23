@@ -3,6 +3,7 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addBookingDetails } from "../../features/bookingSlice";
+import { addToCart } from "../../features/cartSlice";
 import RoomDetails from "./RoomDetails";
 
 const RoomsRate = ({ hotelData }) => {
@@ -15,7 +16,8 @@ const RoomsRate = ({ hotelData }) => {
   const dispatch = useDispatch();
 
   const handleBookNow = () => {
-    dispatch(addBookingDetails({ price, name, address }));
+    // dispatch(addBookingDetails({ price, name, address }));
+    dispatch(addToCart(hotelData));
   };
   return (
     <div className="flex justify-between items-center px-4 py-10 border-b">
