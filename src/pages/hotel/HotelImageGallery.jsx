@@ -2,11 +2,11 @@ import React from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-const HotelImageGallery = () => {
+const HotelImageGallery = ({ img }) => {
   const images = [
     {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
+      original: `${img}`,
+      thumbnail: `${img}`,
     },
     {
       original: "https://picsum.photos/id/1015/1000/600/",

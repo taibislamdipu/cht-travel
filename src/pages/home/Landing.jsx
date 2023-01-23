@@ -10,8 +10,18 @@ const Landing = () => {
   return (
     <div>
       <HeroSlider />
-      <OurService />
-      <TopTouristSpot />
+      <div data-aos="fade-up" data-aos-duration="3000">
+        <OurService />
+      </div>
+
+      <div
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
+        <TopTouristSpot />
+      </div>
+
       <Review />
       <About />
       <Footer />

@@ -19,16 +19,15 @@ const AddHotel = () => {
 
   const submit = (data) => {
     const hotel = {
-      name: data?.name,
-      image: data?.image,
-      image2: data?.image2,
-      image3: data?.image3,
-      image4: data?.image4,
+      title: data?.name,
+      imageURL: data?.image,
       price: data?.price,
-      status: data.status === "true" ? true : false,
-      location: data?.location,
+      totalRoom: data?.room,
+      isAvailable: data.status === "true" ? true : false,
+      address: data?.location,
       latitude: data?.latitude,
       longitude: data?.longitude,
+      description: data?.description,
     };
 
     postHotel(hotel);
@@ -55,7 +54,7 @@ const AddHotel = () => {
         {/* image */}
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="image">
-            Image-1
+            Image
             <sup className="text-red-400 font-semibold text-2xl">*</sup>
           </label>
           <input
@@ -63,39 +62,6 @@ const AddHotel = () => {
             name="image"
             id="image"
             {...register("image", { required: true })}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="image2">
-            Image-2
-          </label>
-          <input
-            type="text"
-            name="image2"
-            id="image2"
-            {...register("image2")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="image3">
-            Image-3
-          </label>
-          <input
-            type="text"
-            name="image3"
-            id="image3"
-            {...register("image3")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="image4">
-            Image-4
-          </label>
-          <input
-            type="text"
-            name="image4"
-            id="image4"
-            {...register("image4")}
           />
         </div>
 
@@ -109,6 +75,19 @@ const AddHotel = () => {
             name="price"
             id="price"
             {...register("price", { required: true })}
+          />
+        </div>
+
+        <div className="flex w-full max-w-xs flex-col">
+          <label className="mb-2" htmlFor="room">
+            Total Room
+            <sup className="text-red-400 font-semibold text-2xl">*</sup>
+          </label>
+          <input
+            type="number"
+            name="room"
+            id="room"
+            {...register("room", { required: true })}
           />
         </div>
 
@@ -185,6 +164,19 @@ const AddHotel = () => {
                 value: /^(0|[1-9]\d*)(\.\d+)?$/,
               },
             })}
+          />
+        </div>
+
+        <div className="flex w-full flex-col">
+          <label className="mb-2" htmlFor="description">
+            Description
+            <sup className="text-red-400 font-semibold text-2xl">*</sup>
+          </label>
+          <textarea
+            type="text"
+            name="description"
+            id="description"
+            {...register("description", { required: true })}
           />
         </div>
 

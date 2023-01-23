@@ -15,19 +15,17 @@ import { RiChat1Fill } from "react-icons/ri";
 import { FaPaw } from "react-icons/fa";
 import { BiBus } from "react-icons/bi";
 import { BsCheck, BsGlobe } from "react-icons/bs";
-
 import AmenitiesCard from "./AmenitiesCard";
 import { amenities } from "../../../public/amenities.js";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { data } from "../../../public/data.js";
+
+import { useGetSingleHotelQuery } from "../../api/hotelSlice";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const { id } = useParams();
-
-  const hotelData = data.find((d) => d.id == id);
-  const { hotel_name, address, rooms_rates } = hotelData;
+  const { data } = useGetSingleHotelQuery(id);
 
   const title = [
     { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
@@ -60,7 +58,7 @@ const Hotel = () => {
             <Link to="/hotels" className="inline-block ">
               <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
                 <AiOutlineArrowLeft />
-                <h2 className="">{hotel_name}</h2>
+                <h2 className="">{data?.title}</h2>
               </div>
             </Link>
             <div className="rating">
@@ -72,7 +70,7 @@ const Hotel = () => {
             </div>
           </div>
           <div className="lg:flex lg:space-y-0 space-y-2 items-center">
-            <p>{address}</p>
+            <p>{data?.address}</p>
             <div className="flex items-center">
               <span>
                 <IoLocationSharp />
@@ -96,7 +94,7 @@ const Hotel = () => {
         </div>
         <section className="h-fit grid-cols-6 bg-slate-100 lg:grid">
           <div className="col-span-4">
-            <HotelImageGallery />
+            <HotelImageGallery img={data?.imageURL} />
           </div>
           <div className="col-span-2 p-4 space-y-4">
             <div className="flex items-center gap-4">
@@ -151,14 +149,30 @@ const Hotel = () => {
                 </a>
               </div>
               <div className="grid grid-cols-2 lg:gap-0 gap-2">
-                {data.slice(0, 6).map((item, i) => (
-                  <div className="flex gap-1 items-center" key={i}>
-                    <span>
-                      <BiBus />
-                    </span>
-                    <p>Free Airport Shuttle</p>
-                  </div>
-                ))}
+                <div className="flex gap-1 items-center">
+                  <span>
+                    <BiBus />
+                  </span>
+                  <p>Free Airport Shuttle</p>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <span>
+                    <BiBus />
+                  </span>
+                  <p>Free Airport Shuttle</p>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <span>
+                    <BiBus />
+                  </span>
+                  <p>Free Airport Shuttle</p>
+                </div>
+                <div className="flex gap-1 items-center">
+                  <span>
+                    <BiBus />
+                  </span>
+                  <p>Free Airport Shuttle</p>
+                </div>
               </div>
             </div>
           </div>
@@ -170,23 +184,7 @@ const Hotel = () => {
       >
         <div className="col-span-2">
           <h3 className="font-bold text-black text-lg">Hotel Description</h3>
-          <p>
-            Offering free 24-hour shuttle service to Los Angeles International
-            Airport, this hotel features a spacious outdoor pool and whirlpool.
-            Car hire service and 4 food venues are available at the hotel. The
-            Hilton Los Angeles Airport offers modern, elegantly decorated rooms
-            with cable TV and a radio with MP3 connection. A coffee maker, work
-            desk and ironing facilities are included. A variety of dining
-            options are available at this hotel. The Café features American
-            cuisine and the Bistro makes a variety of to-go items and brews
-            Starbucks coffee 24 hours a day. Guests may also dine at Andiamo, a
-            northern Italian restaurant or relax with a drink at Landings lounge
-            in the evenings. Guests of the Los Angeles Hilton are welcome to
-            enjoy the on-site fitness center. A business center and gift shop
-            are also available. The Los Angeles Airport Hilton is less than 5
-            miles from Dockweiler Beach State Park and 20 minutes from downtown
-            Santa Monica.
-          </p>
+          <p>{data?.description}</p>
         </div>
         {!isTabletOrMobile && (
           <div className="bg-slate-200 p-4">
@@ -229,9 +227,9 @@ const Hotel = () => {
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
 
-          {rooms_rates ? (
-            hotelData?.rooms_rates.map((item, i) => (
-              <RoomsRate hotelData={hotelData} key={i} />
+          {data?.categories ? (
+            data?.categories.map((item) => (
+              <RoomsRate categories={item} hotelData={data} key={data?._id} />
             ))
           ) : (
             <>
@@ -300,17 +298,15 @@ const Hotel = () => {
         </div>
         <hr />
         <div>
-          {data.slice(0, 3).map((review, i) => (
-            <HotelReviewCard key={i} />
-          ))}
+          <HotelReviewCard />
         </div>
       </section>
       <section className="space-y-4">
         <h3 className="font-bold text-black text-lg">Nearby Hotels</h3>
         <div className="flex grid-cols-3 flex-wrap gap-4 lg:grid">
-          {data.slice(0, 3).map((hotel, i) => (
-            <NearbyHotelCard key={i} />
-          ))}
+          <NearbyHotelCard />
+          <NearbyHotelCard />
+          <NearbyHotelCard />
         </div>
       </section>
       <section>

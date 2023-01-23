@@ -8,6 +8,7 @@ import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 
 const SuggestedHotelCard = ({
   hotel_name,
+  image,
   address,
   price,
   isTabletOrMobile,
@@ -18,7 +19,7 @@ const SuggestedHotelCard = ({
     <section className="grid grid-cols-8 mb-2 border hover:shadow-lg transition bg-white">
       <div className="col-span-2">
         <div>
-          <img className="max-h-48 w-full" src={hotelImgSmall} alt="" />
+          <img className="max-h-48 w-full" src={image} alt="" />
         </div>
       </div>
       <div className="col-span-4 space-y-3 p-4 border-r">

@@ -4,42 +4,36 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import SuggestedHotelCard from "../components/SuggestedHotel/SuggestedHotelCard";
 import staticMapImg from "../assets/images/staticMapImg.png";
 import { Link } from "react-router-dom";
-// import { data } from "../../public/data.js";
 import { useMediaQuery } from "react-responsive";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getHotel } from "../features/searchSlice";
+
 const HotelList = () => {
   const [search, setSearch] = useState("");
-
   const [data, setHotels] = useState([]);
+  const dispatch = useDispatch();
 
-  const handleSearchBtn = () => {
-    const isAvailable = data.filter((hotel) => hotel?.availability === true);
-    setHotels(isAvailable);
-  };
+  const { hotels } = useSelector((state) => state.search);
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("data.json");
-      setHotels(result.data);
+      const { payload } = await dispatch(getHotel());
+      setHotels(payload);
     };
-
     fetchData();
   }, []);
-
-  const { searchQuery, hotels } = useSelector((state) => state?.search);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
   // number of hotels available
   const count = Object.values(data).filter(
-    (item) => item?.availability === true
+    (item) => item?.isAvailable === true
   ).length;
 
   return (
     <div className=" bg-[#F2F2F2]">
       <div className="pb-4">
-        <Filter setSearch={setSearch} handleSearchBtn={handleSearchBtn} />
+        <Filter setSearch={setSearch} />
       </div>
       <div className="customContainer space-y-8 pb-20">
         <div className="lg:grid grid-cols-12 gap-6 ">
@@ -132,13 +126,13 @@ const HotelList = () => {
                 .filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
-                    : item?.hotel_name.toLocaleLowerCase().includes(search) &&
-                        item.availability === true;
+                    : item?.title.toLocaleLowerCase().includes(search);
                 })
                 .map((item) => (
-                  <Link to={`hotel/${item?.id}`} key={item?.id}>
+                  <Link to={`hotel/${item?._id}`} key={item?._id}>
                     <SuggestedHotelCard
-                      hotel_name={item?.hotel_name}
+                      hotel_name={item?.title}
+                      image={item?.imageURL}
                       address={item?.address}
                       price={item?.price}
                       isTabletOrMobile={isTabletOrMobile}
@@ -148,7 +142,7 @@ const HotelList = () => {
               {data.filter((item) => {
                 return search.toLocaleLowerCase() === ""
                   ? item
-                  : item.hotel_name.toLocaleLowerCase().includes(search);
+                  : item?.title.toLocaleLowerCase().includes(search);
               }).length === 0 && <p>No results found.</p>}
             </div>
 

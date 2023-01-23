@@ -17,46 +17,48 @@ const Review = () => {
 
   return (
     <div className="bg-[#004F32] py-10">
-      <div className="lg:mx-40 px-4">
-        <div className="text-white">
-          <h2 className="text-2xl font-bold text-white">Reviews</h2>
-          <p>What users feel about CHT-Travel</p>
-        </div>
+      <div data-aos="zoom-in">
+        <div className="lg:mx-40 px-4">
+          <div className="text-white">
+            <h2 className="text-2xl font-bold text-white">Reviews</h2>
+            <p>What users feel about CHT-Travel</p>
+          </div>
 
-        <ScrollContainer className="flex cursor-grab p-1">
-          <div>
-            <section className="mt-6 flex gap-4">
-              {data.map((item) => (
-                <div className="review-card " key={item?.id}>
-                  <div
-                    className="space-y-4 rounded-lg hover:shadow-lg p-4 "
-                    style={{ backgroundColor: `${item.color}` }}
-                  >
-                    <div>
-                      <p>4.7 *</p>
-                      <p>Jan 2023</p>
-                    </div>
-                    <p>
-                      First time scuba diving. Great learning experience in the
-                      pool and had a great dive in the ocean. JJ was an
-                      excellent instructor and dive guide. Thank you!
-                    </p>
-                    <div className="flex items-center gap-2 ">
+          <ScrollContainer className="flex cursor-grab p-1">
+            <div>
+              <section className="mt-6 flex gap-4">
+                {data.map((item) => (
+                  <div className="review-card " key={item?.id}>
+                    <div
+                      className="space-y-4 rounded-lg hover:shadow-lg p-4 "
+                      style={{ backgroundColor: `${item.color}` }}
+                    >
                       <div>
-                        <img
-                          className="w-14 rounded-full"
-                          src={userImg}
-                          alt=""
-                        />
+                        <p>4.7 *</p>
+                        <p>Jan 2023</p>
                       </div>
-                      <h4>Sylvia Davidson</h4>
+                      <p>
+                        First time scuba diving. Great learning experience in
+                        the pool and had a great dive in the ocean. JJ was an
+                        excellent instructor and dive guide. Thank you!
+                      </p>
+                      <div className="flex items-center gap-2 ">
+                        <div>
+                          <img
+                            className="w-14 rounded-full"
+                            src={userImg}
+                            alt=""
+                          />
+                        </div>
+                        <h4>Sylvia Davidson</h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </section>
-          </div>
-        </ScrollContainer>
+                ))}
+              </section>
+            </div>
+          </ScrollContainer>
+        </div>
       </div>
     </div>
   );

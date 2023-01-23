@@ -1,11 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { handleSearch, setHotel } from "../../features/searchSlice";
 
-const Filter = ({ setSearch, handleSearchBtn }) => {
+const Filter = ({ setSearch }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [room, setRoom] = useState("1 room");
@@ -19,18 +20,17 @@ const Filter = ({ setSearch, handleSearchBtn }) => {
     onClick: true,
   };
 
-  // const handleClick = () => {
-  //   dispatch(handleSearch(searchQuery));
-  // };
-
   const handleClick = () => {
     dispatch(handleSearch(searchQuery));
 
     // call api
     const fetchData = async () => {
-      const result = await axios("data.json");
-      const data = result?.data.filter((item) => item?.availability === true);
-      dispatch(setHotel(data));
+      const res = await fetch(
+        "https://cht-travel-server-production.up.railway.app/hotels"
+      );
+      const data = await res.json();
+      const filteredData = data?.filter((item) => item?.isAvailable === true);
+      dispatch(setHotel(filteredData));
     };
 
     fetchData();

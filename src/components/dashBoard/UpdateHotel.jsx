@@ -5,12 +5,12 @@ import {
   useUpdateHotelMutation,
 } from "../../api/hotelSlice";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const UpdateHotel = () => {
   const { id } = useParams();
   const { register, handleSubmit, reset } = useForm();
   const { data } = useGetSingleHotelQuery(id);
-
   const [hotelId, setHotelId] = useState(id);
 
   const submit = (data) => {
@@ -24,9 +24,9 @@ const UpdateHotel = () => {
     )
       .then((res) => res.json())
       .then((result) => {
-        if (result.modifiedCount === 1) {
-          alert("hi");
-        }
+        console.log(result);
+        toast.success("Hotel info updated", { id: "updateHotel" });
+        reset();
       });
   };
 
@@ -39,74 +39,35 @@ const UpdateHotel = () => {
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="name">
             Hotel Name{" "}
-            <sup className="text-red-400 font-semibold text-2xl">*</sup>
           </label>
           <input
             type="text"
             id="name"
-            {...register("name", { required: true })}
-            placeholder={data?.name}
+            {...register("name")}
+            placeholder={data?.title}
           />
         </div>
 
         {/* image */}
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="image">
-            Image-1
-            <sup className="text-red-400 font-semibold text-2xl">*</sup>
+            Image
           </label>
-          <input
-            type="text"
-            name="image"
-            id="image"
-            {...register("image", { required: true })}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="image2">
-            Image-2
-          </label>
-          <input
-            type="text"
-            name="image2"
-            id="image2"
-            {...register("image2")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="image3">
-            Image-3
-          </label>
-          <input
-            type="text"
-            name="image3"
-            id="image3"
-            {...register("image3")}
-          />
-        </div>
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="image4">
-            Image-4
-          </label>
-          <input
-            type="text"
-            name="image4"
-            id="image4"
-            {...register("image4")}
-          />
+          <input type="text" name="image" id="image" {...register("image")} />
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="price">
             Price
-            <sup className="text-red-400 font-semibold text-2xl">*</sup>
           </label>
-          <input
-            type="number"
-            name="price"
-            id="price"
-            {...register("price", { required: true })}
-          />
+          <input type="number" name="price" id="price" {...register("price")} />
+        </div>
+
+        <div className="flex w-full max-w-xs flex-col">
+          <label className="mb-2" htmlFor="room">
+            Total Room
+          </label>
+          <input type="number" name="room" id="room" {...register("room")} />
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
@@ -141,47 +102,24 @@ const UpdateHotel = () => {
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="location">
             Location
-            <sup className="text-red-400 font-semibold text-2xl">*</sup>
           </label>
           <input
             type="text"
             name="location"
             id="location"
-            {...register("location", { required: true })}
+            {...register("location")}
           />
         </div>
 
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="latitude">
-            Latitude
+        <div className="flex w-full flex-col">
+          <label className="mb-2" htmlFor="description">
+            Description
           </label>
-          <input
-            className="rounded-full border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary"
-            name="latitude"
-            id="latitude"
-            {...register("latitude", {
-              valueAsNumber: true,
-              pattern: {
-                value: /^(0|[1-9]\d*)(\.\d+)?$/,
-              },
-            })}
-          />
-        </div>
-
-        <div className="flex w-full max-w-xs flex-col">
-          <label className="mb-2" htmlFor="longitude">
-            Longitude
-          </label>
-          <input
-            className="rounded-full border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary"
-            name="longitude"
-            id="longitude"
-            {...register("longitude", {
-              valueAsNumber: true,
-              pattern: {
-                value: /^(0|[1-9]\d*)(\.\d+)?$/,
-              },
-            })}
+          <textarea
+            type="text"
+            name="description"
+            id="description"
+            {...register("description")}
           />
         </div>
 

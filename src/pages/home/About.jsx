@@ -19,10 +19,10 @@ const About = () => {
   return (
     <div className="mb-20 customContainer">
       <div className="lg:flex gap-8">
-        <div>
+        <div data-aos="fade-right">
           <img src={chtTravelLogo} alt="" />
         </div>
-        <div className="py-10 space-y-6">
+        <div data-aos="fade-left" className="py-10 space-y-6">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-black">About us</h2>
             <p>

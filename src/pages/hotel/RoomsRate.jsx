@@ -6,12 +6,11 @@ import { addBookingDetails } from "../../features/bookingSlice";
 import { addToCart } from "../../features/cartSlice";
 import RoomDetails from "./RoomDetails";
 
-const RoomsRate = ({ hotelData }) => {
+const RoomsRate = ({ categories, hotelData }) => {
   // const price = hotelData?.price;
-  const name = hotelData?.hotel_name;
-  const address = hotelData?.address;
+  const { type, price, descpt, roomCount } = categories;
 
-  var price = Intl.NumberFormat().format(hotelData?.price);
+  var hotelprice = Intl.NumberFormat().format(price);
 
   const dispatch = useDispatch();
 
@@ -23,7 +22,7 @@ const RoomsRate = ({ hotelData }) => {
     <div className="flex justify-between items-center px-4 py-10 border-b">
       <div>
         <div className="flex gap-2">
-          <p className="font-bold">1 King Bed</p>
+          <p className="font-bold">{type}</p>
           {/* The button to open modal */}
           <label htmlFor="my-modal-4">
             <span className="underline cursor-pointer">Room Details</span>
@@ -46,14 +45,18 @@ const RoomsRate = ({ hotelData }) => {
           <BsFillInfoCircleFill />
           Prepaid - Book Now, Pay Now
         </p>
+        <p className="flex gap-2 items-center">
+          <BsFillInfoCircleFill />
+          {descpt.slice(0, 100)}
+        </p>
       </div>
 
       <div className="flex flex-col space-y-2">
         <div
           className="tooltip tooltip-open tooltip-warning tooltip-top"
-          data-tip="Only 1 room left!"
+          data-tip={`Only ${roomCount ? roomCount : 1} room left!`}
         >
-          <h2 className="text-2xl text-black font-bold">BDT {price}</h2>
+          <h2 className="text-2xl text-black font-bold">BDT {hotelprice}</h2>
         </div>
         <Link to="/booking">
           <button className="btn" onClick={handleBookNow}>

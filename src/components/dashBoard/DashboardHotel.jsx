@@ -51,16 +51,16 @@ const DashboardHotel = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-100 text-sm">
-              {data?.map(({ name, location, price, status, _id }) => (
+              {data?.map(({ title, address, price, status, _id }) => (
                 <tr key={_id}>
                   <td className="p-2">
                     <input type="checkbox" className="h-5 w-5" value="id-1" />
                   </td>
                   <td className="p-2">
-                    <div className="font-medium text-gray-800">{name}</div>
+                    <div className="font-medium text-gray-800">{title}</div>
                   </td>
                   <td className="p-2">
-                    <div className="text-left capitalize">{location}</div>
+                    <div className="text-left capitalize">{address}</div>
                   </td>
                   <td className="p-2">
                     <div className="text-left">
