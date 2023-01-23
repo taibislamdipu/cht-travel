@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 const UpdateHotel = () => {
   const { id } = useParams();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({ mode: "onChange" });
   const { data } = useGetSingleHotelQuery(id);
   const [hotelId, setHotelId] = useState(id);
 
