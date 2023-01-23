@@ -5,16 +5,16 @@ import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 import { useMediaQuery } from "react-responsive";
 import PaymentForm from "../../components/PaymentForm/PaymentForm";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { useGetSingleHotelQuery } from "../../api/hotelSlice";
 
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
-  const { cart } = useSelector((state) => state.cart);
-  console.log("cart---> ", cart[0]);
+  const { id } = useParams();
+  const { data } = useGetSingleHotelQuery(id);
 
-  const { address, hotel_name, price } = cart[0];
+  const { address, title, price } = data;
 
   const HotelAlert = () => {
     return (
@@ -75,7 +75,7 @@ const RoomBooking = () => {
           />
         </div> */}
         <div>
-          <PaymentForm />
+          <PaymentForm price={price} title={title} />
         </div>
       </div>
     );
@@ -179,7 +179,7 @@ const RoomBooking = () => {
                 />
               </div>
               <div className="">
-                <h4 className="font-bold">{hotel_name}</h4>
+                <h4 className="font-bold">{title}</h4>
                 <p>
                   <small>
                     Thursday, Jan, 19, 2023 03:00 PM - Friday, Jan, 20, 2023

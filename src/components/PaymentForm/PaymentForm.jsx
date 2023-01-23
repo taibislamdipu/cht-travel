@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaChevronLeft } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
-const PaymentForm = () => {
+const PaymentForm = ({ price, title }) => {
   const {
     register,
     handleSubmit,
@@ -11,9 +12,12 @@ const PaymentForm = () => {
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
+  const { email } = useSelector((state) => state.auth);
+
   const onSubmit = (data) => {
-    // data.service = service;
-    data.status = "Pending";
+    data.price = price;
+    data.title = title;
+
     fetch("https://cht-travel-server-production.up.railway.app/init", {
       method: "POST",
       headers: {
@@ -53,7 +57,13 @@ const PaymentForm = () => {
             <label className="mb-2" htmlFor="email">
               Email
             </label>
-            <input type="email" id="email" {...register("email")} />
+            <input
+              className="cursor-not-allowed"
+              type="email"
+              id="email"
+              {...register("email")}
+              defaultValue={email}
+            />
           </div>
           <div className="flex flex-col w-full max-w-xs">
             <label className="mb-2" htmlFor="address">

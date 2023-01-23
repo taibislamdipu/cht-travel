@@ -58,7 +58,7 @@ const RoomsRate = ({ categories, hotelData }) => {
         >
           <h2 className="text-2xl text-black font-bold">BDT {hotelprice}</h2>
         </div>
-        <Link to="/booking">
+        <Link to={`/booking/${hotelData._id}`}>
           <button className="btn" onClick={handleBookNow}>
             BOOK NOW
           </button>

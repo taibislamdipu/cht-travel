@@ -61,7 +61,7 @@ const routes = createBrowserRouter([
         element: <HotelList />,
       },
       {
-        path: "/booking",
+        path: "/booking/:id",
         element: <RoomBooking />,
       },
       {
