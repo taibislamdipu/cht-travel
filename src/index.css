@@ -71,3 +71,10 @@ body {
 .btn-primary {
   @apply bg-black rounded-full hover:bg-[#333333] text-white border-0;
 }
+
+.badge-info {
+  background-color: #c00 !important;
+  border-color: #c00 !important;
+  color: #fff !important;
+  font-size: 10px !important;
+}

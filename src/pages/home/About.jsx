@@ -17,10 +17,10 @@ const About = () => {
   ];
 
   return (
-    <div className="mb-20 customContainer">
+    <div className="my-20 customContainer">
       <div className="lg:flex gap-8">
         <div data-aos="fade-right" data-aos-duration="1000">
-          <img src={chtTravelLogo} alt="" />
+          <img src={chtTravelLogo} className="rounded-lg" alt="" />
         </div>
         <div className="py-10 space-y-6">
           <div className="space-y-4">

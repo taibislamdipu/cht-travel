@@ -48,10 +48,10 @@ const Filter = ({ setSearch }) => {
           className="input-bordered input w-full"
         />
       </span>
-      <span className="flex flex-col gap-1">
+      <span className="flex flex-col gap-1 ">
         Checkin
         <DatePicker
-          className="input-bordered input  w-auto max-w-xs text-black flex"
+          className="input-bordered input border border-green-200 focus:border-green-200 focus:ring-green-400 border-l-green-500 w-auto max-w-xs text-black flex"
           placeholderText={"Checkin"}
           selected={startDate}
           onChange={(date) => setStartDate(date)}
@@ -65,7 +65,7 @@ const Filter = ({ setSearch }) => {
       <span className="flex flex-col gap-1">
         Checkout
         <DatePicker
-          className="input-bordered input w-auto max-w-xs text-black flex"
+          className="input-bordered input border focus:border-red-200 focus:ring-red-400 border-red-200 border-l-red-500 w-auto max-w-xs text-black flex"
           placeholderText={"Checkout"}
           selected={endDate}
           onChange={(date) => setEndDate(date)}

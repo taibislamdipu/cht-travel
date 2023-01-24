@@ -30,13 +30,13 @@ const RoomBooking = () => {
   };
   const CartDetails = () => {
     return (
-      <section className="border rounded-md ">
+      <section className="border rounded-md bg-white">
         <div className="flex justify-between lg:p-4 p-2">
-          <h4 className="font-semibold">1 King Bed</h4>
+          <h4 className="font-semibold text-black">1 King Bed</h4>
           <div>
             <div className="flex items-center gap-2">
               <span>BDT</span>
-              <h4 className="text-2xl font-bold">{price}</h4>
+              <h4 className="text-2xl font-bold text-black">{price}</h4>
             </div>
             <p className="font-semibold text-[#5D6A7E]">per night</p>
           </div>
@@ -84,10 +84,14 @@ const RoomBooking = () => {
   const ImportantInformation = () => {
     return (
       <section className="space-y-4">
-        <h4 className="text-base font-semibold mt-4">Important Information</h4>
+        <h4 className="text-base font-semibold mt-4 text-black">
+          Important Information
+        </h4>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Cancellation Policy:</span>
+            <span className="mr-1 font-semibold text-black">
+              Cancellation Policy:
+            </span>
             For the room type and rate that you've selected, you are not allowed
             to change or cancel your reservation. If you cancel your room, you
             will still be charged for the full reservation amount.
@@ -101,13 +105,15 @@ const RoomBooking = () => {
         </div>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Refund Policy:</span>
+            <span className="mr-1 font-semibold text-black">
+              Refund Policy:
+            </span>
             Non-refundable rate. No amendments permitted.
           </p>
         </div>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Photo Policy:</span>
+            <span className="mr-1 font-semibold text-black">Photo Policy:</span>
             The reservation holder must present a valid photo ID and credit card
             at check-in. The credit card is required for any additional hotel
             specific service fees or incidental charges or fees that may be
@@ -118,14 +124,18 @@ const RoomBooking = () => {
         </div>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Hotel Occupancy Policy:</span>
+            <span className="mr-1 font-semibold text-black">
+              Hotel Occupancy Policy:
+            </span>
             All rooms booked for double occupancy (i.e. 2 adults).
             Accommodations for more than this are not guaranteed.
           </p>
         </div>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Room Charge Disclosure:</span>
+            <span className="mr-1 font-semibold text-black">
+              Room Charge Disclosure:
+            </span>
             Your credit card is charged the total cost at time of purchase.
             Prices and room availability are not guaranteed until full payment
             is received.
@@ -133,13 +143,17 @@ const RoomBooking = () => {
         </div>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Hotel Pet Policy:</span>
+            <span className="mr-1 font-semibold text-black">
+              Hotel Pet Policy:
+            </span>
             Pets are allowed. Charges may apply.
           </p>
         </div>
         <div className="space-y-2 text-sm">
           <p>
-            <span className="mr-1 font-semibold">Important Information:</span>
+            <span className="mr-1 font-semibold text-black">
+              Important Information:
+            </span>
             Guests are required to show a photo ID and credit card upon
             check-in. Please note that all Special Requests are subject to
             availability and additional charges may apply. Shuttle pick-up and
@@ -168,18 +182,13 @@ const RoomBooking = () => {
           <section>
             <CartDetails />
           </section>
-          <section className="space-y-3 md:space-y-0">
+          <section className="space-y-3 md:space-y-0 bg-white p-2">
             <div className="flex gap-2">
               <div className="w-32 h-28">
-                <img
-                  className="w-full"
-                  src={hotelImgSmall}
-                  // style={{ width: "75px", height: "75px" }}
-                  alt=""
-                />
+                <img className="w-full rounded" src={hotelImgSmall} alt="" />
               </div>
               <div className="">
-                <h4 className="font-bold">{title}</h4>
+                <h4 className="font-bold text-black">{title}</h4>
                 <p>
                   <small>
                     Thursday, Jan, 19, 2023 03:00 PM - Friday, Jan, 20, 2023
@@ -197,18 +206,24 @@ const RoomBooking = () => {
                 </div>
               </div>
             </div>
-            <section>
+            <section className="bg-white p-2">
               <div className="space-y-2">
                 <div>
-                  <h4 className="text-base font-semibold">Address:</h4>
+                  <h4 className="text-base font-semibold text-black">
+                    Address:
+                  </h4>
                   <p className="text-sm">{address}</p>
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold">Room Type</h4>
+                  <h4 className="text-base font-semibold text-black">
+                    Room Type
+                  </h4>
                   <p className="text-sm">1 King Bed</p>
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold">Guests:</h4>
+                  <h4 className="text-base font-semibold text-black">
+                    Guests:
+                  </h4>
                   <p className="text-sm">2 Adults</p>
                 </div>
               </div>

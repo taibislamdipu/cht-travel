@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { getHotel } from "../features/searchSlice";
+import Loading from "../components/reusable/Loading";
 
 const HotelList = () => {
   const [search, setSearch] = useState("");
   const [data, setHotels] = useState([]);
   const dispatch = useDispatch();
 
-  const { hotels } = useSelector((state) => state.search);
+  const { hotels, isLoading } = useSelector((state) => state.search);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -121,30 +122,34 @@ const HotelList = () => {
               ))}
             </div> */}
 
-            <div>
-              {hotels
-                .filter((item) => {
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <div>
+                {hotels
+                  .filter((item) => {
+                    return search.toLocaleLowerCase() === ""
+                      ? item
+                      : item?.title.toLocaleLowerCase().includes(search);
+                  })
+                  .map((item) => (
+                    <Link to={`hotel/${item?._id}`} key={item?._id}>
+                      <SuggestedHotelCard
+                        hotel_name={item?.title}
+                        image={item?.imageURL}
+                        address={item?.address}
+                        price={item?.price}
+                        isTabletOrMobile={isTabletOrMobile}
+                      />
+                    </Link>
+                  ))}
+                {data.filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
                     : item?.title.toLocaleLowerCase().includes(search);
-                })
-                .map((item) => (
-                  <Link to={`hotel/${item?._id}`} key={item?._id}>
-                    <SuggestedHotelCard
-                      hotel_name={item?.title}
-                      image={item?.imageURL}
-                      address={item?.address}
-                      price={item?.price}
-                      isTabletOrMobile={isTabletOrMobile}
-                    />
-                  </Link>
-                ))}
-              {data.filter((item) => {
-                return search.toLocaleLowerCase() === ""
-                  ? item
-                  : item?.title.toLocaleLowerCase().includes(search);
-              }).length === 0 && <p>No results found.</p>}
-            </div>
+                }).length === 0 && <p>No results found.</p>}
+              </div>
+            )}
 
             {/* Don't remove this code */}
             {/* <div>

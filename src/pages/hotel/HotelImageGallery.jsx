@@ -1,4 +1,5 @@
 import React from "react";
+import "./HotelImageGallery.css";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -20,7 +21,18 @@ const HotelImageGallery = ({ img }) => {
 
   return (
     <div>
-      <ImageGallery items={images} />
+      <ImageGallery
+        items={images}
+        renderItem={(img) => (
+          <img
+            src={img?.original}
+            className="gallery-image w-full object-cover"
+          />
+        )}
+        renderThumbInner={(img) => (
+          <img src={img.original} style={{ height: "60px", width: "100%" }} />
+        )}
+      />
     </div>
   );
 };

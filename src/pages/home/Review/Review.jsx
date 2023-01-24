@@ -16,7 +16,7 @@ const Review = () => {
   ];
 
   return (
-    <div className="bg-[#004F32] py-10">
+    <div className="bg-[#004F32] py-10 review-section">
       <div data-aos="zoom-in" data-aos-duration="1000">
         <div className="lg:mx-40 px-4">
           <div className="text-white">
@@ -34,8 +34,8 @@ const Review = () => {
                       style={{ backgroundColor: `${item.color}` }}
                     >
                       <div>
-                        <p>4.7 *</p>
-                        <p>Jan 2023</p>
+                        <p className="font-bold">4.7 *</p>
+                        <p className="font-bold text-xs">Jan 2023</p>
                       </div>
                       <p>
                         First time scuba diving. Great learning experience in
@@ -50,7 +50,7 @@ const Review = () => {
                             alt=""
                           />
                         </div>
-                        <h4>Sylvia Davidson</h4>
+                        <h4 className="font-bold">Sylvia Davidson</h4>
                       </div>
                     </div>
                   </div>

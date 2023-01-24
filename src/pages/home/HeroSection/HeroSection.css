@@ -1,4 +1,5 @@
-.hero-section {
+.hero-section,
+.review-section {
   background-image: url("../../../../src/assets/images/world_map.png");
   background-size: cover;
   background-attachment: fixed;

@@ -4,7 +4,6 @@
 import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
-import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 
 const SuggestedHotelCard = ({
   hotel_name,
@@ -16,10 +15,14 @@ const SuggestedHotelCard = ({
   var price = Intl.NumberFormat().format(price);
 
   return (
-    <section className="grid grid-cols-8 mb-2 border hover:shadow-lg transition bg-white">
+    <section className="grid grid-cols-8 mb-2 border hover:shadow-lg transition bg-white p-2 md:p-0">
       <div className="col-span-2">
         <div>
-          <img className="max-h-48 w-full" src={image} alt="" />
+          <img
+            className="md:h-48 h-24 w-full object-cover"
+            src={image}
+            alt=""
+          />
         </div>
       </div>
       <div className="col-span-4 space-y-3 p-4 border-r">

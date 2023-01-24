@@ -11,7 +11,7 @@ const NearbyHotelCard = () => {
       </div>
       <div className="p-4">
         <div className="flex items-center justify-between">
-          <h6 className="pb-3">Los Angeles Airport Marriott</h6>
+          <h6 className="pb-3 text-black font-bold">Royal Blue Stone</h6>
           <div className="rating">
             <input
               type="radio"
@@ -36,7 +36,9 @@ const NearbyHotelCard = () => {
       </div>
       <hr />
       <div className="m-4">
-        <button className="btn w-full">Show Prices</button>
+        <button className="btn w-full bg-black hover:bg-[#333333] text-white border-0">
+          Show Prices
+        </button>
       </div>
     </section>
   );

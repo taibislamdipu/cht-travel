@@ -22,7 +22,7 @@ const RoomsRate = ({ categories, hotelData }) => {
     <div className="flex justify-between items-center px-4 py-10 border-b">
       <div>
         <div className="flex gap-2">
-          <p className="font-bold">{type}</p>
+          <p className="font-bold text-black">{type}</p>
           {/* The button to open modal */}
           <label htmlFor="my-modal-4">
             <span className="underline cursor-pointer">Room Details</span>
@@ -59,7 +59,7 @@ const RoomsRate = ({ categories, hotelData }) => {
           <h2 className="text-2xl text-black font-bold">BDT {hotelprice}</h2>
         </div>
         <Link to={`/booking/${hotelData._id}`}>
-          <button className="btn" onClick={handleBookNow}>
+          <button className="btn btn-primary" onClick={handleBookNow}>
             BOOK NOW
           </button>
         </Link>

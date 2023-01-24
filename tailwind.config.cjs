@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         success: "#098e2b",
         fontPrimaryColor: "#444444",
+        primary: "#000000",
       },
       screens: {
         sm: "640px",

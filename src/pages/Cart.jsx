@@ -1,10 +1,11 @@
 import React from "react";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiFillDelete, AiOutlineArrowLeft } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeFromCart } from "../features/cartSlice";
 import Footer from "../layout/Footer";
 import OurService from "./home/OurService/OurService";
+
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const Cart = () => {
 
   const CartCard = ({ hotel }) => {
     return (
-      <div className="mt-20 space-y-4 customContainer">
+      <div className="md:mt-20 mt-10 space-y-4 customContainer">
         <h1 className="text-black text-3xl font-bold">Cart</h1>
 
         <Link to={-1} className="inline-block">
@@ -22,11 +23,10 @@ const Cart = () => {
             <p className="underline">Go Back</p>
           </div>
         </Link>
-
         <section className="md:grid grid-cols-3 gap-4 pb-32">
-          <section className="col-span-2 border-b pb-4 md:pb-0">
+          <section className="col-span-2 border-b pb-4 md:pb-0 bg-white p-4">
             <div className="flex gap-2">
-              <div>
+              <div className="space-y-1">
                 <div>
                   <img
                     src="https://i.ibb.co/3CH6qB6/hotel-Image.jpg"
@@ -34,7 +34,11 @@ const Cart = () => {
                     alt=""
                   />
                 </div>
-                <button onClick={() => dispatch(removeFromCart(hotel))}>
+                <button
+                  className="flex items-center gap-1 underline transition hover:text-stone-500"
+                  onClick={() => dispatch(removeFromCart(hotel))}
+                >
+                  <AiFillDelete />
                   Remove
                 </button>
               </div>
@@ -48,7 +52,7 @@ const Cart = () => {
               </div>
             </div>
           </section>
-          <section className="col-span-1 md:border rounded-3xl p-4 space-y-4">
+          <section className="col-span-1 md:border rounded-3xl p-4 space-y-4 bg-white">
             <h3>Review Order Details</h3>
 
             <div className="space-y-1">
@@ -79,6 +83,7 @@ const Cart = () => {
         <>
           <div className="customContainer my-20 space-y-6">
             <h1 className="text-black text-3xl font-bold">Cart</h1>
+
             <h2 className="text-2xl text-black font-bold">
               Your Cart is Empty
             </h2>

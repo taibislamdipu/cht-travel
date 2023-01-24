@@ -9,11 +9,15 @@ import { useMediaQuery } from "react-responsive";
 import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
 import { CiMap } from "react-icons/ci";
 import { BiHotel } from "react-icons/bi";
+import { Badge } from "daisyui";
 
 const Navbar = () => {
   const { email, photoURL, error, isError, isLoading, role } = useSelector(
     (state) => state?.auth
   );
+
+  const { cart } = useSelector((state) => state.cart);
+  console.log(cart.length);
 
   const dispatch = useDispatch();
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -162,9 +166,17 @@ const Navbar = () => {
           <li>
             <Link to="/contact">Contacts</Link>
           </li>
+
           <li>
             <Link to="/cart">
-              <AiOutlineShoppingCart size={23} />
+              {cart?.length > 0 && (
+                <div className="indicator">
+                  <AiOutlineShoppingCart size={23} />
+                  <span className="badge badge-xs badge-info indicator-item">
+                    {cart?.length}
+                  </span>
+                </div>
+              )}
               Cart
             </Link>
           </li>
