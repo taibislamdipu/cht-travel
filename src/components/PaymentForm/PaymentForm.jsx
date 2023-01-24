@@ -12,7 +12,7 @@ const PaymentForm = ({ price, title }) => {
     formState: { errors },
   } = useForm({ mode: "onBlur" });
 
-  const { email } = useSelector((state) => state.auth);
+  const { email, displayName } = useSelector((state) => state.auth);
 
   const onSubmit = (data) => {
     data.price = price;
@@ -43,7 +43,12 @@ const PaymentForm = ({ price, title }) => {
             <label className="mb-2" htmlFor="name">
               Name
             </label>
-            <input type="text" id="name" {...register("name")} />
+            <input
+              type="text"
+              id="name"
+              {...register("name")}
+              defaultValue={displayName}
+            />
           </div>
 
           <div className="flex flex-col w-full max-w-xs">

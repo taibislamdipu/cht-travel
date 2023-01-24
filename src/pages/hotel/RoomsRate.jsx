@@ -15,6 +15,8 @@ const RoomsRate = ({ categories, hotelData }) => {
 
   const dispatch = useDispatch();
 
+  console.log("hotelData--->", hotelData);
+
   const handleBookNow = () => {
     dispatch(addToCart(hotelData));
     navigate(`/booking/${hotelData._id}`, { state: categories });

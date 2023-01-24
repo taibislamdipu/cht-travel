@@ -11,6 +11,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const CartCard = ({ hotel }) => {
+    console.log("hotel--->", hotel);
     return (
       <div className="md:mt-20 mt-10 space-y-4 customContainer">
         <h1 className="text-black text-3xl font-bold">Cart</h1>
@@ -27,7 +28,7 @@ const Cart = () => {
               <div className="space-y-1">
                 <div>
                   <img
-                    src="https://i.ibb.co/3CH6qB6/hotel-Image.jpg"
+                    src={hotel?.imageURL}
                     className="w-96 h-32 md:w-32 md:h-32"
                     alt=""
                   />
@@ -41,7 +42,7 @@ const Cart = () => {
                 </button>
               </div>
               <div>
-                <h3 className="text-black">{hotel?.hotel_name}</h3>
+                <h3 className="text-black font-bold">{hotel?.title}</h3>
                 <p>{hotel?.address}</p>
                 <p>Friday, January 20, 2023 | 10:00 AM</p>
                 <h4 className="text-black font-bold">

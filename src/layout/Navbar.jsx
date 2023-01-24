@@ -6,9 +6,14 @@ import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import { useMediaQuery } from "react-responsive";
-import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
+import {
+  AiFillCar,
+  AiOutlineLogin,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { CiMap } from "react-icons/ci";
 import { BiHotel } from "react-icons/bi";
+import { emptyCart } from "../features/cartSlice";
 
 const Navbar = () => {
   const { email, photoURL } = useSelector((state) => state?.auth);
@@ -21,6 +26,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     signOut(auth).then(() => {
       dispatch(logout());
+      dispatch(emptyCart());
     });
   };
   return (
@@ -94,7 +100,7 @@ const Navbar = () => {
               </Link>
             )}
             {email ? (
-              <button className="btn" onClick={handleSignOut}>
+              <button className="btn btn-primary" onClick={handleSignOut}>
                 Logout
               </button>
             ) : (
@@ -181,17 +187,17 @@ const Navbar = () => {
       {!isTabletOrMobile && (
         <div className="navbar-end gap-2">
           {email ? (
-            <button className="btn btn-sm" onClick={handleSignOut}>
+            <button className="btn btn-sm btn-primary" onClick={handleSignOut}>
               Logout
             </button>
           ) : (
-            <Link to="/login" className="btn btn-sm">
+            <Link to="/login" className="btn btn-sm btn-primary">
               Login
             </Link>
           )}
 
           {email && (
-            <Link to="/dashboard" className="btn btn-sm">
+            <Link to="/dashboard" className="btn btn-sm btn-primary">
               Dashboard
             </Link>
           )}

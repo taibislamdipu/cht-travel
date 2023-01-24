@@ -12,6 +12,8 @@ import Loading from "../components/reusable/Loading";
 const HotelList = () => {
   const [search, setSearch] = useState("");
   const [data, setHotels] = useState([]);
+  const [range, setRange] = useState(64);
+
   const dispatch = useDispatch();
 
   const { hotels, isLoading } = useSelector((state) => state.search);
@@ -41,7 +43,7 @@ const HotelList = () => {
           {!isTabletOrMobile && (
             <section className="col-span-3 space-y-4 bg-white border p-4 ">
               <div>
-                <h3 className="text-black font-bold">Map View</h3>
+                <h3 className="text-black font-bold mb-2">Map View</h3>
                 <div>
                   <img
                     src={staticMapImg}
@@ -52,7 +54,7 @@ const HotelList = () => {
               </div>
               <hr />
               <div>
-                <h3 className="text-black font-bold">Hotel Name</h3>
+                <h3 className="text-black font-bold mb-2">Hotel Name</h3>
                 <input
                   onChange={(e) => setSearch(e.target.value)}
                   type="text"
@@ -62,16 +64,35 @@ const HotelList = () => {
                 />
               </div>
               <div>
-                <h3 className="text-black font-bold">Set Your Budget</h3>
-                <p>$64 to $1176 per night</p>
+                <h3 className="text-black font-bold mb-2">Set Your Budget</h3>
+                <p>BDT 500 to BDT {range} per night</p>
+                <input
+                  className="w-full"
+                  id="typeinp"
+                  type="range"
+                  min="500"
+                  max="5000"
+                  value={range}
+                  onChange={(e) => setRange(e.target.value)}
+                  step="1"
+                />
               </div>
               <div>
-                <h3 className="text-black font-bold">Star Rating</h3>
-                <input type="checkbox" name="" id="" />
-                <input type="checkbox" name="" id="" />
-                <input type="checkbox" name="" id="" />
-                <input type="checkbox" name="" id="" />
-                <input type="checkbox" name="" id="" />
+                <h3 className="text-black font-bold mb-2">Star Rating</h3>
+                <div className="space-y-2">
+                  <p className="flex items-center gap-2">
+                    <input type="checkbox" name="" id="" /> 5 Star
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <input type="checkbox" name="" id="" /> 4 Star
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <input type="checkbox" name="" id="" /> 3 Star
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <input type="checkbox" name="" id="" /> 2 Star
+                  </p>
+                </div>
               </div>
             </section>
           )}
