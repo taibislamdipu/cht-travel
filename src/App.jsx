@@ -4,12 +4,23 @@ import routes from "./routes/routes";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import auth from "./firebase/firebase.config";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { setUser, toggleLoading } from "./features/auth/authSlice";
 import ScrollToTop from "react-scroll-to-top";
+import preLoader from "./assets/images/preLoader.gif";
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Simulating a 2s loading time
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -22,9 +33,17 @@ function App() {
 
   return (
     <div className="App">
-      <Toaster />
-      <RouterProvider router={routes} />
-      <ScrollToTop smooth />
+      {isLoading ? (
+        <div className="bg-black flex items-center justify-center h-screen">
+          <img src={preLoader} alt="...loading"></img>
+        </div>
+      ) : (
+        <>
+          <Toaster />
+          <RouterProvider router={routes} />
+          <ScrollToTop smooth />
+        </>
+      )}
     </div>
   );
 }
