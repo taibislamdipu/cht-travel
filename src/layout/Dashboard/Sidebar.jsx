@@ -1,19 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { AiFillHome, AiOutlineUnorderedList } from "react-icons/ai";
+import { HiOutlineDocumentAdd } from "react-icons/hi";
 const Sidebar = () => {
   return (
     <div className="col-span-2 h-[calc(100vh-25px)] rounded-lg bg-indigo-200 p-5">
       <ul className="flex h-full  flex-col gap-3">
-        <li>Admin Dashboard</li>
+        <li className="font-bold text-black">Admin Dashboard</li>
+        <hr />
         <li>
-          <Link to="/dashboard">Hotel List</Link>
+          <Link
+            to="/dashboard"
+            className="flex items-center gap-1 font-bold text-black hover:underline"
+          >
+            <AiOutlineUnorderedList size={23} />
+            Hotel List
+          </Link>
         </li>
         <li>
-          <Link to="add-hotel"> Add Hotel </Link>
+          <Link
+            to="add-hotel"
+            className="flex items-center gap-1 font-bold text-black hover:underline"
+          >
+            <HiOutlineDocumentAdd size={23} /> Add Hotel{" "}
+          </Link>
         </li>
+
         <li className="mt-auto">
-          <Link to="/"> Back to Home </Link>
+          <Link
+            to="/"
+            className="flex items-center gap-1 font-bold text-black hover:underline"
+          >
+            <AiFillHome size={23} />
+            Back to Home{" "}
+          </Link>
         </li>
       </ul>
     </div>
