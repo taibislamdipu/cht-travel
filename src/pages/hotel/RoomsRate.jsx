@@ -1,13 +1,14 @@
 import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { addBookingDetails } from "../../features/bookingSlice";
+import { Link, useNavigate } from "react-router-dom";
+
 import { addToCart } from "../../features/cartSlice";
 import RoomDetails from "./RoomDetails";
 
 const RoomsRate = ({ categories, hotelData }) => {
-  // const price = hotelData?.price;
+  const navigate = useNavigate();
+
   const { type, price, descpt, roomCount } = categories;
 
   var hotelprice = Intl.NumberFormat().format(price);
@@ -15,8 +16,8 @@ const RoomsRate = ({ categories, hotelData }) => {
   const dispatch = useDispatch();
 
   const handleBookNow = () => {
-    // dispatch(addBookingDetails({ price, name, address }));
     dispatch(addToCart(hotelData));
+    navigate(`/booking/${hotelData._id}`, { state: categories });
   };
   return (
     <div className="flex justify-between items-center px-4 py-10 border-b">
@@ -58,11 +59,10 @@ const RoomsRate = ({ categories, hotelData }) => {
         >
           <h2 className="text-2xl text-black font-bold">BDT {hotelprice}</h2>
         </div>
-        <Link to={`/booking/${hotelData._id}`}>
-          <button className="btn btn-primary" onClick={handleBookNow}>
-            BOOK NOW
-          </button>
-        </Link>
+
+        <button className="btn btn-primary" onClick={handleBookNow}>
+          BOOK NOW
+        </button>
       </div>
     </div>
   );

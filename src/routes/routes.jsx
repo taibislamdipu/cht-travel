@@ -42,7 +42,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -62,7 +66,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/booking/:id",
-        element: <RoomBooking />,
+        element: (
+          <PrivateRoute>
+            <RoomBooking />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/success",

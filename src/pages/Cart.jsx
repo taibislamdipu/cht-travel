@@ -10,8 +10,6 @@ const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  console.log(cart.length);
-
   const CartCard = ({ hotel }) => {
     return (
       <div className="md:mt-20 mt-10 space-y-4 customContainer">

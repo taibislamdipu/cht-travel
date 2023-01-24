@@ -13,11 +13,10 @@ const Contact = () => {
             General Contact Information
           </h2>
           <p className="text-black text-xl font-bold">
-            Mailing address: Tripadvisor Inc., 400 1st Avenue, Needham, MA, USA
-            02494
+            Mailing address: CHT TRAVEL GUIDE, Bangladesh.
           </p>
           <p className="text-black text-xl font-bold">
-            General company phone number: +1 781 800 5000
+            General company phone number: + x xxx xxxx xxx
           </p>
         </div>
       </div>
