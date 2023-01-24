@@ -19,13 +19,14 @@ import AmenitiesCard from "./AmenitiesCard";
 import { amenities } from "../../../public/amenities.js";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-
 import { useGetSingleHotelQuery } from "../../api/hotelSlice";
+import { useSelector } from "react-redux";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const { id } = useParams();
   const { data } = useGetSingleHotelQuery(id);
+  const { searchQuery } = useSelector((state) => state.search);
 
   const title = [
     { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
@@ -222,7 +223,11 @@ const Hotel = () => {
       <section id="roomsRates">
         <div className="flex gap-4">
           <h3 className="font-bold text-black text-lg">Rooms & Rates</h3>
-          <p>( 1 night: 01/19/2023 - 01/20/2023 )</p>
+          <p>
+            {" "}
+            1 night: {searchQuery ? searchQuery.startDate : "01/19/2023"} -{" "}
+            {searchQuery ? searchQuery.endDate : "01/20/2023"}{" "}
+          </p>
         </div>
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>

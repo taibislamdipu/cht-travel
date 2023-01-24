@@ -5,16 +5,16 @@ import hotelImgSmall from "../../assets/images/hotelImgSmall.jpg";
 import { useMediaQuery } from "react-responsive";
 import PaymentForm from "../../components/PaymentForm/PaymentForm";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useGetSingleHotelQuery } from "../../api/hotelSlice";
 
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
   const { id } = useParams();
+  const { state } = useLocation();
   const { data } = useGetSingleHotelQuery(id);
-
-  const { address, title, price } = data;
+  const { address, title, price, categories, imageURL } = data || {};
 
   const HotelAlert = () => {
     return (
@@ -32,11 +32,11 @@ const RoomBooking = () => {
     return (
       <section className="border rounded-md ">
         <div className="flex justify-between lg:p-4 p-2">
-          <h4 className="font-semibold">1 King Bed</h4>
+          <h4 className="font-semibold">{state?.type}</h4>
           <div>
             <div className="flex items-center gap-2">
               <span>BDT</span>
-              <h4 className="text-2xl font-bold">{price}</h4>
+              <h4 className="text-2xl font-bold">{state?.price}</h4>
             </div>
             <p className="font-semibold text-[#5D6A7E]">per night</p>
           </div>
@@ -48,7 +48,7 @@ const RoomBooking = () => {
             <p>Taxes and Fees</p>
           </div>
           <div>
-            <p>BDT {price}</p>
+            <p>BDT {state?.price}</p>
             <p>BDT 0</p>
           </div>
         </div>
@@ -56,7 +56,7 @@ const RoomBooking = () => {
           <h4>Total Trip Price</h4>
           <div className="flex items-center gap-1">
             <span>BDT</span>
-            <h4>{price}</h4>
+            <h4>{state?.price}</h4>
           </div>
         </div>
       </section>
@@ -75,7 +75,7 @@ const RoomBooking = () => {
           />
         </div> */}
         <div>
-          <PaymentForm price={price} title={title} />
+          <PaymentForm price={state?.price} title={title} />
         </div>
       </div>
     );
@@ -173,7 +173,7 @@ const RoomBooking = () => {
               <div className="w-32 h-28">
                 <img
                   className="w-full"
-                  src={hotelImgSmall}
+                  src={imageURL}
                   // style={{ width: "75px", height: "75px" }}
                   alt=""
                 />
@@ -205,7 +205,7 @@ const RoomBooking = () => {
                 </div>
                 <div>
                   <h4 className="text-base font-semibold">Room Type</h4>
-                  <p className="text-sm">1 King Bed</p>
+                  <p className="text-sm">{state?.type}</p>
                 </div>
                 <div>
                   <h4 className="text-base font-semibold">Guests:</h4>

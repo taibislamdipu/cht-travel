@@ -33,13 +33,6 @@ const PaymentForm = ({ price, title }) => {
 
   return (
     <div className="pt-14">
-      <div
-        onClick={() => navigate("/register")}
-        className="cursor-pointer w-fit mt-5 flex items-center"
-      >
-        <FaChevronLeft />
-        <p>back</p>
-      </div>
       <div className="flex justify-center items-center overflow-auto p-10">
         <form
           className="bg-gray-100 shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between"
