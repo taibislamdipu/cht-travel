@@ -17,7 +17,7 @@ const Review = () => {
 
   return (
     <div className="bg-[#004F32] py-10">
-      <div data-aos="zoom-in">
+      <div data-aos="zoom-in" data-aos-duration="1000">
         <div className="lg:mx-40 px-4">
           <div className="text-white">
             <h2 className="text-2xl font-bold text-white">Reviews</h2>

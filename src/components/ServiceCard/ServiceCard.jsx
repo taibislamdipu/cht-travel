@@ -14,13 +14,11 @@ const ServiceCard = ({ service }) => {
           alt="Shoes"
         />
       </figure>
-      <div className="card-body">
+      <div className="card-body h-56">
         <h2 className="card-title service-element text-black">
           {service?.name}
         </h2>
-        <p className="service-element">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
+        <p className="text-justify line-clamp-3">{service?.about}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Explore Now</button>
         </div>

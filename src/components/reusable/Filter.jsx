@@ -38,13 +38,13 @@ const Filter = ({ setSearch }) => {
 
   return (
     <div className="lg:flex space-x-1 bg-white py-10 lg:px-44 px-4">
-      <span className="flex flex-col gap-1">
+      <span className="flex flex-col gap-1 w-full">
         <div className="">Search Hotel Name</div>
         <input
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Search hotel name"
-          className="input-bordered input w-full max-w-xs"
+          className="input-bordered input w-full"
         />
       </span>
       <span className="flex flex-col gap-1">
@@ -77,10 +77,10 @@ const Filter = ({ setSearch }) => {
         />
       </span>
 
-      <span className="flex gap-2">
-        <span className="flex flex-col gap-1">
+      <span className="flex gap-2 w-full">
+        <span className="flex flex-col gap-1 w-1/2">
           No. of Room
-          <div className="flex">
+          <div className="flex ">
             <select
               className="select-bordered w-full select text-black"
               onChange={(e) => setRoom(e.target.value)}
@@ -91,11 +91,11 @@ const Filter = ({ setSearch }) => {
             </select>
           </div>
         </span>
-        <span className="flex flex-col gap-1">
+        <span className="flex flex-col gap-1 w-1/2">
           No. of People
-          <div className="flex">
+          <div className="flex w-full">
             <select
-              className="select-bordered select text-black"
+              className="select-bordered w-full select text-black"
               onChange={(e) => setPeople(e.target.value)}
             >
               <option value="1 person">1 Person</option>
@@ -108,7 +108,7 @@ const Filter = ({ setSearch }) => {
       <span className="flex flex-col gap-1">
         <span>Search</span>
         {/* <button className="btn w-auto max-w-xs" onClick={handleSearchBtn}> */}
-        <button className="btn w-auto max-w-xs" onClick={handleClick}>
+        <button className="btn bg-black md:w-40" onClick={handleClick}>
           Search
         </button>
       </span>

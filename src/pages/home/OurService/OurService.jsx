@@ -11,49 +11,51 @@ const OurService = () => {
   const data = [
     {
       name: "Hotels",
-      icon: <BiBed />,
       path: "/hotels",
+      about:
+        "Find the perfect place to stay on your next trip with our Hotel service.",
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
     {
       name: "Tourist Sight",
-      icon: <BiBed />,
+      about: "Explore the best tourist sights with our Tourist Sight service.",
       image: "https://i.ibb.co/LC9Mykq/transportation-Img.jpg",
     },
     {
       name: "Transportation",
-      icon: <BiBed />,
+      about:
+        "Effortlessly plan your transportation with our Transportation service",
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
     {
       name: "Tourist Guide",
-      icon: <BiBed />,
+      about: "Get the most out of your trip with our Tourist Guide service.",
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
     },
     {
       name: "Local Products",
-      icon: <BiBed />,
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      about: "Bring home a piece of your trip with our Local Product service.",
     },
     {
       name: "Local Food",
-      icon: <BiBed />,
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      about: "Savor the local flavors with our Local Food service.",
     },
     {
-      name: "Local language",
-      icon: <BiBed />,
+      name: "Local Language",
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      about: "Speak like a local with our Local Language service.",
     },
     {
-      name: "Bike rent",
-      icon: <BiBed />,
+      name: "Bike Rent",
       image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      about: "Explore the city on two wheels with our Bike Rent service.",
     },
   ];
 
   return (
-    <div className="mb-20 mt-10 space-y-3 lg:mx-40 px-4">
+    <div className="mb-20 md:mt-10 mt-8 space-y-3 lg:mx-40 px-4">
       <div>
         <h2 className="text-2xl font-bold text-black">Our Services</h2>
         <p className="">

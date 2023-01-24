@@ -61,7 +61,7 @@ const SuggestedHotelCard = ({
         </div>
         {!isTabletOrMobile && (
           <>
-            <button className="btn">View Rooms</button>
+            <button className="btn btn-primary">View Rooms</button>
             <p>View Available Rooms</p>
           </>
         )}

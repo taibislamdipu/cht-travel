@@ -3,16 +3,16 @@ import React, { useState } from "react";
 const Blog = () => {
   const [posts] = useState([
     {
-      title: "My First Blog Post",
+      title: "Travelling in Bangladesh",
       image: "https://i.ibb.co/K6zGT7X/blog1Img.jpg",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id libero nec nisi malesuada feugiat. Sed euismod, augue eu dictum pretium, nisl elit convallis augue, a tempor nibh nulla id risus. Sed aliquam, quam eget luctus blandit, risus neque congue massa, vel viverra nisl nisl eget nisl. Sed euismod, augue eu dictum pretium, nisl elit convallis augue, a tempor nibh nulla id risus.",
+        "Bangladesh is a beautiful country located in South Asia, known for its lush green landscapes, rich culture, and friendly people. It is a popular destination for travelers looking for an off-the-beaten-path experience. The best time to visit Bangladesh is from October to March, during the dry season. The weather is pleasant and makes it easy to explore the country.",
     },
     {
-      title: "My Second Blog Post",
+      title: "Travel Destination in Bangladesh",
       image: "https://i.ibb.co/TvnZrDp/blog2Img.jpg",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id libero nec nisi malesuada feugiat. Sed euismod, augue eu dictum pretium, nisl elit convallis augue, a tempor nibh nulla id risus. Sed aliquam, quam eget luctus blandit, risus neque congue massa, vel viverra nisl nisl eget nisl. Sed euismod, augue eu dictum pretium, nisl elit convallis augue, a tempor nibh nulla id risus.",
+        "One of the must-see destinations in Bangladesh is the Sundarbans, a mangrove forest located in the delta of the Ganges, Brahmaputra, and Meghna rivers. It is home to the Bengal tiger, as well as a variety of other wildlife. Visitors can take a boat ride through the forest to spot the tigers and other animals, or explore the forest on foot with a local guide.",
     },
   ]);
 
@@ -20,12 +20,12 @@ const Blog = () => {
     return (
       <div className="bg-white rounded-lg shadow-md p-4 my-8">
         <img
-          src={post.image}
-          alt={post.title}
+          src={post?.image}
+          alt={post?.title}
           className="w-full rounded-lg md:h-72 object-cover"
         />
-        <h2 className="text-lg font-medium my-4">{post.title}</h2>
-        <p className="text-gray-700">{post.content}</p>
+        <h2 className="text-lg font-bold my-4">{post?.title}</h2>
+        <p className="text-gray-700">{post?.content}</p>
       </div>
     );
   };
