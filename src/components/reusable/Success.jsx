@@ -3,10 +3,10 @@ import paymentSuccess from "../../assets/images/payment.gif";
 
 const Success = () => {
   return (
-    <div className="flex justify-between items-center customContainer">
-      <h1 className="text-4xl font-bold text-black">
+    <div className="md:flex justify-between gap-4 space-y-8 p-8 items-center customContainer">
+      <h2 className="md:text-4xl text-2xl font-bold text-black">
         Your order confirm Successfully!
-      </h1>
+      </h2>
       <div>
         <img src={paymentSuccess} alt="success" />
       </div>
