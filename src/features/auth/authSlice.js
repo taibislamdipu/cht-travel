@@ -54,6 +54,9 @@ const authSlice = createSlice({
       state.photoURL = action?.payload?.photoURL;
       state.isLoading = false;
     },
+    toggleLoading: (state) => {
+      state.isLoading = false;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -70,7 +73,7 @@ const authSlice = createSlice({
       })
       .addCase(createUser.rejected, (state, action) => {
         state.email = "";
-        state.isLoading = true;
+        state.isLoading = false;
         state.isError = true;
         state.error = action.error.message;
       })
@@ -87,7 +90,7 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.email = "";
-        state.isLoading = true;
+        state.isLoading = false;
         state.isError = true;
         state.error = action.error.message;
       })
@@ -104,13 +107,13 @@ const authSlice = createSlice({
       })
       .addCase(googleLogin.rejected, (state, action) => {
         state.email = "";
-        state.isLoading = true;
+        state.isLoading = false;
         state.isError = true;
         state.error = action.error.message;
       });
   },
 });
 
-export const { logout, setUser } = authSlice.actions;
+export const { logout, setUser, toggleLoading } = authSlice.actions;
 
 export default authSlice.reducer;

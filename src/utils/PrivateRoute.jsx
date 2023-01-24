@@ -5,10 +5,9 @@ import { Navigate, useLocation } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
   const { pathname } = useLocation();
   const { isLoading, email } = useSelector((state) => state.auth);
-  console.log("pathname", pathname);
 
   if (isLoading) {
-    return "Loading";
+    return <h1>Loading</h1>;
   }
 
   if (!isLoading && !email) {

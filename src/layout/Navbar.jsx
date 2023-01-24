@@ -11,9 +11,7 @@ import { CiMap } from "react-icons/ci";
 import { BiHotel } from "react-icons/bi";
 
 const Navbar = () => {
-  const { email, photoURL, error, isError, isLoading, role } = useSelector(
-    (state) => state?.auth
-  );
+  const { email, photoURL } = useSelector((state) => state?.auth);
 
   const dispatch = useDispatch();
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });

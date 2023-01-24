@@ -62,7 +62,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/booking/:id",
-        element: <RoomBooking />,
+        element: (
+          <PrivateRoute>
+            <RoomBooking />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/success",

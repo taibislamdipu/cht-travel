@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import auth from "./firebase/firebase.config";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import { setUser } from "./features/auth/authSlice";
+import { setUser, toggleLoading } from "./features/auth/authSlice";
 import ScrollToTop from "react-scroll-to-top";
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +14,8 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(setUser(user));
+      } else {
+        dispatch(toggleLoading());
       }
     });
   }, []);
