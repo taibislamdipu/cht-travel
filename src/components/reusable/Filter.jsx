@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { handleSearch, setHotel } from "../../features/searchSlice";
 
@@ -108,8 +109,8 @@ const Filter = ({ setSearch }) => {
       <span className="flex flex-col gap-1">
         <span>Search</span>
         {/* <button className="btn w-auto max-w-xs" onClick={handleSearchBtn}> */}
-        <button className="btn bg-black md:w-40" onClick={handleClick}>
-          Search
+        <button className="btn bg-black md:w-40 gap-2" onClick={handleClick}>
+          <AiOutlineSearch size={23} /> Search
         </button>
       </span>
     </div>

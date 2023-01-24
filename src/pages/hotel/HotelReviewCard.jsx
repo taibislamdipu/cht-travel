@@ -7,7 +7,7 @@ const HotelReviewCard = () => {
         <p>8/10</p>
         <p>By: Enrique</p>
       </div>
-      <div className="col-span-4 bg-slate-200 p-4 lg:col-span-5">
+      <div className="col-span-4 bg-slate-200 p-4 lg:col-span-5 rounded-md">
         <div className="flex items-center justify-between">
           <h6 className="text-base font-semibold lg:text-xl">Exceptional</h6>
           <span className="text-xs lg:text-base">Dec 29, 2022</span>

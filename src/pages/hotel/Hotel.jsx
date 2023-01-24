@@ -14,6 +14,7 @@ import HotelImageGallery from "./HotelImageGallery";
 import { RiChat1Fill } from "react-icons/ri";
 import { FaPaw } from "react-icons/fa";
 import { BiBus } from "react-icons/bi";
+import { VscListSelection } from "react-icons/vsc";
 import { BsCheck, BsGlobe } from "react-icons/bs";
 import AmenitiesCard from "./AmenitiesCard";
 import { amenities } from "../../../public/amenities.js";
@@ -84,15 +85,17 @@ const Hotel = () => {
         </div>
         <div>
           <a href="#roomsRates">
-            <button className="btn">Choose a room</button>
+            <button className="btn bg-black rounded-lg gap-2 hover:bg-[#333333] text-white border-0">
+              <VscListSelection size={23} /> Choose a room
+            </button>
           </a>
         </div>
       </section>
-      <section className="">
+      <section>
         <div className="grid grid-cols-4 text-center">
           <ServicesNav />
         </div>
-        <section className="h-fit grid-cols-6 bg-slate-100 lg:grid">
+        <section className="h-fit grid-cols-6 bg-white lg:grid">
           <div className="col-span-4">
             <HotelImageGallery img={data?.imageURL} />
           </div>
@@ -179,7 +182,7 @@ const Hotel = () => {
         </section>
       </section>
       <section
-        className="grid-cols-3 gap-4 space-y-2 lg:grid"
+        className="grid-cols-3 gap-4 space-y-2 lg:grid bg-white p-4 rounded"
         id="hotelDescription"
       >
         <div className="col-span-2">
@@ -204,7 +207,7 @@ const Hotel = () => {
         )}
       </section>
 
-      <section id="googleMap">
+      <section id="googleMap" className="bg-white p-4 rounded">
         <h3 className="font-bold text-black text-lg">Map</h3>
         <div>
           <img
@@ -219,7 +222,7 @@ const Hotel = () => {
         <Filter />
       </section> */}
 
-      <section id="roomsRates">
+      <section id="roomsRates" className="bg-white p-4 rounded">
         <div className="flex gap-4">
           <h3 className="font-bold text-black text-lg">Rooms & Rates</h3>
           <p>( 1 night: 01/19/2023 - 01/20/2023 )</p>
@@ -248,7 +251,7 @@ const Hotel = () => {
         </div>
       </section>
 
-      <section className="space-y-2" id="amenities">
+      <section className="space-y-2 bg-white p-4 rounded" id="amenities">
         <h3 className="font-bold text-black text-lg">Amenities</h3>
 
         <section className="bg-slate-200 p-4">
@@ -284,7 +287,7 @@ const Hotel = () => {
         </div>
       </section>
 
-      <section className="space-y-4 pt-6" id="hotelReview">
+      <section className="space-y-4 pt-6 p-4 rounded bg-white" id="hotelReview">
         <h3 className="font-bold text-black text-lg">Guest Ratings</h3>
         <div className="flex items-center gap-4">
           <span className="rounded-full border-4 border-solid border-sky-500 bg-indigo-200 p-6 text-2xl font-bold">
@@ -301,7 +304,7 @@ const Hotel = () => {
           <HotelReviewCard />
         </div>
       </section>
-      <section className="space-y-4">
+      <section className="space-y-4 p-4 bg-white rounded">
         <h3 className="font-bold text-black text-lg">Nearby Hotels</h3>
         <div className="flex grid-cols-3 flex-wrap gap-4 lg:grid">
           <NearbyHotelCard />
@@ -309,7 +312,7 @@ const Hotel = () => {
           <NearbyHotelCard />
         </div>
       </section>
-      <section>
+      <section className="p-4 rounded bg-white">
         <h3 className="font-bold text-black text-lg">Important Information</h3>
         <p>
           Guests are required to show a photo ID and credit card upon check-in.

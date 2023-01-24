@@ -5,7 +5,7 @@ import hotelImg from "../../assets/images/hotelImg.jpg";
 
 const NearbyHotelCard = () => {
   return (
-    <section className="nearby-hotel-card rounded-md border-2">
+    <section className="nearby-hotel-card rounded-md border-2 bg-white">
       <div>
         <img src={hotelImg} alt="" className="w-full rounded-t-md" />
       </div>

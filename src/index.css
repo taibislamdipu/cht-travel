@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply text-fontPrimaryColor;
+  @apply text-fontPrimaryColor bg-[#f7f9f9];
 }
 
 .customContainer {
