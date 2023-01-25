@@ -232,8 +232,14 @@ const Hotel = () => {
           <h3 className="font-bold text-black text-lg">Rooms & Rates</h3>
           <p>
             {" "}
-            1 night: {searchQuery ? searchQuery.startDate : "01/19/2023"} -{" "}
-            {searchQuery ? searchQuery.endDate : "01/20/2023"}{" "}
+            1 night:{" "}
+            {searchQuery
+              ? searchQuery?.startDate?.toLocaleDateString()
+              : "01/19/2023"}{" "}
+            -{" "}
+            {searchQuery
+              ? searchQuery?.endDate?.toLocaleDateString()
+              : "01/20/2023"}{" "}
           </p>
         </div>
         <div className="border mt-2">
