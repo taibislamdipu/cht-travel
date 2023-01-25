@@ -14,6 +14,7 @@ import {
 import { CiMap } from "react-icons/ci";
 import { BiHotel } from "react-icons/bi";
 import { emptyCart } from "../features/cartSlice";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { email, photoURL } = useSelector((state) => state?.auth);
@@ -30,10 +31,15 @@ const Navbar = () => {
     });
   };
 
-  const isHomePage = true;
+  const location = useLocation();
+  const currentUrl = location?.pathname;
 
   return (
-    <nav className="navbar lg:px-40">
+    <nav
+      className={`${
+        currentUrl === "/" && "navbar-fixed"
+      } navbar bg-white lg:px-40`}
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">

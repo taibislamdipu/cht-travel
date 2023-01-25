@@ -79,9 +79,9 @@ body {
   font-size: 10px !important;
 }
 
-/* .navbar {
+.navbar-fixed {
   position: fixed;
   background-color: white;
   z-index: 50;
   top: 0;
-} */
+}
