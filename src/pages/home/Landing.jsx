@@ -10,7 +10,8 @@ import TopTouristSpot from "./TopTouristSpot/TopTouristSpot";
 const Landing = () => {
   return (
     <div>
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HeroSlider />
 
       <div data-aos="fade-up" data-aos-duration="1000">
         <OurService />

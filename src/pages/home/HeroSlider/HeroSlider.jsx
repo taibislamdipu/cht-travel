@@ -22,7 +22,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <div className="mt-10 lg:mx-40 px-4">
+    <div className="md:pt-32 pt-20 lg:mx-40 px-4">
       <Carousel
         autoPlay={true}
         swipeable={true}
