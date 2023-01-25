@@ -3,43 +3,74 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { toast } from "react-hot-toast";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { handleSearch, setHotel } from "../../features/searchSlice";
 
 const Filter = ({ setSearch }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  let today = new Date().toLocaleDateString();
+
+  console.log(today);
+
+  const [startDate, setStartDate] = useState(new Date(today));
+  const [endDate, setEndDate] = useState(new Date(today));
   const [room, setRoom] = useState("1 room");
   const [people, setPeople] = useState("1 person");
   const dispatch = useDispatch();
+
   const searchQuery = {
-    startDate: startDate.toLocaleDateString(),
-    endDate: endDate.toLocaleDateString(),
+    startDate: startDate,
+    endDate: endDate,
     noOfRoom: room,
     noOfPeople: people,
     onClick: true,
   };
 
-  const handleClick = () => {
-    dispatch(handleSearch(searchQuery));
-
-    // call api
-    const fetchData = async () => {
-      const res = await fetch(
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(
         "https://cht-travel-server-production.up.railway.app/hotels"
       );
-      const data = await res.json();
-      const filteredData = data?.filter((item) => item?.isAvailable === true);
-      dispatch(setHotel(filteredData));
-    };
+      const data = res.data;
+      if (data) {
+        const filteredData = data.filter((item) => item?.isAvailable === true);
+        dispatch(setHotel(filteredData));
+      } else {
+        // handle case when no data is returned
+      }
+    } catch (error) {
+      toast.error(error.message);
+      console.error(error);
+    }
+  };
 
-    fetchData();
+  const handleClick = () => {
+    if (!startDate) {
+      toast.error("Please select Check-in date");
+    } else if (!endDate) {
+      toast.error("Please select Check-out date");
+    } else {
+      dispatch(handleSearch(searchQuery));
+      fetchData();
+    }
+
+    // call api
+    // const fetchData = async () => {
+    //   const res = await fetch(
+    //     "https://cht-travel-server-production.up.railway.app/hotels"
+    //   );
+    //   const data = await res.json();
+    //   const filteredData = data?.filter((item) => item?.isAvailable === true);
+    //   dispatch(setHotel(filteredData));
+    // };
+
+    // fetchData();
   };
 
   return (
     <div className="lg:flex space-x-1 bg-white py-10 lg:px-44 px-4">
-      <span className="flex flex-col gap-1 w-full">
+      <div className="flex flex-col gap-1 w-full">
         <div className="">Search Hotel Name</div>
         <input
           onChange={(e) => setSearch(e.target.value)}
@@ -47,9 +78,9 @@ const Filter = ({ setSearch }) => {
           placeholder="Search hotel name"
           className="input-bordered input w-full"
         />
-      </span>
-      <span className="flex flex-col gap-1 ">
-        Checkin
+      </div>
+      <div className="flex flex-col gap-1 ">
+        <label>Check-in:</label>
         <DatePicker
           className="input-bordered input border border-green-200 focus:border-green-200 focus:ring-green-400 border-l-green-500 w-auto max-w-xs text-black flex"
           placeholderText={"Checkin"}
@@ -61,9 +92,9 @@ const Filter = ({ setSearch }) => {
           dateFormat="EEE, dd/MM/yy"
           formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
         />
-      </span>
-      <span className="flex flex-col gap-1">
-        Checkout
+      </div>
+      <div className="flex flex-col gap-1">
+        <label>Check-out:</label>
         <DatePicker
           className="input-bordered input border focus:border-red-200 focus:ring-red-400 border-red-200 border-l-red-500 w-auto max-w-xs text-black flex"
           placeholderText={"Checkout"}
@@ -76,10 +107,10 @@ const Filter = ({ setSearch }) => {
           dateFormat="EEE, dd/MM/yy"
           formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
         />
-      </span>
+      </div>
 
-      <span className="flex gap-2 w-full">
-        <span className="flex flex-col gap-1 w-1/2">
+      <div className="flex gap-2 w-full">
+        <div className="flex flex-col gap-1 w-1/2">
           No. of Room
           <div className="flex ">
             <select
@@ -91,8 +122,8 @@ const Filter = ({ setSearch }) => {
               <option value="3 room"> 3 room</option>
             </select>
           </div>
-        </span>
-        <span className="flex flex-col gap-1 w-1/2">
+        </div>
+        <div className="flex flex-col gap-1 w-1/2">
           No. of People
           <div className="flex w-full">
             <select
@@ -104,15 +135,15 @@ const Filter = ({ setSearch }) => {
               <option value="4 person">4 Person</option>
             </select>
           </div>
-        </span>
-      </span>
-      <span className="flex flex-col gap-1">
+        </div>
+      </div>
+      <div className="flex flex-col gap-1">
         <span>Search</span>
         {/* <button className="btn w-auto max-w-xs" onClick={handleSearchBtn}> */}
         <button className="btn bg-black md:w-40 gap-2" onClick={handleClick}>
           <AiOutlineSearch size={23} /> Search
         </button>
-      </span>
+      </div>
     </div>
   );
 };
