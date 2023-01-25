@@ -29,7 +29,6 @@ export const hotelApi = createApi({
     }),
     getSingleHotel: builder.query({
       query: (id) => ({ url: `hotel/${id}` }),
-      invalidatesTags: ["Hotels"],
     }),
   }),
 });
