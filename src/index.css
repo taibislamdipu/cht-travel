@@ -85,3 +85,8 @@ body {
   z-index: 50;
   top: 0;
 }
+
+/* dashboard sidebar */
+.dashboard-sidebar {
+  background-image: url("./assets/images/sidebarBgImg.jpg");
+}

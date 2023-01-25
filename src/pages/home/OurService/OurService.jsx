@@ -19,37 +19,37 @@ const OurService = () => {
     {
       name: "Tourist Sight",
       about: "Explore the best tourist sights with our Tourist Sight service.",
-      image: "https://i.ibb.co/LC9Mykq/transportation-Img.jpg",
+      image: "https://i.ibb.co/6WWNbLb/Tourist-Sight.jpg",
     },
     {
       name: "Transportation",
       about:
         "Effortlessly plan your transportation with our Transportation service",
-      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      image: "https://i.ibb.co/LC9Mykq/transportation-Img.jpg",
     },
     {
       name: "Tourist Guide",
       about: "Get the most out of your trip with our Tourist Guide service.",
-      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      image: "https://i.ibb.co/stJxLpX/Tourist-Guide.jpg",
     },
     {
       name: "Local Products",
-      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      image: "https://i.ibb.co/89d9rry/Local-Product.jpg",
       about: "Bring home a piece of your trip with our Local Product service.",
     },
     {
       name: "Local Food",
-      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      image: "https://i.ibb.co/WnZJwpQ/Local-Food.jpg",
       about: "Savor the local flavors with our Local Food service.",
     },
     {
       name: "Local Language",
-      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      image: "https://i.ibb.co/zZy0Sj9/Local-Language.jpg",
       about: "Speak like a local with our Local Language service.",
     },
     {
       name: "Bike Rent",
-      image: "https://i.ibb.co/3CH6qB6/hotel-Image.jpg",
+      image: "https://i.ibb.co/dfdzn0T/BikeRent.jpg",
       about: "Explore the city on two wheels with our Bike Rent service.",
     },
   ];

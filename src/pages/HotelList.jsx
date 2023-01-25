@@ -63,8 +63,8 @@ const HotelList = () => {
                   className="w-full"
                 />
               </div>
-              <div>
-                <h3 className="text-black font-bold mb-2">Set Your Budget</h3>
+              <div className="text-slate-500 hover:cursor-not-allowed">
+                <h3 className="font-bold mb-2">Set Your Budget</h3>
                 <p>BDT 500 to BDT {range} per night</p>
                 <input
                   className="w-full"
@@ -77,8 +77,8 @@ const HotelList = () => {
                   step="1"
                 />
               </div>
-              <div>
-                <h3 className="text-black font-bold mb-2">Star Rating</h3>
+              <div className="text-slate-500 hover:cursor-not-allowed">
+                <h3 className="font-bold mb-2">Star Rating</h3>
                 <div className="space-y-2">
                   <p className="flex items-center gap-2">
                     <input type="checkbox" name="" id="" /> 5 Star

@@ -1,37 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiFillHome, AiOutlineUnorderedList } from "react-icons/ai";
+import { AiFillFileAdd, AiFillHome } from "react-icons/ai";
+import { IoPersonAddSharp } from "react-icons/io5";
+import { BsList } from "react-icons/bs";
 
 const Sidebar = () => {
   return (
-    <div className="col-span-2 h-[calc(100vh-25px)] rounded-lg bg-indigo-200 p-5">
-      <ul className="flex h-full  flex-col gap-3">
-        <li className="font-bold text-black">Admin Dashboard</li>
+    <div className="col-span-2 md:h-[calc(100vh-25px)] rounded-lg bg-[#212D3A] text-white p-5 dashboard-sidebar">
+      <ul className="flex h-full flex-col gap-3">
+        <div>
+          <li className="font-bold ">
+            <Link to="/dashboard" className="hover:underline">
+              CHT Admin Dashboard
+            </Link>
+          </li>
+          <code>version: 1.0.1</code>
+        </div>
+
         <hr />
         <li>
           <Link
             to="/dashboard"
-            className="flex items-center gap-1 font-bold text-black hover:underline"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
-            <AiOutlineUnorderedList size={23} />
+            <BsList size={20} color="white" />
             Hotel List
           </Link>
         </li>
 
         <li>
-          <Link to="add-hotel"> Add Hotel </Link>
+          <Link
+            to="add-hotel"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
+          >
+            <AiFillFileAdd size={20} />
+            Add Hotel
+          </Link>
         </li>
         <li>
-          <Link to="admin"> Make Admin </Link>
+          <Link
+            to="admin"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
+          >
+            <IoPersonAddSharp size={20} />
+            Make Admin
+          </Link>
         </li>
 
         <li className="mt-auto">
           <Link
             to="/"
-            className="flex items-center gap-1 font-bold text-black hover:underline"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
-            <AiFillHome size={23} />
-            Back to Home{" "}
+            <AiFillHome size={20} />
+            Back to Home
           </Link>
         </li>
       </ul>
