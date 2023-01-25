@@ -17,6 +17,7 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import Service from "../pages/Service";
 import Signup from "../pages/Signup";
+import AdminRoute from "../utils/AdminRoute";
 import PrivateRoute from "../utils/PrivateRoute.jsx";
 
 const routes = createBrowserRouter([
@@ -98,7 +99,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "add-hotel",
-        element: <AddHotel />,
+        element: (
+          <AdminRoute>
+            <AddHotel />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/hotel/:id",
@@ -106,7 +111,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "admin",
-        element: <MakeAdmin />,
+        element: (
+          <AdminRoute>
+            <MakeAdmin />
+          </AdminRoute>
+        ),
       },
     ],
   },
