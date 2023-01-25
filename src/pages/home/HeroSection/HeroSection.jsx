@@ -6,18 +6,18 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="md:py-20 pt-4 pb-10 hero-section">
+    <div className="md:py-20 pt-4 md:pb-10 hero-section">
       <div className="md:flex customContainer">
-        <div className="md:w-1/2 space-y-6" data-aos="fade-right">
+        <div className="md:w-1/2 space-y-6 py-6" data-aos="fade-right">
           <div>
             <p className="mb-3">✈️ best experience</p>
-            <h1 className="text-4xl md:text-8xl font-bold text-black">
-              Your best trip <br /> with
+            <h1 className="text-5xl md:text-8xl md:text-start text-center font-bold text-black">
+              Your best trip with
               <span className="text-[#FED259] curvy-underline">
                 {" "}
                 amazing
               </span>{" "}
-              <br /> travel agency
+              travel agency
             </h1>
           </div>
           <p className="font-semibold">
@@ -32,7 +32,10 @@ const HeroSection = () => {
             </button>
           </Link>
         </div>
-        <div className="md:w-1/2" data-aos="fade-left">
+        <div
+          className="md:w-1/2 flex items-center justify-center "
+          data-aos="fade-left"
+        >
           <div>
             <img src={heroimg} className="w-full" alt="" />
           </div>
