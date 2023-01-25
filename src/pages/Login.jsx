@@ -10,19 +10,20 @@ import Footer from "../layout/Footer";
 import { FcGoogle } from "react-icons/fc";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
+import { useUpdateUserMutation } from "../api/userSlice";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+  const [updateUser] = useUpdateUserMutation();
 
   const { email, isLoading, isError, error } = useSelector(
     (state) => state.auth
   );
+
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(loginUser({ email: data.email, password: data.password }));
   };
 
@@ -35,6 +36,13 @@ const Login = () => {
       navigate("/");
     }
   }, [isLoading, email]);
+
+  useEffect(() => {
+    if (email) {
+      updateUser({ email });
+      navigate("/");
+    }
+  }, [email]);
 
   useEffect(() => {
     if (isError) {

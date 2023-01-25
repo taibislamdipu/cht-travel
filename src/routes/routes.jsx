@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddHotel from "../components/dashBoard/AddHotel";
 import DashboardHotel from "../components/dashBoard/DashboardHotel";
+import MakeAdmin from "../components/dashBoard/MakeAdmin";
 import UpdateHotel from "../components/dashBoard/UpdateHotel";
 import Success from "../components/reusable/Success";
 import Dashboard from "../layout/Dashboard/Dashboard";
@@ -76,6 +77,7 @@ const routes = createBrowserRouter([
         path: "/success",
         element: <Success />,
       },
+
       {
         path: "*",
         element: <NotFound />,
@@ -84,7 +86,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -97,6 +103,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/hotel/:id",
         element: <UpdateHotel />,
+      },
+      {
+        path: "admin",
+        element: <MakeAdmin />,
       },
     ],
   },

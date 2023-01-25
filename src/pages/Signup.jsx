@@ -9,6 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FiChevronLeft } from "react-icons/fi";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import Footer from "../layout/Footer";
+import { useAddUserMutation, useUpdateUserMutation } from "../api/userSlice";
 
 const Signup = () => {
   const { handleSubmit, register, reset, control } = useForm();
@@ -17,12 +18,23 @@ const Signup = () => {
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
 
-  const { isError, error } = useSelector((state) => state.auth);
+  const { displayName, email, isError, error } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
+  const [postUser] = useAddUserMutation();
+  const [updateUser] = useUpdateUserMutation();
 
   const handleGoogleLogin = () => {
     dispatch(googleLogin());
   };
+
+  useEffect(() => {
+    if (displayName && email) {
+      updateUser({ email });
+      navigate("/");
+    }
+  }, [email]);
 
   useEffect(() => {
     if (
@@ -45,8 +57,8 @@ const Signup = () => {
   }, [isError, error]);
 
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(createUser({ email: data.email, password: data.password }));
+    postUser(data);
     navigate("/");
   };
 

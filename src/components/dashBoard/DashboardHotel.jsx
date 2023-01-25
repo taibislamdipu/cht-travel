@@ -4,9 +4,13 @@ import toast from "react-hot-toast";
 import DeleteHotel from "./DeleteHotel";
 import { GrEdit } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useCheckAdminQuery } from "../../api/userSlice";
 
 const DashboardHotel = () => {
   const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
+  const { email } = useSelector((state) => state.auth);
+  const { data: checkAdmin } = useCheckAdminQuery(email);
 
   useEffect(() => {
     if (isLoading) {
@@ -44,9 +48,11 @@ const DashboardHotel = () => {
                 <th className="p-2">
                   <div className="text-left font-semibold">Price</div>
                 </th>
-                <th className="p-2">
-                  <div className="text-center font-semibold">Action</div>
-                </th>
+                {checkAdmin?.admin && (
+                  <th className="p-2">
+                    <div className="text-center font-semibold">Action</div>
+                  </th>
+                )}
               </tr>
             </thead>
 
@@ -100,13 +106,15 @@ const DashboardHotel = () => {
                       </button>
                     </div>
                   </td> */}
-                  <td className="p-2 flex justify-center items-center space-x-3">
-                    <Link to={`hotel/${_id}`}>
-                      <GrEdit size={18}></GrEdit>
-                    </Link>
+                  {checkAdmin?.admin && (
+                    <td className="p-2 flex justify-center items-center space-x-3">
+                      <Link to={`hotel/${_id}`}>
+                        <GrEdit size={18}></GrEdit>
+                      </Link>
 
-                    <DeleteHotel id={_id} />
-                  </td>
+                      <DeleteHotel id={_id} />
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>
