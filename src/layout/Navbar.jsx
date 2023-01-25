@@ -15,11 +15,12 @@ import { CiMap } from "react-icons/ci";
 import { BiHotel } from "react-icons/bi";
 import { emptyCart } from "../features/cartSlice";
 import { useLocation } from "react-router-dom";
+import { useCheckAdminQuery } from "../api/userSlice";
 
 const Navbar = () => {
   const { email, photoURL } = useSelector((state) => state?.auth);
-
   const { cart } = useSelector((state) => state.cart);
+  const { data } = useCheckAdminQuery(email);
 
   const dispatch = useDispatch();
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -103,7 +104,7 @@ const Navbar = () => {
               <Link> Eng | বাংলা</Link>
             </li>
 
-            {email && (
+            {data?.admin && (
               <Link to="/dashboard" className="btn">
                 Dashboard
               </Link>
@@ -205,7 +206,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {email && (
+          {data?.admin && (
             <Link to="/dashboard" className="btn btn-sm btn-primary">
               Dashboard
             </Link>

@@ -53,6 +53,8 @@ const HeroSection = () => {
               typeSpeed={50}
               loop
             /> */}
+            Explore and book in an awesome place find, explore and book the trip
+            find, explore more.
           </p>
 
           <Link to="/hotels" className="inline-block ">
