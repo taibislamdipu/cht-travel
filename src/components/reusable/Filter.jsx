@@ -82,31 +82,34 @@ const Filter = ({ setSearch }) => {
       <div className="flex flex-col gap-1 ">
         <label>Check-in:</label>
         <DatePicker
-          className="input-bordered input border border-green-200 focus:border-green-200 focus:ring-green-400 border-l-green-500 w-auto max-w-xs text-black flex"
+          className="input-bordered input border border-l-4 border-green-200 focus:border-green-200 focus:ring-green-400 border-l-green-500 w-auto max-w-xs text-black flex"
           placeholderText={"Checkin"}
           selected={startDate}
           onChange={(date) => setStartDate(date)}
           selectsStart
           startDate={startDate}
           endDate={endDate}
+          minDate={new Date()}
           dateFormat="EEE, dd/MM/yy"
           formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
         />
       </div>
       <div className="flex flex-col gap-1">
         <label>Check-out:</label>
-        <DatePicker
-          className="input-bordered input border focus:border-red-200 focus:ring-red-400 border-red-200 border-l-red-500 w-auto max-w-xs text-black flex"
-          placeholderText={"Checkout"}
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          selectsEnd
-          startDate={startDate}
-          endDate={endDate}
-          minDate={startDate}
-          dateFormat="EEE, dd/MM/yy"
-          formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
-        />
+        <span className="">
+          <DatePicker
+            className="input-bordered input border border-l-4 focus:border-red-200 focus:ring-red-400 border-red-200 border-l-red-500 w-auto max-w-xs text-black flex"
+            placeholderText={"Checkout"}
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            selectsEnd
+            startDate={startDate}
+            endDate={endDate}
+            minDate={startDate}
+            dateFormat="EEE, dd/MM/yy"
+            formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
+          />
+        </span>
       </div>
 
       <div className="flex gap-2 w-full">

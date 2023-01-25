@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillCar } from "react-icons/ai";
+import { AiFillCar, AiFillStar } from "react-icons/ai";
 import { RiChat1Fill } from "react-icons/ri";
 import hotelImg from "../../assets/images/hotelImg.jpg";
 
@@ -9,15 +9,16 @@ const NearbyHotelCard = () => {
       <div>
         <img src={hotelImg} alt="" className="w-full rounded-t-md" />
       </div>
-      <div className="p-4">
+      <div className="p-4 space-y-3">
         <div className="flex items-center justify-between">
-          <h6 className="pb-3 text-black font-bold">Royal Blue Stone</h6>
-          <div className="rating">
-            <input
-              type="radio"
-              name="rating-2"
-              className="mask mask-star-2 bg-orange-400"
-            />
+          <h6 className="text-black font-bold">Royal Blue Stone</h6>
+          <div>
+            <span className="flex">
+              <AiFillStar size={23} color="#FF9900" />
+              <AiFillStar size={23} color="#FF9900" />
+              <AiFillStar size={23} color="#FF9900" />
+              <AiFillStar size={23} color="#FF9900" />
+            </span>
           </div>
         </div>
         <div>

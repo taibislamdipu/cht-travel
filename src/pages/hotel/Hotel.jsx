@@ -1,6 +1,7 @@
 import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import {
+  AiFillStar,
   AiFillTag,
   AiOutlineArrowLeft,
   AiOutlineCheckCircle,
@@ -65,12 +66,13 @@ const Hotel = () => {
                 <h2 className="">{data?.title}</h2>
               </div>
             </Link>
-            <div className="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
+            <div className="">
+              <span className="flex">
+                <AiFillStar size={23} color="#FF9900" />
+                <AiFillStar size={23} color="#FF9900" />
+                <AiFillStar size={23} color="#FF9900" />
+                <AiFillStar size={23} color="#FF9900" />
+              </span>
             </div>
           </div>
           <div className="lg:flex lg:space-y-0 space-y-2 items-center">

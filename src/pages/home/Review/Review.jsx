@@ -2,6 +2,7 @@ import React from "react";
 import "./Review.css";
 import ScrollContainer from "react-indiana-drag-scroll";
 import userImg from "../../../assets/images/userImg.jpg";
+import { AiFillStar } from "react-icons/ai";
 
 const Review = () => {
   const data = [
@@ -34,7 +35,15 @@ const Review = () => {
                       style={{ backgroundColor: `${item.color}` }}
                     >
                       <div>
-                        <p className="font-bold">4.7 *</p>
+                        <div className="font-bold gap-2 flex items-center">
+                          <span> 4.7</span>
+                          <span className="flex">
+                            <AiFillStar size={20} color="#FF9900" />
+                            <AiFillStar size={20} color="#FF9900" />
+                            <AiFillStar size={20} color="#FF9900" />
+                            <AiFillStar size={20} color="#FF9900" />
+                          </span>
+                        </div>
                         <p className="font-bold text-xs">Jan 2023</p>
                       </div>
                       <p>
