@@ -281,7 +281,7 @@ const Hotel = () => {
           </div>
         </div>
 
-        <div className="pt-4 space-y-2">
+        {/* <div className="pt-4 space-y-2">
           <h5 className="font-bold">All Amenities</h5>
           <div className="grid-cols-2 lg:grid-cols-5 md:grid-cols-3 gap-4 grid">
             {amenities.map((item) => (
@@ -293,7 +293,7 @@ const Hotel = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
 
       <section className="space-y-4 pt-6 p-4 rounded bg-white" id="hotelReview">
