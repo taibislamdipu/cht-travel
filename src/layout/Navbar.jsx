@@ -29,8 +29,11 @@ const Navbar = () => {
       dispatch(emptyCart());
     });
   };
+
+  const isHomePage = true;
+
   return (
-    <nav className="navbar">
+    <nav className="navbar lg:px-40">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
