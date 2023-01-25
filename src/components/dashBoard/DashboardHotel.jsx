@@ -4,13 +4,9 @@ import toast from "react-hot-toast";
 import DeleteHotel from "./DeleteHotel";
 import { GrEdit } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useCheckAdminQuery } from "../../api/userSlice";
 
 const DashboardHotel = () => {
   const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
-  const { email } = useSelector((state) => state.auth);
-  const { data: checkAdmin } = useCheckAdminQuery(email);
 
   useEffect(() => {
     if (isLoading) {
@@ -48,16 +44,15 @@ const DashboardHotel = () => {
                 <th className="p-2">
                   <div className="text-left font-semibold">Price</div>
                 </th>
-                {checkAdmin?.admin && (
-                  <th className="p-2">
-                    <div className="text-center font-semibold">Action</div>
-                  </th>
-                )}
+
+                <th className="p-2">
+                  <div className="text-center font-semibold">Action</div>
+                </th>
               </tr>
             </thead>
 
             <tbody className="divide-y divide-gray-100 text-sm">
-              {data?.map(({ title, address, price, status, _id }) => (
+              {data?.map(({ title, address, price, isAvailable, _id }) => (
                 <tr key={_id}>
                   <td className="p-2">
                     <input type="checkbox" className="h-5 w-5" value="id-1" />
@@ -70,7 +65,7 @@ const DashboardHotel = () => {
                   </td>
                   <td className="p-2">
                     <div className="text-left">
-                      {status ? (
+                      {isAvailable ? (
                         <p classNameName="font-medium text-green-500">
                           Available
                         </p>
@@ -106,15 +101,14 @@ const DashboardHotel = () => {
                       </button>
                     </div>
                   </td> */}
-                  {checkAdmin?.admin && (
-                    <td className="p-2 flex justify-center items-center space-x-3">
-                      <Link to={`hotel/${_id}`}>
-                        <GrEdit size={18}></GrEdit>
-                      </Link>
 
-                      <DeleteHotel id={_id} />
-                    </td>
-                  )}
+                  <td className="p-2 flex justify-center items-center space-x-3">
+                    <Link to={`hotel/${_id}`}>
+                      <GrEdit size={18}></GrEdit>
+                    </Link>
+
+                    <DeleteHotel id={_id} />
+                  </td>
                 </tr>
               ))}
             </tbody>
