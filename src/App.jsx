@@ -15,10 +15,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Simulating a 2s loading time
+    // Simulating a 3s loading time
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 
   useEffect(() => {

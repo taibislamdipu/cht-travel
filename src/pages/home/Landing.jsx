@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "../../layout/Footer";
 import Contact from "../Contact";
 import About from "./About";
+import Demo from "./Demo";
 import HeroSection from "./HeroSection/HeroSection";
 import HeroSlider from "./HeroSlider/HeroSlider";
 import OurService from "./OurService/OurService";
@@ -18,11 +19,11 @@ const Landing = () => {
         <OurService />
       </div>
 
-      <div
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1000"
-      >
+      <div>
+        <Demo />
+      </div>
+
+      <div data-aos="fade-up" data-aos-duration="1000">
         <TopTouristSpot />
       </div>
 

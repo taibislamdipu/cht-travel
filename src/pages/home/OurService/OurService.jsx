@@ -1,6 +1,6 @@
 import React from "react";
 import "./OurService.css";
-import { BiBed } from "react-icons/bi";
+
 import ScrollContainer from "react-indiana-drag-scroll";
 import { Link } from "react-router-dom";
 import ServiceCard from "../../../components/ServiceCard/ServiceCard";

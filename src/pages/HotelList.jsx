@@ -28,11 +28,6 @@ const HotelList = () => {
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
-  // number of hotels available
-  const count = Object.values(data).filter(
-    (item) => item?.isAvailable === true
-  ).length;
-
   return (
     <div className=" bg-[#F2F2F2]">
       <div className="pb-4">
@@ -63,8 +58,8 @@ const HotelList = () => {
                   className="w-full"
                 />
               </div>
-              <div>
-                <h3 className="text-black font-bold mb-2">Set Your Budget</h3>
+              <div className="text-slate-500 hover:cursor-not-allowed">
+                <h3 className="font-bold mb-2">Set Your Budget</h3>
                 <p>BDT 500 to BDT {range} per night</p>
                 <input
                   className="w-full"
@@ -77,8 +72,8 @@ const HotelList = () => {
                   step="1"
                 />
               </div>
-              <div>
-                <h3 className="text-black font-bold mb-2">Star Rating</h3>
+              <div className="text-slate-500 hover:cursor-not-allowed">
+                <h3 className="font-bold mb-2">Star Rating</h3>
                 <div className="space-y-2">
                   <p className="flex items-center gap-2">
                     <input type="checkbox" name="" id="" /> 5 Star
@@ -125,7 +120,7 @@ const HotelList = () => {
             <div>
               <h2>
                 <span className="font-bold text-black">
-                  {hotels?.length} of 20
+                  {hotels?.length} of {data?.length}
                 </span>{" "}
                 hotels are available in Bandarban
               </h2>

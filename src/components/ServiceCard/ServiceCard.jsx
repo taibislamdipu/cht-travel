@@ -1,11 +1,11 @@
 import React from "react";
 import "./ServiceCard.css";
-
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 const ServiceCard = ({ service }) => {
   return (
     <div
       id="service-card"
-      className="card lg:w-full hover:opacity-90 w-72 bg-base-100 hover:shadow-xl shadow-md transition"
+      className="card lg:w-full hover:opacity-90 w-72 bg-white hover:shadow-lg transition"
     >
       <figure>
         <img
@@ -14,7 +14,7 @@ const ServiceCard = ({ service }) => {
           alt="Shoes"
         />
       </figure>
-      <div className="card-body h-56">
+      <div className="card-body h-56 bg-white border rounded-b-xl">
         <h2 className="card-title service-element text-black">
           {service?.name}
         </h2>

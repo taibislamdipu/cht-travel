@@ -114,7 +114,7 @@ const Login = () => {
                 <p className="text-center">
                   Don't have an account?{" "}
                   <span
-                    className="cursor-pointer text-primary hover:underline"
+                    className="cursor-pointer text-primary hover:text-[#333333] underline"
                     onClick={() => navigate("/signup")}
                   >
                     Sign up

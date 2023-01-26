@@ -1,4 +1,6 @@
 import React from "react";
+import { AiOutlineDoubleRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import chtTravelLogo from "../../assets/images/cht-travel-logo.jpg";
 const About = () => {
   const services = [
@@ -55,6 +57,15 @@ const About = () => {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="flex justify-center mt-12">
+        <Link to="/hotels">
+          <button className="btn btn-primary flex items-center gap-2 w-56">
+            Explore Now
+            <AiOutlineDoubleRight size={23} />
+          </button>
+        </Link>
       </div>
     </div>
   );

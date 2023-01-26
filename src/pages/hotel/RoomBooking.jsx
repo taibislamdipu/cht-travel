@@ -166,7 +166,7 @@ const RoomBooking = () => {
   };
 
   return (
-    <div className="space-y-8 py-20 customContainer">
+    <div className="space-y-8 py-10 customContainer">
       <Link to={-1} className="inline-block ">
         <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
           <AiOutlineArrowLeft />

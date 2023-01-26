@@ -21,7 +21,7 @@ const Sidebar = () => {
         <li>
           <Link
             to="/dashboard"
-            className="flex items-center gap-1 hover:underline hover:bg-black rounded-md p-2"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
             <BsList size={20} color="white" />
             Hotel List
@@ -31,7 +31,7 @@ const Sidebar = () => {
         <li>
           <Link
             to="add-hotel"
-            className="flex items-center gap-1 hover:underline hover:bg-black rounded-md p-2"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
             <AiFillFileAdd size={20} />
             Add Hotel
@@ -40,7 +40,7 @@ const Sidebar = () => {
         <li>
           <Link
             to="admin"
-            className="flex items-center gap-1 hover:underline hover:bg-black rounded-md p-2"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
             <IoPersonAddSharp size={20} />
             Make Admin
@@ -50,7 +50,7 @@ const Sidebar = () => {
         <li className="mt-auto">
           <Link
             to="/"
-            className="flex items-center gap-1 hover:underline hover:bg-black rounded-md p-2"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
             <AiFillHome size={20} />
             Back to Home

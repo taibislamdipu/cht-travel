@@ -37,6 +37,17 @@ const Hotel = () => {
     { id: "4", name: "Guest Review", link: "#hotelReview" },
   ];
 
+  const Loading = () => {
+    return (
+      <div>
+        <div class="animate-pulse space-y-4">
+          <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-52"></div>
+          <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-32"></div>
+        </div>
+      </div>
+    );
+  };
+
   const ServicesNav = () => {
     return (
       <>
@@ -57,45 +68,51 @@ const Hotel = () => {
 
   return (
     <div className="space-y-8 md:py-20 py-10 customContainer">
-      <section className="flex justify-between">
-        <div className="lg:space-y-0 space-y-2">
-          <div className="flex">
-            <Link to="/hotels" className="inline-block ">
-              <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
-                <AiOutlineArrowLeft />
-                <h2 className="">{data?.title}</h2>
-              </div>
-            </Link>
-            <div className="">
-              <span className="flex">
-                <AiFillStar size={23} color="#FF9900" />
-                <AiFillStar size={23} color="#FF9900" />
-                <AiFillStar size={23} color="#FF9900" />
-                <AiFillStar size={23} color="#FF9900" />
-              </span>
-            </div>
-          </div>
-          <div className="lg:flex lg:space-y-0 space-y-2 items-center">
-            <p>{data?.address}</p>
-            <div className="flex items-center">
-              <span>
-                <IoLocationSharp />
-              </span>
+      {!data?.title ? (
+        <Loading />
+      ) : (
+        <section className="flex justify-between flex-wrap space-y-4 md:space-y-0">
+          <div className="lg:space-y-0 space-y-2">
+            <div className="flex gap-2 items-center">
+              <Link to="/hotels" className="inline-block ">
+                <div className="text-2xl font-bold flex text-black hover:text-fontPrimaryColor transition items-center gap-2">
+                  <AiOutlineArrowLeft />
+                  <h2 className="">{data?.title}</h2>
+                </div>
+              </Link>
 
-              <a href="#googleMap" className="link">
-                View Map
-              </a>
+              <div className="">
+                <span className="flex">
+                  <AiFillStar size={23} color="#FF9900" />
+                  <AiFillStar size={23} color="#FF9900" />
+                  <AiFillStar size={23} color="#FF9900" />
+                  <AiFillStar size={23} color="#FF9900" />
+                </span>
+              </div>
+            </div>
+
+            <div className="lg:flex lg:space-y-0 space-y-2 items-center">
+              <p>{data?.address}</p>
+              <div className="flex items-center">
+                <span>
+                  <IoLocationSharp />
+                </span>
+
+                <a href="#googleMap" className="link">
+                  View Map
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <a href="#roomsRates">
-            <button className="btn bg-black rounded-lg gap-2 hover:bg-[#333333] text-white border-0">
-              <VscListSelection size={23} /> Choose a room
-            </button>
-          </a>
-        </div>
-      </section>
+          <div>
+            <a href="#roomsRates">
+              <button className="btn bg-black rounded-lg gap-2 hover:bg-[#333333] text-white border-0">
+                <VscListSelection size={23} /> Choose a room
+              </button>
+            </a>
+          </div>
+        </section>
+      )}
       <section>
         <div className="grid grid-cols-4 text-center">
           <ServicesNav />
