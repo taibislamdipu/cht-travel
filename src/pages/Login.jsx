@@ -81,7 +81,7 @@ const Login = () => {
                   Email Address
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                   type="email"
                   {...register("email")}
                   id="email"
@@ -92,7 +92,7 @@ const Login = () => {
               <div className="">
                 <label className="font-bold text-sm text-black">Password</label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered bg-white w-full"
                   type="password"
                   id="password"
                   {...register("password")}

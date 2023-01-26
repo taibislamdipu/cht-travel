@@ -89,11 +89,12 @@ const Signup = () => {
                   Email Address
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered bg-white w-full"
                   type="email"
                   name="email"
                   id="email"
                   {...register("email")}
+                  placeholder="someone@example.com"
                 />
               </div>
 
@@ -105,11 +106,12 @@ const Signup = () => {
                   Password
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                   type="password"
                   name="password"
                   id="password"
                   {...register("password")}
+                  placeholder="password"
                 />
               </div>
               <div className="flex flex-col items-start">
@@ -120,10 +122,11 @@ const Signup = () => {
                   Confirm Password
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                   type="password"
                   id="confirm-password"
                   {...register("confirmPassword")}
+                  placeholder="password"
                 />
               </div>
               <div className="!mt-8 ">
