@@ -46,8 +46,12 @@ const Demo = () => {
           />
         ))}
       </div>
-      <div className="col-span-3 shadow-lg">
-        <img src="https://i.ibb.co/K50htrm/hotels-Page.png" alt="Features" />
+      <div className="col-span-3 shadow-lg md:p-0 p-4">
+        <img
+          src="https://i.ibb.co/K50htrm/hotels-Page.png"
+          className="object-cover w-full"
+          alt="Features"
+        />
       </div>
       <div
         className="col-span-1 flex flex-col justify-center pl-10 gap-10"
