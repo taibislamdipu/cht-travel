@@ -71,7 +71,7 @@ const Hotel = () => {
       {!data?.title ? (
         <Loading />
       ) : (
-        <section className="flex justify-between">
+        <section className="flex justify-between flex-wrap space-y-4 md:space-y-0">
           <div className="lg:space-y-0 space-y-2">
             <div className="flex gap-2 items-center">
               <Link to="/hotels" className="inline-block ">

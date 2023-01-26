@@ -65,7 +65,7 @@ const Filter = ({ setSearch }) => {
   };
 
   return (
-    <div className="lg:flex space-x-1 bg-white py-10 lg:px-44 px-4">
+    <div className="lg:flex space-x-1 bg-white py-10 lg:px-44 space-y-4 md:space-y-0 px-4">
       <div className="flex flex-col gap-1 w-full">
         <div className="">Search Hotel Name</div>
         <input

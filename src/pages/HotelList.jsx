@@ -28,11 +28,6 @@ const HotelList = () => {
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
-  // number of hotels available
-  const count = Object.values(data).filter(
-    (item) => item?.isAvailable === true
-  ).length;
-
   return (
     <div className=" bg-[#F2F2F2]">
       <div className="pb-4">

@@ -1,6 +1,7 @@
 import React from "react";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import { useMediaQuery } from "react-responsive";
 import { Link, useNavigate } from "react-router-dom";
 
 import { addToCart } from "../../features/cartSlice";
@@ -11,6 +12,8 @@ const RoomsRate = ({ categories, hotelData }) => {
 
   const { type, price, descpt, roomCount } = categories;
 
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   var hotelprice = Intl.NumberFormat().format(price);
 
   const dispatch = useDispatch();
@@ -20,7 +23,7 @@ const RoomsRate = ({ categories, hotelData }) => {
     navigate(`/booking/${hotelData._id}`, { state: categories });
   };
   return (
-    <div className="flex justify-between items-center px-4 py-10 border-b">
+    <div className="flex justify-between items-center px-4 py-10 border-b flex-wrap md:space-y-6 space-y-12">
       <div>
         <div className="flex gap-2">
           <p className="font-bold text-black">{type}</p>
@@ -46,10 +49,12 @@ const RoomsRate = ({ categories, hotelData }) => {
           <BsFillInfoCircleFill />
           Prepaid - Book Now, Pay Now
         </p>
-        <p className="flex gap-2 items-center">
-          <BsFillInfoCircleFill />
-          {descpt.slice(0, 100)}
-        </p>
+        {!isTabletOrMobile && (
+          <p className="flex gap-2 items-center">
+            <BsFillInfoCircleFill />
+            {descpt.slice(0, 100)}
+          </p>
+        )}
       </div>
 
       <div className="flex flex-col space-y-2">
