@@ -41,6 +41,7 @@ const Navbar = () => {
         currentUrl === "/" && "navbar-fixed"
       } navbar bg-white lg:px-40`}
     >
+      {/* for mobile */}
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn-ghost btn lg:hidden">
@@ -61,7 +62,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="dropdown-content menu rounded-box space-y-2 menu-compact text-black font-bold mt-3 w-52 bg-base-100 p-2 shadow"
+            className="dropdown-content menu bg-white rounded-box space-y-2 menu-compact text-black font-bold mt-3 w-52  p-2 shadow"
           >
             <li>
               <Link to="/">Home</Link>
@@ -105,16 +106,25 @@ const Navbar = () => {
             </li>
 
             {data?.admin && (
-              <Link to="/dashboard" className="btn">
+              <Link
+                to="/dashboard"
+                className="btn btn bg-black hover:bg-[#333333] text-white border-0"
+              >
                 Dashboard
               </Link>
             )}
             {email ? (
-              <button className="btn btn-primary" onClick={handleSignOut}>
+              <button
+                className="btn bg-black hover:bg-[#333333] text-white border-0"
+                onClick={handleSignOut}
+              >
                 Logout
               </button>
             ) : (
-              <Link to="/login" className="btn">
+              <Link
+                to="/login"
+                className="btn bg-black hover:bg-[#333333] text-white border-0"
+              >
                 Login
               </Link>
             )}
@@ -206,7 +216,7 @@ const Navbar = () => {
             </Link>
           )}
 
-          {data?.admin && (
+          {data?.admin && email && (
             <Link to="/dashboard" className="btn btn-sm btn-primary">
               Dashboard
             </Link>

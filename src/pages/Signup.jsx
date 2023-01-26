@@ -139,7 +139,7 @@ const Signup = () => {
                 <p className="text-center">
                   Already have an account?{" "}
                   <span
-                    className="cursor-pointer text-primary hover:underline"
+                    className="cursor-pointer text-primary underline hover:text-[#333333]"
                     onClick={() => navigate("/login")}
                   >
                     Login

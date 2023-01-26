@@ -125,7 +125,7 @@ const HotelList = () => {
             <div>
               <h2>
                 <span className="font-bold text-black">
-                  {hotels?.length} of 20
+                  {hotels?.length} of {data?.length}
                 </span>{" "}
                 hotels are available in Bandarban
               </h2>

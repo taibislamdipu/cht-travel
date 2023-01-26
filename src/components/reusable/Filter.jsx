@@ -72,14 +72,14 @@ const Filter = ({ setSearch }) => {
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder="Search hotel name"
-          className="input-bordered input w-full"
+          className="input-bordered input w-full bg-white"
         />
       </div>
       <div className="flex flex-col gap-1 ">
         <label>Check-in:</label>
         <DatePicker
-          className="input-bordered input border border-l-4 border-green-200 focus:border-green-200 focus:ring-green-400 border-l-green-500 w-auto max-w-xs text-black flex"
-          placeholderText={"Checkin"}
+          className="input-bordered bg-white input border border-l-4 border-green-200 focus:border-green-200 focus:ring-green-400 border-l-green-500 w-auto max-w-xs text-black flex"
+          placeholderText={"Check-in"}
           selected={startDate}
           onChange={(date) => setStartDate(date)}
           selectsStart
@@ -94,7 +94,7 @@ const Filter = ({ setSearch }) => {
         <label>Check-out:</label>
         <span className="">
           <DatePicker
-            className="input-bordered input border border-l-4 focus:border-red-200 focus:ring-red-400 border-red-200 border-l-red-500 w-auto max-w-xs text-black flex"
+            className="input-bordered bg-white input border border-l-4 focus:border-red-200 focus:ring-red-400 border-red-200 border-l-red-500 w-auto max-w-xs text-black flex"
             placeholderText={"Checkout"}
             selected={endDate}
             onChange={(date) => setEndDate(date)}
@@ -113,7 +113,7 @@ const Filter = ({ setSearch }) => {
           No. of Room
           <div className="flex ">
             <select
-              className="select-bordered w-full select text-black"
+              className="select-bordered w-full select text-black bg-white"
               onChange={(e) => setRoom(e.target.value)}
             >
               <option value="1 room">1 room</option>
@@ -126,7 +126,7 @@ const Filter = ({ setSearch }) => {
           No. of People
           <div className="flex w-full">
             <select
-              className="select-bordered w-full select text-black"
+              className="select-bordered w-full select text-black bg-white"
               onChange={(e) => setPeople(e.target.value)}
             >
               <option value="1 person">1 Person</option>
