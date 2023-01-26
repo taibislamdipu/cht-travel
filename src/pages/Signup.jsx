@@ -89,7 +89,7 @@ const Signup = () => {
                   Email Address
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered bg-white w-full"
                   type="email"
                   name="email"
                   id="email"
@@ -105,7 +105,7 @@ const Signup = () => {
                   Password
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                   type="password"
                   name="password"
                   id="password"
@@ -120,7 +120,7 @@ const Signup = () => {
                   Confirm Password
                 </label>
                 <input
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-white"
                   type="password"
                   id="confirm-password"
                   {...register("confirmPassword")}
