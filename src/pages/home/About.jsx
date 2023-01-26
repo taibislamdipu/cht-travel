@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import chtTravelLogo from "../../assets/images/cht-travel-logo.jpg";
+import bdGovtLogo from "../../assets/images/bdGovtLogo.png";
 const About = () => {
   const services = [
     { id: "1", service: "Hotel" },
@@ -21,10 +22,21 @@ const About = () => {
   return (
     <div className="my-20 customContainer">
       <div className="lg:flex gap-8">
-        <div data-aos="fade-right" data-aos-duration="1000">
-          <img src={chtTravelLogo} className="rounded-lg" alt="" />
-        </div>
-        <div className="py-10 space-y-6">
+        <img
+          src={chtTravelLogo}
+          className="rounded-lg"
+          alt=""
+          style={{ width: "300px", height: "300px" }}
+        />
+
+        <img
+          src={bdGovtLogo}
+          className="rounded-lg"
+          alt=""
+          style={{ width: "300px", height: "300px" }}
+        />
+
+        <div className="pt-10 md:pt-0 space-y-6">
           <div className="space-y-4">
             <h2
               className="text-2xl font-bold text-black"
