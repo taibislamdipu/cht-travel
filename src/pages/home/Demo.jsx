@@ -1,6 +1,9 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 
 const Demo = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
   const data = [
     { id: 1, title: "Data Range", subtitle: "Filter By Data" },
     { id: 2, title: "Data Range", subtitle: "ASC & DESC Sorting" },
@@ -34,7 +37,7 @@ const Demo = () => {
     <div className="md:grid grid-cols-5 gap-4 md:space-y-0 space-y-8 mb-20">
       <div
         className="col-span-1 flex flex-col justify-center pl-10 gap-10"
-        data-aos="fade-left"
+        data-aos={`${isTabletOrMobile ? "fade-in" : "fade-left"}`}
         data-aos-duration="1000"
       >
         {data.slice(0, 5).map((item) => (
