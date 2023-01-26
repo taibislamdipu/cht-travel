@@ -94,6 +94,7 @@ const Signup = () => {
                   name="email"
                   id="email"
                   {...register("email")}
+                  placeholder="someone@example.com"
                 />
               </div>
 
@@ -110,6 +111,7 @@ const Signup = () => {
                   name="password"
                   id="password"
                   {...register("password")}
+                  placeholder="password"
                 />
               </div>
               <div className="flex flex-col items-start">
@@ -124,6 +126,7 @@ const Signup = () => {
                   type="password"
                   id="confirm-password"
                   {...register("confirmPassword")}
+                  placeholder="password"
                 />
               </div>
               <div className="!mt-8 ">
