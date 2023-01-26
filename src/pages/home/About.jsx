@@ -21,31 +21,34 @@ const About = () => {
 
   return (
     <div className="my-20 customContainer">
-      <div className="lg:flex gap-8">
-        <img
-          src={chtTravelLogo}
-          className="rounded-lg"
-          alt=""
-          style={{ width: "300px", height: "300px" }}
-        />
+      <div
+        className="lg:flex gap-8"
+        data-aos="fade-in"
+        data-aos-duration="1000"
+      >
+        <div className="md:w-1/2 md:flex space-x-4 space-y-4 md:space-y-4">
+          <div className="flex justify-center">
+            <img
+              src={chtTravelLogo}
+              className="rounded-lg"
+              alt=""
+              style={{ width: "300px", height: "300px" }}
+            />
+          </div>
 
-        <img
-          src={bdGovtLogo}
-          className="rounded-lg"
-          alt=""
-          style={{ width: "300px", height: "300px" }}
-        />
+          <div className="flex justify-center">
+            <img
+              src={bdGovtLogo}
+              className="rounded-lg"
+              alt=""
+              style={{ width: "300px", height: "300px" }}
+            />
+          </div>
+        </div>
 
-        <div className="pt-10 md:pt-0 space-y-6">
+        <div className="pt-10 md:pt-0 space-y-6 md:w-1/2">
           <div className="space-y-4">
-            <h2
-              className="text-2xl font-bold text-black"
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1000"
-            >
-              About us
-            </h2>
+            <h2 className="text-2xl font-bold text-black">About us</h2>
             <p>
               <span className="font-bold">CHT Travel</span> is a company that
               helps you find the right hotel in your travel destination. We
