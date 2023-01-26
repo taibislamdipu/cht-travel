@@ -6,6 +6,8 @@ import {
 } from "../../api/hotelSlice";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { GrEdit } from "react-icons/gr";
+import { AiFillEdit } from "react-icons/ai";
 
 const UpdateHotel = () => {
   const { id } = useParams();
@@ -31,7 +33,11 @@ const UpdateHotel = () => {
   };
 
   return (
-    <div className="flex h-full items-center justify-center ">
+    <div className="">
+      <div className="font-bold gap-2 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
+        <AiFillEdit size={20} color="white" />
+        Update Hotel
+      </div>
       <form
         className="flex max-w-3xl flex-wrap justify-between gap-3 rounded-md bg-white p-10 shadow-lg"
         onSubmit={handleSubmit(submit)}
@@ -45,6 +51,7 @@ const UpdateHotel = () => {
             id="name"
             {...register("name")}
             placeholder={data?.title}
+            defaultValue={data?.title}
           />
         </div>
 
@@ -53,21 +60,39 @@ const UpdateHotel = () => {
           <label className="mb-2" htmlFor="image">
             Image
           </label>
-          <input type="text" name="image" id="image" {...register("image")} />
+          <input
+            type="text"
+            name="image"
+            id="image"
+            {...register("image")}
+            defaultValue={data?.imageURL}
+          />
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="price">
             Price
           </label>
-          <input type="number" name="price" id="price" {...register("price")} />
+          <input
+            type="number"
+            name="price"
+            id="price"
+            {...register("price")}
+            defaultValue={data?.price}
+          />
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="room">
             Total Room
           </label>
-          <input type="number" name="room" id="room" {...register("room")} />
+          <input
+            type="number"
+            name="room"
+            id="room"
+            {...register("room")}
+            defaultValue={data?.totalRoom}
+          />
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
@@ -108,6 +133,7 @@ const UpdateHotel = () => {
             name="location"
             id="location"
             {...register("location")}
+            defaultValue={data?.address}
           />
         </div>
 
@@ -120,6 +146,7 @@ const UpdateHotel = () => {
             name="description"
             id="description"
             {...register("description")}
+            defaultValue={data?.description}
           />
         </div>
 

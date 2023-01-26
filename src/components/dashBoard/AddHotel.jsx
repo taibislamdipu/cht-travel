@@ -18,6 +18,7 @@ const AddHotel = () => {
     }
   }, [isLoading, isError, reset, isSuccess]);
 
+  // original form submit function
   const submit = (data) => {
     const hotel = {
       title: data?.name,
@@ -34,12 +35,233 @@ const AddHotel = () => {
     postHotel(hotel);
   };
 
+  // function for testing purpose
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
+
   return (
     <div className="">
       <div className="font-bold gap-2 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
         <BiAddToQueue size={20} />
         Add Hotel
       </div>
+
+      {/* testing form */}
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="name" className="w-40 mr-8 p-4 ">
+              _id:
+            </label>
+            <input
+              className="w-full md:w-1/2 placeholder-stone-400"
+              placeholder="_id"
+              type="text"
+              name="_id"
+              {...register("_id")}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="index" className="w-40 mr-8 p-4">
+              index
+            </label>
+            <input
+              className="md:w-1/2 w-full placeholder-stone-400"
+              placeholder="index"
+              type="number"
+              name="index"
+              // {...register("index", { required: true })}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="title" className="w-40 mr-8 p-4">
+              Title
+            </label>
+            <input
+              className="md:w-1/2 w-full placeholder-stone-400"
+              placeholder="title"
+              type="text"
+              name="title"
+              // {...register("title", { required: true })}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="isAvailable" className="w-40 mr-8 p-4">
+              isAvailable:
+            </label>
+            <input
+              type="checkbox"
+              name="isAvailable"
+              // {...register("isAvailable", { required: true })}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="isParkingSystem" className="w-40 mr-8 p-4">
+              isParkingSystem:
+            </label>
+            <input
+              type="checkbox"
+              name="isParkingSystem"
+              // {...register("isParkingSystem", { required: true })}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="price" className="w-40 mr-8 p-4">
+              Price
+            </label>
+            <input
+              className="md:w-1/2 w-full placeholder-stone-400"
+              placeholder="price"
+              type="number"
+              name="price"
+              // {...register("price", { required: true })}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="flex items-center">
+            <label htmlFor="image" className="w-40 mr-8 p-4">
+              Image 1
+            </label>
+            <input
+              type="file"
+              name="image"
+              // {...register("image", { required: true })}
+            />
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="totalRoom">totalRoom:</label>
+          <input
+            type="number"
+            name="totalRoom"
+            // {...register("totalRoom", { required: true })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="classification">classification:</label>
+          <input
+            type="text"
+            name="classification"
+            // {...register("classification", { required: true })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="isOwnRestaurent">isOwnRestaurent:</label>
+          <input
+            type="checkbox"
+            name="isOwnRestaurent"
+            // {...register("isOwnRestaurent", { required: true })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="address">address:</label>
+          <input
+            type="text"
+            name="address"
+            // {...register("address", { required: true })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">description:</label>
+          <textarea
+            name="description"
+            // {...register("description", { required: true })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="registered">registered:</label>
+          <input
+            type="date"
+            name="registered"
+            // {...register("registered", { required: true })}
+          />
+        </div>
+        <div className="form-group testb">
+          <label htmlFor="categories">categories:</label>
+          <div
+            name="categories"
+            // {...register("categories", { required: true })}
+          >
+            <div className="form-group">
+              <label htmlFor="id">id:</label>
+              <input
+                type="text"
+                name="categories.id"
+                // {...register("categories.id", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="type">type:</label>
+              <input
+                type="text"
+                name="categories.type"
+                // {...register("categories.type", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="roomCount">roomCount:</label>
+              <input
+                type="number"
+                name="categories.roomCount"
+                // {...register("categories.roomCount", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="price">price:</label>
+              <input
+                type="number"
+                name="categories.price"
+                // {...register("categories.price", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="facilities">facilities:</label>
+              <input
+                type="text"
+                name="categories.facilities"
+                // {...register("categories.facilities", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="description">description:</label>
+              <textarea
+                name="categories.description"
+                // {...register("categories.description", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="roomImages">roomImages:</label>
+              <input
+                type="file"
+                name="categories.roomImages"
+                // {...register("categories.roomImages", { required: true })}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="rating">rating:</label>
+              <input
+                type="number"
+                name="categories.rating"
+                // {...register("categories.rating", { required: true })}
+              />
+            </div>
+          </div>
+        </div>
+        <input className="btn btn-success" type="submit" value="Submit" />
+      </form> */}
+
       <form
         className="flex flex-wrap justify-between gap-3 rounded-md bg-white p-10 shadow-lg"
         onSubmit={handleSubmit(submit)}
@@ -56,7 +278,6 @@ const AddHotel = () => {
           />
         </div>
 
-        {/* image */}
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="image">
             Image
