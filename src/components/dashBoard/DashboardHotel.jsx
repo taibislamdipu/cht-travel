@@ -5,6 +5,7 @@ import DeleteHotel from "./DeleteHotel";
 import { GrEdit } from "react-icons/gr";
 import { BiHotel } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { AiFillEdit } from "react-icons/ai";
 
 const DashboardHotel = () => {
   const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
@@ -23,7 +24,7 @@ const DashboardHotel = () => {
   }, [isLoading, isSuccess, isError]);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center">
+    <div className="">
       <div className="mx-auto w-full max-w-7xl rounded-lg  border border-gray-200 bg-white shadow-lg">
         <header className="border-b border-gray-100 px-5 py-4">
           <div className="font-bold gap-2 text-2xl flex items-center text-black">
@@ -36,7 +37,7 @@ const DashboardHotel = () => {
           <table className="w-full table-auto">
             <thead className="bg-gray-50 text-xs font-bold uppercase text-black">
               <tr>
-                <th>No</th>
+                <th>ID</th>
                 <th className="p-2">
                   <div className="text-left font-semibold">Hotel Name</div>
                 </th>
@@ -77,12 +78,14 @@ const DashboardHotel = () => {
                   imageURL,
                   _id,
                   index,
+                  categories,
+                  i,
                 }) => (
                   <tr
                     key={_id}
                     className="hover:bg-indigo-50 transition rounded-md cursor-pointer"
                   >
-                    <td className="p-2">{index}</td>
+                    <td className="p-2">{_id}</td>
                     <td className="p-2">
                       <div className="text-black font-bold">{title}</div>
                     </td>
@@ -106,7 +109,7 @@ const DashboardHotel = () => {
                     </td>
                     <td className="p-2">
                       <div className="text-left">
-                        {isAvailable ? (
+                        {isAvailable === true ? (
                           <p className="font-medium text-green-500">
                             Available
                           </p>
@@ -143,9 +146,11 @@ const DashboardHotel = () => {
                   </td> */}
 
                     <td className="p-2 flex justify-center items-center space-x-3">
-                      <Link to={`hotel/${_id}`}>
-                        <GrEdit size={18}></GrEdit>
-                      </Link>
+                      {!categories && (
+                        <Link to={`hotel/${_id}`}>
+                          <AiFillEdit size={23}></AiFillEdit>
+                        </Link>
+                      )}
 
                       <DeleteHotel id={_id} color="#c00" />
                     </td>
