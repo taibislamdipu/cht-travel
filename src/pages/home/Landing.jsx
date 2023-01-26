@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../layout/Footer";
 import About from "./About";
+import Demo from "./Demo";
 import HeroSection from "./HeroSection/HeroSection";
 import HeroSlider from "./HeroSlider/HeroSlider";
 import OurService from "./OurService/OurService";
@@ -15,6 +16,10 @@ const Landing = () => {
 
       <div data-aos="fade-up" data-aos-duration="1000">
         <OurService />
+      </div>
+
+      <div>
+        <Demo />
       </div>
 
       <div
