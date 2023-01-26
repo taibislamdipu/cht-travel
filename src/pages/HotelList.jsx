@@ -12,7 +12,7 @@ import Loading from "../components/reusable/Loading";
 const HotelList = () => {
   const [search, setSearch] = useState("");
   const [data, setHotels] = useState([]);
-  const [range, setRange] = useState(64);
+  const [range, setRange] = useState(1000);
 
   const dispatch = useDispatch();
 
