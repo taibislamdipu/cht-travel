@@ -138,7 +138,7 @@ const AddHotel = () => {
             Latitude
           </label>
           <input
-            className="rounded-full border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary"
+            className="rounded-md bg-white border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary"
             name="latitude"
             id="latitude"
             {...register("latitude", {
@@ -155,7 +155,7 @@ const AddHotel = () => {
             Longitude
           </label>
           <input
-            className="rounded-full border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary"
+            className="rounded-md bg-white border border-gray-300  py-2 px-5 text-lg focus:border-primary focus:ring-primary"
             name="longitude"
             id="longitude"
             {...register("longitude", {
