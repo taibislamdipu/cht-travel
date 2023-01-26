@@ -23,7 +23,7 @@ const DashboardHotel = () => {
   }, [isLoading, isSuccess, isError]);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center">
+    <div className="">
       <div className="mx-auto w-full max-w-7xl rounded-lg  border border-gray-200 bg-white shadow-lg">
         <header className="border-b border-gray-100 px-5 py-4">
           <div className="font-bold gap-2 text-2xl flex items-center text-black">
