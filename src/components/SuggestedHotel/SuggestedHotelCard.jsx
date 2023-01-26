@@ -2,6 +2,7 @@
 // 2. currency converter - should have
 
 import React from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 
@@ -17,12 +18,17 @@ const SuggestedHotelCard = ({
   return (
     <section className="grid grid-cols-8 mb-2 border hover:shadow-lg transition bg-white p-2 md:p-0">
       <div className="col-span-2">
-        <div>
+        <div className="relative">
           <img
             className="md:h-48 h-24 w-full object-cover"
             src={image}
             alt=""
           />
+          {!isTabletOrMobile && (
+            <span className="absolute right-0 top-0 p-1 m-2 rounded-full bg-white hover:text-red-400">
+              <AiFillHeart size={23} />
+            </span>
+          )}
         </div>
       </div>
       <div className="col-span-4 space-y-3 p-4 border-r">
