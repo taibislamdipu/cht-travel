@@ -9,12 +9,11 @@ import { useDispatch } from "react-redux";
 import { handleSearch, setHotel } from "../../features/searchSlice";
 
 const Filter = ({ setSearch }) => {
-  let today = new Date().toLocaleDateString();
+  // let today = new Date().toLocaleDateString();
+  // console.log(today);
 
-  console.log(today);
-
-  const [startDate, setStartDate] = useState(new Date(today));
-  const [endDate, setEndDate] = useState(new Date(today));
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const [room, setRoom] = useState("1 room");
   const [people, setPeople] = useState("1 person");
   const dispatch = useDispatch();
