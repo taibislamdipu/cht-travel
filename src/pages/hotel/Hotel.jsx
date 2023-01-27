@@ -23,12 +23,17 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useGetSingleHotelQuery } from "../../api/hotelSlice";
 import { useSelector } from "react-redux";
+import moment from "moment/moment";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   const { id } = useParams();
   const { data } = useGetSingleHotelQuery(id);
   const { searchQuery } = useSelector((state) => state.search);
+
+  let today = moment(new Date()).format("MMMM Do YYYY");
+  const startDate = moment(searchQuery?.startDate).format("MMMM Do YYYY");
+  const endDate = moment(searchQuery?.endDate).format("MMMM Do YYYY");
 
   const title = [
     { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
@@ -245,19 +250,17 @@ const Hotel = () => {
       </section> */}
 
       <section id="roomsRates" className="bg-white p-4 rounded">
-        <div className="flex gap-4">
+        <div className="md:flex space-y-2 md:space-y-0 gap-4 items-center">
           <h3 className="font-bold text-black text-lg">Rooms & Rates</h3>
-          <p>
-            {" "}
-            1 night:{" "}
-            {searchQuery
-              ? searchQuery?.startDate?.toLocaleDateString()
-              : "01/19/2023"}{" "}
-            -{" "}
-            {searchQuery
-              ? searchQuery?.endDate?.toLocaleDateString()
-              : "01/20/2023"}{" "}
-          </p>
+          <div className="space-x-2">
+            <span>{searchQuery ? searchQuery?.noOfRoom : "1 night"}</span>
+            <span>:</span>
+            <span>{searchQuery ? searchQuery?.noOfPeople : "1 person"}</span>
+            <span>:</span>
+            <span>{searchQuery ? startDate : today}</span>
+            <span className="font-bold">to</span>
+            <span>{searchQuery ? endDate : today}</span>
+          </div>
         </div>
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>

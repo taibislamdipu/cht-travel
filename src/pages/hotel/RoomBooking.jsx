@@ -7,6 +7,8 @@ import PaymentForm from "../../components/PaymentForm/PaymentForm";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useGetSingleHotelQuery } from "../../api/hotelSlice";
+import moment from "moment";
+import { useSelector } from "react-redux";
 
 const RoomBooking = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -15,6 +17,11 @@ const RoomBooking = () => {
   const { state } = useLocation();
   const { data } = useGetSingleHotelQuery(id);
   const { address, title, price, categories, imageURL } = data || {};
+  const { searchQuery } = useSelector((state) => state.search);
+
+  let today = moment(new Date()).format("MMMM Do YYYY");
+  const startDate = moment(searchQuery?.startDate).format("MMMM Do YYYY");
+  const endDate = moment(searchQuery?.endDate).format("MMMM Do YYYY");
 
   const HotelAlert = () => {
     return (
@@ -44,7 +51,11 @@ const RoomBooking = () => {
         <hr />
         <div className="flex justify-between lg:p-4 p-2 extra-light">
           <div>
-            <p className="extra-light">1 Room x 1 Night</p>
+            <p className="extra-light space-x-2">
+              <span>{searchQuery ? searchQuery?.noOfRoom : "1 night"}</span>
+              <span>:</span>
+              <span>{searchQuery ? searchQuery?.noOfPeople : "1 person"}</span>
+            </p>
             <p>Taxes and Fees</p>
           </div>
           <div>
@@ -194,12 +205,23 @@ const RoomBooking = () => {
               </div>
               <div className="">
                 <h4 className="font-bold text-black">{title}</h4>
-                <p>
+                {/* <p>
                   <small>
                     Thursday, Jan, 19, 2023 03:00 PM - Friday, Jan, 20, 2023
                     12:00 PM
                   </small>
-                </p>
+                </p> */}
+                <div className="space-x-2 text-sm">
+                  <span>{searchQuery ? searchQuery?.noOfRoom : "1 night"}</span>
+                  <span>:</span>
+                  <span>
+                    {searchQuery ? searchQuery?.noOfPeople : "1 person"}
+                  </span>
+                  <span>:</span>
+                  <span>{searchQuery ? startDate : today}</span>
+                  <span className="font-bold">to</span>
+                  <span>{searchQuery ? endDate : today}</span>
+                </div>
                 <div>Rating</div>
                 <div>
                   <p className="flex items-center gap-2">
