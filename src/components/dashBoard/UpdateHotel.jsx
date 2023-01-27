@@ -6,7 +6,7 @@ import {
 } from "../../api/hotelSlice";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { GrEdit } from "react-icons/gr";
+
 import { AiFillEdit } from "react-icons/ai";
 
 const UpdateHotel = () => {
@@ -26,7 +26,6 @@ const UpdateHotel = () => {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         toast.success("Hotel info updated", { id: "updateHotel" });
         reset();
       });
