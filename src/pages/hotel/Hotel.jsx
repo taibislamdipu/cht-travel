@@ -32,20 +32,20 @@ const Hotel = () => {
   const { searchQuery } = useSelector((state) => state.search);
 
   let today = moment(new Date()).format("MMMM Do YYYY");
-  const startDate = moment(searchQuery?.startDate).format("MMMM Do YYYY");
-  const endDate = moment(searchQuery?.endDate).format("MMMM Do YYYY");
+  const startDate = searchQuery?.startDate;
+  const endDate = searchQuery?.endDate;
 
   const title = [
-    { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
-    { id: "2", name: "Hotel Description", link: "#hotelDescription" },
-    { id: "3", name: "Amenities", link: "#amenities" },
-    { id: "4", name: "Guest Review", link: "#hotelReview" },
+    { name: "Rooms & Rate", link: "#roomsRates" },
+    { name: "Hotel Description", link: "#hotelDescription" },
+    { name: "Amenities", link: "#amenities" },
+    { name: "Guest Review", link: "#hotelReview" },
   ];
 
   const Loading = () => {
     return (
       <div>
-        <div class="animate-pulse space-y-4">
+        <div className="animate-pulse space-y-4">
           <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-52"></div>
           <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-32"></div>
         </div>
@@ -56,9 +56,9 @@ const Hotel = () => {
   const ServicesNav = () => {
     return (
       <>
-        {title.map((item) => (
+        {title.map((item, i) => (
           <a
-            key={item?.id}
+            key={i}
             href={item?.link}
             className="bg-indigo-300 p-2 hover:bg-indigo-400"
           >
@@ -266,8 +266,8 @@ const Hotel = () => {
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
 
           {data?.categories ? (
-            data?.categories.map((item) => (
-              <RoomsRate categories={item} hotelData={data} key={data?._id} />
+            data?.categories.map((item, i) => (
+              <RoomsRate categories={item} hotelData={data} key={i} />
             ))
           ) : (
             <>

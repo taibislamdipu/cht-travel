@@ -32,8 +32,8 @@ const PaymentForm = ({ price, title }) => {
   };
 
   return (
-    <div className="pt-14">
-      <div className="flex justify-center items-center overflow-auto p-10">
+    <div>
+      <div className="py-4">
         <form
           className="bg-gray-100 shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between"
           onSubmit={handleSubmit(onSubmit)}
@@ -94,7 +94,10 @@ const PaymentForm = ({ price, title }) => {
               />
               <label for="terms">I agree to terms and conditions</label>
             </div> */}
-            <button className="btn" type="submit">
+            <button
+              className="btn bg-black hover:bg-[#333333] text-white border-0"
+              type="submit"
+            >
               Submit
             </button>
           </div>

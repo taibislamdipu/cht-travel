@@ -20,8 +20,8 @@ const RoomBooking = () => {
   const { searchQuery } = useSelector((state) => state.search);
 
   let today = moment(new Date()).format("MMMM Do YYYY");
-  const startDate = moment(searchQuery?.startDate).format("MMMM Do YYYY");
-  const endDate = moment(searchQuery?.endDate).format("MMMM Do YYYY");
+  const startDate = searchQuery?.startDate;
+  const endDate = searchQuery?.endDate;
 
   const HotelAlert = () => {
     return (

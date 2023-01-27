@@ -111,7 +111,7 @@ const Navbar = () => {
               <Link> Eng | বাংলা</Link>
             </li>
 
-            {data?.admin && (
+            {data?.admin && email && (
               <Link
                 to="/dashboard"
                 className="btn bg-black hover:bg-[#333333] text-white border-0"
