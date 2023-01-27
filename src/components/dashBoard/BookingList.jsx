@@ -9,6 +9,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { useState } from "react";
 import axios from "axios";
 import { BsList } from "react-icons/bs";
+import Loading from "../reusable/Loading";
 
 const BookingList = () => {
   const [bookings, setBookings] = useState([]);
@@ -29,7 +30,7 @@ const BookingList = () => {
   return (
     <div className="">
       <div className="w-full rounded-lg border border-gray-200 bg-white shadow-lg">
-        <div className="font-bold gap-2 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
+        <div className="font-bold gap-2 h-16 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
           <BsList size={20} />
           All Bookings
         </div>
@@ -61,7 +62,7 @@ const BookingList = () => {
                 </th>
               </tr>
             </thead>
-
+            {bookings.length === 0 && <Loading />}
             <tbody className="divide-y divide-gray-100 text-sm">
               {bookings?.map(
                 ({
@@ -94,7 +95,7 @@ const BookingList = () => {
                       <div className="text-left capitalize">{cus_name}</div>
                     </td>
                     <td className="p-2">
-                      <div className="text-left capitalize">{cus_email}</div>
+                      <div className="text-left">{cus_email}</div>
                     </td>
                     <td className="p-2">
                       <div className="text-left capitalize">{cus_phone}</div>

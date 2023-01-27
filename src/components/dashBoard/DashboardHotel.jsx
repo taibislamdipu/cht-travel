@@ -25,13 +25,11 @@ const DashboardHotel = () => {
 
   return (
     <div className="">
-      <div className="mx-auto w-full max-w-7xl rounded-lg  border border-gray-200 bg-white shadow-lg">
-        <header className="border-b border-gray-100 px-5 py-4">
-          <div className="font-bold gap-2 text-2xl flex items-center text-black">
-            <BiHotel />
-            All Hotels
-          </div>
-        </header>
+      <div className="w-full rounded-lg border border-gray-200 bg-white shadow-lg">
+        <div className="font-bold gap-2 h-16 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
+          <BiHotel size={20} />
+          All Hotels
+        </div>
 
         <div className="overflow-x-auto p-3">
           <table className="w-full table-auto">
