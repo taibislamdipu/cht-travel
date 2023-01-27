@@ -11,7 +11,6 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const CartCard = ({ hotel }) => {
-    console.log("hotel--->", hotel);
     return (
       <div className="md:mt-20 mt-10 space-y-4 customContainer">
         <h1 className="text-black text-3xl font-bold">Cart</h1>

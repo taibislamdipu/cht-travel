@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -15,9 +16,12 @@ const Filter = ({ setSearch }) => {
   const [people, setPeople] = useState("1 person");
   const dispatch = useDispatch();
 
+  const formatStartDate = moment(startDate).format("MMMM Do YYYY");
+  const formatEndDate = moment(endDate).format("MMMM Do YYYY");
+
   const searchQuery = {
-    startDate: startDate,
-    endDate: endDate,
+    startDate: formatStartDate,
+    endDate: formatEndDate,
     noOfRoom: room,
     noOfPeople: people,
     onClick: true,

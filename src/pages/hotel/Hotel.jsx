@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useGetSingleHotelQuery } from "../../api/hotelSlice";
 import { useSelector } from "react-redux";
+import moment from "moment/moment";
 
 const Hotel = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -30,17 +31,21 @@ const Hotel = () => {
   const { data } = useGetSingleHotelQuery(id);
   const { searchQuery } = useSelector((state) => state.search);
 
+  let today = moment(new Date()).format("MMMM Do YYYY");
+  const startDate = searchQuery?.startDate;
+  const endDate = searchQuery?.endDate;
+
   const title = [
-    { id: "1", name: "Rooms & Rate", link: "#roomsRates" },
-    { id: "2", name: "Hotel Description", link: "#hotelDescription" },
-    { id: "3", name: "Amenities", link: "#amenities" },
-    { id: "4", name: "Guest Review", link: "#hotelReview" },
+    { name: "Rooms & Rate", link: "#roomsRates" },
+    { name: "Hotel Description", link: "#hotelDescription" },
+    { name: "Amenities", link: "#amenities" },
+    { name: "Guest Review", link: "#hotelReview" },
   ];
 
   const Loading = () => {
     return (
       <div>
-        <div class="animate-pulse space-y-4">
+        <div className="animate-pulse space-y-4">
           <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-52"></div>
           <div className="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-32"></div>
         </div>
@@ -51,9 +56,9 @@ const Hotel = () => {
   const ServicesNav = () => {
     return (
       <>
-        {title.map((item) => (
+        {title.map((item, i) => (
           <a
-            key={item?.id}
+            key={i}
             href={item?.link}
             className="bg-indigo-300 p-2 hover:bg-indigo-400"
           >
@@ -245,26 +250,24 @@ const Hotel = () => {
       </section> */}
 
       <section id="roomsRates" className="bg-white p-4 rounded">
-        <div className="flex gap-4">
+        <div className="md:flex space-y-2 md:space-y-0 gap-4 items-center">
           <h3 className="font-bold text-black text-lg">Rooms & Rates</h3>
-          <p>
-            {" "}
-            1 night:{" "}
-            {searchQuery
-              ? searchQuery?.startDate?.toLocaleDateString()
-              : "01/19/2023"}{" "}
-            -{" "}
-            {searchQuery
-              ? searchQuery?.endDate?.toLocaleDateString()
-              : "01/20/2023"}{" "}
-          </p>
+          <div className="space-x-2">
+            <span>{searchQuery ? searchQuery?.noOfRoom : "1 night"}</span>
+            <span>:</span>
+            <span>{searchQuery ? searchQuery?.noOfPeople : "1 person"}</span>
+            <span>:</span>
+            <span>{searchQuery ? startDate : today}</span>
+            <span className="font-bold">to</span>
+            <span>{searchQuery ? endDate : today}</span>
+          </div>
         </div>
         <div className="border mt-2">
           <h4 className="bg-slate-200 p-4">AVAILABLE ROOMS</h4>
 
           {data?.categories ? (
-            data?.categories.map((item) => (
-              <RoomsRate categories={item} hotelData={data} key={data?._id} />
+            data?.categories.map((item, i) => (
+              <RoomsRate categories={item} hotelData={data} key={i} />
             ))
           ) : (
             <>

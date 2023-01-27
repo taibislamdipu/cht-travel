@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiFillFileAdd, AiFillHome } from "react-icons/ai";
+import { AiFillHome } from "react-icons/ai";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
-import { BiAddToQueue } from "react-icons/bi";
+import { IoMdAdd } from "react-icons/io";
 
 const Sidebar = () => {
   return (
@@ -34,7 +34,7 @@ const Sidebar = () => {
             to="add-hotel"
             className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >
-            <BiAddToQueue size={20} />
+            <IoMdAdd size={20} />
             Add Hotel
           </Link>
         </li>
