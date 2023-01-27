@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddHotel from "../components/dashBoard/AddHotel";
+import BookingList from "../components/dashBoard/BookingList";
 import DashboardHotel from "../components/dashBoard/DashboardHotel";
 import MakeAdmin from "../components/dashBoard/MakeAdmin";
 import UpdateHotel from "../components/dashBoard/UpdateHotel";
+import UserList from "../components/dashBoard/UserList";
 import Success from "../components/reusable/Success";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import Main from "../layout/Main";
@@ -102,6 +104,22 @@ const routes = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddHotel />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "bookings",
+        element: (
+          <AdminRoute>
+            <BookingList />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "users",
+        element: (
+          <AdminRoute>
+            <UserList />
           </AdminRoute>
         ),
       },

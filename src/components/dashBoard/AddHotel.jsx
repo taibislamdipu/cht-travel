@@ -42,13 +42,14 @@ const AddHotel = () => {
 
   return (
     <div className="">
-      <div className="font-bold gap-2 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
+      <div className="font-bold gap-2 h-16 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
         <BiAddToQueue size={20} />
         Add Hotel
       </div>
 
       {/* testing form */}
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
+      <>
+        {/* <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <div className="flex items-center">
             <label htmlFor="name" className="w-40 mr-8 p-4 ">
@@ -261,9 +262,10 @@ const AddHotel = () => {
         </div>
         <input className="btn btn-success" type="submit" value="Submit" />
       </form> */}
+      </>
 
       <form
-        className="flex flex-wrap justify-between gap-3 rounded-md bg-white p-10 shadow-lg"
+        className="rounded-md bg-white p-10 shadow-lg grid grid-cols-3 gap-4"
         onSubmit={handleSubmit(submit)}
       >
         <div className="flex w-full max-w-xs flex-col">

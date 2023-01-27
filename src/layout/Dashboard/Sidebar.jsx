@@ -4,10 +4,11 @@ import { AiFillHome } from "react-icons/ai";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
+import { FaUserAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
-    <div className="col-span-2 md:h-[calc(100vh-25px)] rounded-lg bg-[#212D3A] text-white p-5 dashboard-sidebar">
+    <div className="md:w-60 h-full bg-[#212D3A] text-white p-5 dashboard-sidebar">
       <ul className="flex h-full flex-col gap-3">
         <div>
           <li className="font-bold ">
@@ -36,6 +37,24 @@ const Sidebar = () => {
           >
             <IoMdAdd size={20} />
             Add Hotel
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="bookings"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
+          >
+            <BsList size={20} color="white" />
+            Booking List
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="users"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
+          >
+            <FaUserAlt size={20} color="white" />
+            User List
           </Link>
         </li>
         <li>

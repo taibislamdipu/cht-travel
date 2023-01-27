@@ -19,7 +19,7 @@ const MakeAdmin = () => {
 
   return (
     <div className="bg-white">
-      <div className="font-bold gap-2 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
+      <div className="font-bold gap-2 h-16 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
         <IoPersonAddSharp size={20} />
         Make someone an admin as you choose.
       </div>

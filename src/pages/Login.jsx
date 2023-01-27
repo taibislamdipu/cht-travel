@@ -2,25 +2,23 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import loginImage from "../assets/login.svg";
+import { useLocation, useNavigate } from "react-router-dom";
 import { googleLogin, loginUser } from "../features/auth/authSlice";
-import { useMediaQuery } from "react-responsive";
 import Footer from "../layout/Footer";
 import { FcGoogle } from "react-icons/fc";
-import { MdEmail } from "react-icons/md";
-import { FaLock } from "react-icons/fa";
 import { useUpdateUserMutation } from "../api/userSlice";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const [updateUser] = useUpdateUserMutation();
+  // for redirecting
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const { email, isLoading, isError, error } = useSelector(
     (state) => state.auth
   );
-
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
@@ -32,15 +30,9 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (!isLoading && email) {
-      navigate("/");
-    }
-  }, [isLoading, email]);
-
-  useEffect(() => {
     if (email) {
       updateUser({ email });
-      navigate("/");
+      navigate(from, { replace: true });
     }
   }, [email]);
 

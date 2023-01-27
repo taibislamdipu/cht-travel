@@ -10,6 +10,7 @@ import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
 import { CiMap } from "react-icons/ci";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { BiHotel } from "react-icons/bi";
+import { FaRegUserCircle } from "react-icons/fa";
 import { emptyCart } from "../features/cartSlice";
 import { useLocation } from "react-router-dom";
 import { useCheckAdminQuery } from "../api/userSlice";
@@ -241,6 +242,7 @@ const Navbar = () => {
               <img src={photoURL} className="rounded-full w-10" alt="" />
             </div>
           )}
+          {photoURL === null && <FaRegUserCircle size={40} />}
         </div>
       )}
     </nav>

@@ -1,127 +1,106 @@
 import React, { useEffect } from "react";
 import { useGetHotelQuery } from "../../api/hotelSlice";
 import toast from "react-hot-toast";
-import DeleteHotel from "./DeleteHotel";
+
 import { GrEdit } from "react-icons/gr";
 import { BiHotel } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
+import { useState } from "react";
+import axios from "axios";
+import { BsList } from "react-icons/bs";
+import Loading from "../reusable/Loading";
 
-const DashboardHotel = () => {
-  const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
+const BookingList = () => {
+  const [bookings, setBookings] = useState([]);
 
-  useEffect(() => {
-    if (isLoading) {
-      toast.loading("Loading Hotels...", { id: "getHotel" });
+  const domain =
+    "https://cht-travel-server-production.up.railway.app/api/bookings";
+
+  async function getBookings() {
+    try {
+      const res = await axios.get(domain);
+      setBookings(res.data);
+    } catch (error) {
+      console.error(error);
     }
-    if (!isLoading && isSuccess) {
-      toast.success("Hotels Loaded", { id: "getHotel" });
-    }
-    if (!isLoading && isError) {
-      toast.error("Something went wrong", { id: "getHotel" });
-      console.log(isError);
-    }
-  }, [isLoading, isSuccess, isError]);
+  }
+  getBookings();
 
   return (
     <div className="">
       <div className="w-full rounded-lg border border-gray-200 bg-white shadow-lg">
         <div className="font-bold gap-2 h-16 text-lg p-2 rounded-t-md flex items-center bg-gradient-to-r from-[#111827] to-[#4B5563] text-white">
-          <BiHotel size={20} />
-          All Hotels
+          <BsList size={20} />
+          All Bookings
         </div>
 
         <div className="overflow-x-auto p-3">
           <table className="w-full table-auto">
             <thead className="bg-gray-50 text-xs font-bold uppercase text-black">
               <tr>
-                <th>ID</th>
                 <th className="p-2">
                   <div className="text-left font-semibold">Hotel Name</div>
                 </th>
                 <th className="p-2">
-                  <div className="text-left font-semibold">Location</div>
-                </th>
-                <th className="p-2">
-                  <div className="text-left font-semibold">No. of Rooms</div>
-                </th>
-                <th className="p-2">
-                  <div className="text-left font-semibold">Type</div>
-                </th>
-                <th className="p-2">
-                  <div className="text-left font-semibold">Image</div>
-                </th>
-                <th className="p-2">
-                  <div className="text-left font-semibold">Availability</div>
-                </th>
-                <th className="p-2">
                   <div className="text-left font-semibold">Price</div>
                 </th>
-
                 <th className="p-2">
-                  <div className="text-center font-semibold">Action</div>
+                  <div className="text-left font-semibold">Check-in</div>
+                </th>
+                <th className="p-2">
+                  <div className="text-left font-semibold">Check-out</div>
+                </th>
+                <th className="p-2">
+                  <div className="text-left font-semibold">Username</div>
+                </th>
+                <th className="p-2">
+                  <div className="text-left font-semibold">Email</div>
+                </th>
+                <th className="p-2">
+                  <div className="text-left font-semibold">Phone</div>
                 </th>
               </tr>
             </thead>
-
+            {bookings.length === 0 && <Loading />}
             <tbody className="divide-y divide-gray-100 text-sm">
-              {data?.map(
+              {bookings?.map(
                 ({
-                  title,
-                  address,
-                  price,
-                  isAvailable,
-                  classification,
-                  totalRoom,
-                  imageURL,
-                  _id,
-                  index,
-                  categories,
+                  total_amount,
+                  product_name,
+                  startDate,
+                  endDate,
+                  cus_name,
+                  cus_email,
+                  cus_phone,
                   i,
                 }) => (
                   <tr
-                    key={_id}
+                    key={i}
                     className="hover:bg-indigo-50 transition rounded-md cursor-pointer"
                   >
-                    <td className="p-2">{_id}</td>
                     <td className="p-2">
-                      <div className="text-black font-bold">{title}</div>
+                      <div className="text-black font-bold">{product_name}</div>
                     </td>
                     <td className="p-2">
-                      <div className="text-left capitalize">{address}</div>
+                      <div className="text-black font-bold">{total_amount}</div>
                     </td>
                     <td className="p-2">
-                      <div className="text-left capitalize">{totalRoom}</div>
+                      <div className="text-left capitalize">{startDate}</div>
                     </td>
                     <td className="p-2">
-                      <div className="text-left capitalize">
-                        {classification}
-                      </div>
+                      <div className="text-left capitalize">{endDate}</div>
                     </td>
                     <td className="p-2">
-                      <img
-                        src={imageURL}
-                        className="w-20 h-10 object-cover"
-                        alt="Hotel Image"
-                      />
+                      <div className="text-left capitalize">{cus_name}</div>
                     </td>
                     <td className="p-2">
-                      <div className="text-left">
-                        {isAvailable === true ? (
-                          <p className="font-medium text-green-500">
-                            Available
-                          </p>
-                        ) : (
-                          <p className="font-medium text-red-500">Stock out</p>
-                        )}
-                      </div>
+                      <div className="text-left">{cus_email}</div>
+                    </td>
+                    <td className="p-2">
+                      <div className="text-left capitalize">{cus_phone}</div>
                     </td>
 
-                    <td className="p-2">
-                      <div className="text-left font-bold text-indigo-500">
-                        {price}
-                      </div>
-                    </td>
                     {/* <td className="p-2">
                     <div className="flex justify-center">
                       <button onClick={() => removeHotel(_id)}>
@@ -144,13 +123,13 @@ const DashboardHotel = () => {
                   </td> */}
 
                     <td className="p-2 flex justify-center items-center space-x-3">
-                      {!categories && (
+                      {/* {!categories && (
                         <Link to={`hotel/${_id}`}>
                           <AiFillEdit size={23}></AiFillEdit>
                         </Link>
-                      )}
+                      )} */}
 
-                      <DeleteHotel id={_id} color="#c00" />
+                      {/* <DeleteHotel id={_id} color="#c00" /> */}
                     </td>
                   </tr>
                 )
@@ -163,4 +142,4 @@ const DashboardHotel = () => {
   );
 };
 
-export default DashboardHotel;
+export default BookingList;
