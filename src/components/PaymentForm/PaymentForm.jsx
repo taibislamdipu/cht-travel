@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaChevronLeft } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import moment from "moment";
 
 const PaymentForm = ({ price, title }) => {
   const {
@@ -13,10 +14,17 @@ const PaymentForm = ({ price, title }) => {
   } = useForm({ mode: "onBlur" });
 
   const { email, displayName } = useSelector((state) => state.auth);
+  const { searchQuery } = useSelector((state) => state.search);
+
+  let today = moment(new Date()).format("MMMM Do YYYY");
+  const startDate = searchQuery?.startDate ? searchQuery.startDate : today;
+  const endDate = searchQuery?.endDate ? searchQuery.endDate : today;
 
   const onSubmit = (data) => {
     data.price = price;
     data.title = title;
+    data.startDate = startDate;
+    data.endDate = endDate;
 
     fetch("https://cht-travel-server-production.up.railway.app/init", {
       method: "POST",
