@@ -40,6 +40,15 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
+            to="bookings"
+            className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
+          >
+            <BsList size={20} color="white" />
+            Booking List
+          </Link>
+        </li>
+        <li>
+          <Link
             to="admin"
             className="flex items-center gap-1 hover:underline hover:bg-indigo-400 transition rounded-md p-2"
           >

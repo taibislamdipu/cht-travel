@@ -1,22 +1,47 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  data: [],
+  bookings: [],
   isLoading: true,
   isError: false,
   error: "",
 };
 
+export const getBookings = createAsyncThunk("auth/getBookings", async () => {
+  const res = await fetch(
+    "https://cht-travel-server-production.up.railway.app/api/bookings"
+  );
+  const data = await res.json();
+  return data;
+});
+
 const bookingSlice = createSlice({
   name: "booking",
   initialState,
-  reducers: {
-    addBookingDetails: (state, action) => {
-      state.data = action.payload;
-    },
+  reducers: {},
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(getBookings.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.error = "";
+      })
+      .addCase(getBookings.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.bookings = payload;
+        state.isError = false;
+        state.error = "";
+      })
+      .addCase(getBookings.rejected, (state, action) => {
+        state.isLoading = false;
+        state.bookings = [];
+        state.isError = true;
+        state.error = action.error.message;
+      });
   },
 });
 
-export const { addBookingDetails } = bookingSlice.actions;
+export const {} = bookingSlice.actions;
 
 export default bookingSlice.reducer;
