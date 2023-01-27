@@ -14,7 +14,7 @@ const AdminRoute = ({ children }) => {
   }
 
   if (!data?.admin) {
-    return <Navigate to="/" state={{ path: pathname }} />;
+    return <Navigate to="/" state={{ from: pathname }} />;
   }
 
   return children;

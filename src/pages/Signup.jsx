@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import loginImage from "../assets/signup.svg";
 import { useForm, useWatch } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { createUser, googleLogin } from "../features/auth/authSlice";
@@ -17,6 +17,9 @@ const Signup = () => {
   const confirmPassword = useWatch({ control, name: "confirmPassword" });
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(true);
+  // for redirecting
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const { displayName, email, isError, error } = useSelector(
     (state) => state.auth
@@ -32,7 +35,7 @@ const Signup = () => {
   useEffect(() => {
     if (displayName && email) {
       updateUser({ email });
-      navigate("/");
+      navigate(from, { replace: true });
     }
   }, [email]);
 
@@ -59,7 +62,7 @@ const Signup = () => {
   const onSubmit = (data) => {
     dispatch(createUser({ email: data.email, password: data.password }));
     postUser(data);
-    navigate("/");
+    navigate(from, { replace: true });
   };
 
   return (
