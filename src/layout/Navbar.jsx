@@ -6,12 +6,9 @@ import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
 import { useMediaQuery } from "react-responsive";
-import {
-  AiFillCar,
-  AiOutlineLogin,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
 import { CiMap } from "react-icons/ci";
+import { IoPersonCircleOutline } from "react-icons/io5";
 import { BiHotel } from "react-icons/bi";
 import { emptyCart } from "../features/cartSlice";
 import { useLocation } from "react-router-dom";
@@ -93,6 +90,15 @@ const Navbar = () => {
               </ul>
             </li>
             <li>
+              <a
+                href="http://www.fbta.gov.bd/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Foreigners Registration
+              </a>
+            </li>
+            <li>
               <Link to="/blog">Blog</Link>
             </li>
             <li>
@@ -108,7 +114,7 @@ const Navbar = () => {
             {data?.admin && (
               <Link
                 to="/dashboard"
-                className="btn btn bg-black hover:bg-[#333333] text-white border-0"
+                className="btn bg-black hover:bg-[#333333] text-white border-0"
               >
                 Dashboard
               </Link>
@@ -182,6 +188,12 @@ const Navbar = () => {
             </ul>
           </li>
 
+          <li>
+            <a href="http://www.fbta.gov.bd/" target="_blank" rel="noreferrer">
+              <IoPersonCircleOutline size={23} />
+              Foreigners Registration
+            </a>
+          </li>
           <li>
             <Link to="/blog">Blog</Link>
           </li>
