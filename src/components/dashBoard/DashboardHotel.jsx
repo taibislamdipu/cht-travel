@@ -10,6 +10,7 @@ import { AiFillEdit } from "react-icons/ai";
 const DashboardHotel = () => {
   const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
 
+  console.log("data--->", data);
   useEffect(() => {
     if (isLoading) {
       toast.loading("Loading Hotels...", { id: "getHotel" });
@@ -107,7 +108,7 @@ const DashboardHotel = () => {
                     </td>
                     <td className="p-2">
                       <div className="text-left">
-                        {isAvailable === true ? (
+                        {isAvailable ? (
                           <p className="font-medium text-green-500">
                             Available
                           </p>
