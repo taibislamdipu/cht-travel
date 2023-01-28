@@ -21,12 +21,12 @@ const Dashboard = () => {
 
   const ForWeb = () => {
     return (
-      <div class="flex w-screen h-screen text-gray-700">
-        <div class="flex flex-col border-r border-gray-300">
+      <div className="flex w-screen h-screen text-gray-700">
+        <div className="flex flex-col border-r border-gray-300">
           <Sidebar />
         </div>
-        <div class="flex flex-col flex-grow">
-          <div class="flex-grow p-6 overflow-auto bg-gray-200">
+        <div className="flex flex-col flex-grow">
+          <div className="flex-grow p-6 overflow-auto bg-gray-200">
             <Outlet />
           </div>
         </div>
