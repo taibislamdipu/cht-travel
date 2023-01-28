@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useGetHotelQuery } from "../../api/hotelSlice";
 import toast from "react-hot-toast";
 import DeleteHotel from "./DeleteHotel";
-import { GrEdit } from "react-icons/gr";
 import { BiHotel } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { AiFillEdit } from "react-icons/ai";
 
 const DashboardHotel = () => {
-  const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
+  const { data, isLoading, isError, isSuccess } = useGetHotelQuery(null, {
+    pollingInterval: 1000,
+  });
 
   useEffect(() => {
     if (isLoading) {
@@ -75,9 +76,7 @@ const DashboardHotel = () => {
                   totalRoom,
                   imageURL,
                   _id,
-                  index,
                   categories,
-                  i,
                 }) => (
                   <tr
                     key={_id}
