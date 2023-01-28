@@ -145,11 +145,14 @@ const DashboardHotel = () => {
                     <td className="p-2 flex justify-center items-center space-x-3">
                       {!categories && (
                         <Link to={`hotel/${_id}`}>
-                          <AiFillEdit size={23}></AiFillEdit>
+                          <AiFillEdit
+                            size={23}
+                            className="h-8 w-8 rounded-full p-1 hover:bg-white hover:text-blue-600"
+                          />
                         </Link>
                       )}
 
-                      <DeleteHotel id={_id} color="#c00" />
+                      <DeleteHotel id={_id} />
                     </td>
                   </tr>
                 )

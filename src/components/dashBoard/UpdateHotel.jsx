@@ -11,14 +11,13 @@ import { AiFillEdit } from "react-icons/ai";
 
 const UpdateHotel = () => {
   const { id } = useParams();
+  const { data } = useGetSingleHotelQuery(id);
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-    control,
   } = useForm();
-  const { data } = useGetSingleHotelQuery(id);
+
   const [hotelId, setHotelId] = useState(id);
 
   const domain = "https://cht-travel-server-production.up.railway.app";
