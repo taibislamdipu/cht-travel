@@ -10,7 +10,6 @@ import { AiFillEdit } from "react-icons/ai";
 const DashboardHotel = () => {
   const { data, isLoading, isError, isSuccess } = useGetHotelQuery();
 
-  console.log("data--->", data);
   useEffect(() => {
     if (isLoading) {
       toast.loading("Loading Hotels...", { id: "getHotel" });

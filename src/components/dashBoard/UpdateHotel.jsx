@@ -24,9 +24,9 @@ const UpdateHotel = () => {
   const domain = "https://cht-travel-server-production.up.railway.app";
   // const domain = "http://localhost:5000";
 
-  const submit = (data) => {
-    console.log(data);
+  const [enabled, setEnabled] = useState(data?.isAvailable);
 
+  const submit = (data) => {
     fetch(`${domain}/updateHotel/${hotelId}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -49,14 +49,6 @@ const UpdateHotel = () => {
         className="flex max-w-3xl flex-wrap justify-between gap-3 rounded-md bg-white p-10 shadow-lg"
         onSubmit={handleSubmit(submit)}
       >
-        {/* <label>
-          Select Yes or No:
-          <select name="yesno" {...register("yesno")}>
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </label> */}
-
         <div className="flex w-full max-w-xs flex-col">
           <label className="mb-2" htmlFor="name">
             Hotel Name{" "}
@@ -112,7 +104,26 @@ const UpdateHotel = () => {
         <div className="flex w-full max-w-xs flex-col">
           <h1 className="mb-3">Availability</h1>
 
-          <div className="flex gap-3">
+          <label class="inline-flex relative items-center mr-5 cursor-pointer">
+            <input
+              type="checkbox"
+              className="sr-only peer"
+              checked={enabled}
+              readOnly
+              {...register("status")}
+            />
+            <div
+              onClick={() => {
+                setEnabled(!enabled);
+              }}
+              className="w-11 h-6 bg-gray-200 rounded-full peer  peer-focus:ring-green-300  peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"
+            ></div>
+            <span className="ml-2 text-sm font-medium text-gray-900">
+              {enabled ? "on" : "off"}
+            </span>
+          </label>
+
+          {/* <div className="flex gap-3">
             <div>
               <input
                 type="radio"
@@ -136,7 +147,7 @@ const UpdateHotel = () => {
                 Stock out
               </label>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="flex w-full max-w-xs flex-col">
@@ -149,6 +160,32 @@ const UpdateHotel = () => {
             id="location"
             {...register("location")}
             defaultValue={data?.address}
+          />
+        </div>
+
+        <div className="flex w-full max-w-xs flex-col">
+          <label className="mb-2" htmlFor="latitude">
+            Latitude
+          </label>
+          <input
+            type="text"
+            name="latitude"
+            id="latitude"
+            {...register("latitude")}
+            defaultValue={data?.latitude}
+          />
+        </div>
+
+        <div className="flex w-full max-w-xs flex-col">
+          <label className="mb-2" htmlFor="longitude">
+            Longitude
+          </label>
+          <input
+            type="text"
+            name="longitude"
+            id="longitude"
+            {...register("longitude")}
+            defaultValue={data?.longitude}
           />
         </div>
 
