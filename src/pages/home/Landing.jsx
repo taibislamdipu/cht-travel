@@ -15,7 +15,7 @@ const Landing = () => {
       {/* <HeroSection /> */}
       <HeroSlider />
 
-      <div data-aos="fade-up" data-aos-duration="1000">
+      <div>
         <OurService />
       </div>
 

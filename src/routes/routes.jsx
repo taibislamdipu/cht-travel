@@ -5,6 +5,7 @@ import DashboardHotel from "../components/dashBoard/DashboardHotel";
 import MakeAdmin from "../components/dashBoard/MakeAdmin";
 import UpdateHotel from "../components/dashBoard/UpdateHotel";
 import UserList from "../components/dashBoard/UserList";
+import Profile from "../components/Profile/Profile";
 import Success from "../components/reusable/Success";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import Main from "../layout/Main";
@@ -49,6 +50,14 @@ const routes = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Cart />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
           </PrivateRoute>
         ),
       },

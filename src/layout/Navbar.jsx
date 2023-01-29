@@ -5,6 +5,7 @@ import { signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
+import manualRegUserImg from "../assets/images/manualRegUserImg.png";
 import { useMediaQuery } from "react-responsive";
 import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
 import { CiMap } from "react-icons/ci";
@@ -34,10 +35,10 @@ const Navbar = () => {
   const currentUrl = location?.pathname;
 
   return (
-    <nav
+    <div
       className={`${
         currentUrl === "/" && "navbar-fixed"
-      } navbar bg-white lg:px-40`}
+      } navbar bg-white shadow lg:px-40`}
     >
       {/* for mobile */}
       <div className="navbar-start">
@@ -120,18 +121,9 @@ const Navbar = () => {
                 Dashboard
               </Link>
             )}
-            {email ? (
-              <button
-                className="btn bg-black hover:bg-[#333333] text-white border-0"
-                onClick={handleSignOut}
-              >
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                className="btn bg-black hover:bg-[#333333] text-white border-0"
-              >
+
+            {!email && (
+              <Link to="/login" className="btn btn-sm btn-primary">
                 Login
               </Link>
             )}
@@ -149,7 +141,7 @@ const Navbar = () => {
       </div>
 
       {/* for web */}
-      <div className="navbar-center hidden lg:flex">
+      <div className="hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-2 text-black font-bold ">
           <li>
             <Link to="/">Home</Link>
@@ -217,35 +209,70 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      {!isTabletOrMobile && (
-        <div className="navbar-end gap-2">
-          {email ? (
-            <button className="btn btn-sm btn-primary" onClick={handleSignOut}>
-              Logout
-            </button>
-          ) : (
+
+      <div className="navbar-end ">
+        <div className="flex items-center gap-2">
+          {!email && (
             <Link to="/login" className="btn btn-sm btn-primary">
               Login
             </Link>
           )}
 
-          {data?.admin && email && (
+          {data?.admin && email && !isTabletOrMobile && (
             <Link to="/dashboard" className="btn btn-sm btn-primary">
               Dashboard
             </Link>
           )}
-          <div className="">
-            Eng <span className="font-bold">| বাংলা</span>
-          </div>
-          {photoURL && (
-            <div>
-              <img src={photoURL} className="rounded-full w-10" alt="" />
+          {!isTabletOrMobile && (
+            <div className="w-fit flex items-center">
+              <button className="btn btn-sm btn-primary gap-1">
+                Eng <span className="font-bold">| বাংলা</span>
+              </button>
             </div>
           )}
-          {photoURL === null && <FaRegUserCircle size={40} />}
+
+          <div className="dropdown dropdown-end">
+            <>
+              {photoURL && (
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={photoURL} />
+                  </div>
+                </label>
+              )}
+
+              {photoURL === null && (
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={manualRegUserImg} />
+                  </div>
+                </label>
+              )}
+            </>
+
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
+            >
+              <Link to="/profile">
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+              </Link>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a onClick={handleSignOut}>Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </div>
   );
 };
 

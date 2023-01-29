@@ -1,0 +1,15 @@
+.carousel-img {
+  height: 450px;
+}
+
+@media (max-width: 768px) {
+  .carousel-img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-img {
+    height: 320px;
+  }
+}
