@@ -146,7 +146,9 @@ const HotelList = () => {
                   .filter((item) => {
                     return search.toLocaleLowerCase() === ""
                       ? item
-                      : item?.title.toLocaleLowerCase().includes(search);
+                      : item?.title
+                          .toLocaleLowerCase()
+                          .includes(search.toLocaleLowerCase());
                   })
                   .map((item) => (
                     <Link to={`hotel/${item?._id}`} key={item?._id}>
@@ -162,7 +164,9 @@ const HotelList = () => {
                 {data.filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
-                    : item?.title.toLocaleLowerCase().includes(search);
+                    : item?.title
+                        .toLocaleLowerCase()
+                        .includes(search.toLocaleLowerCase());
                 }).length === 0 && <p>No results found.</p>}
               </div>
             )}
