@@ -33,7 +33,10 @@ const HeroSlider = () => {
         {data.map((item) => (
           <div key={item?.id}>
             <div>
-              <img className="w-full h-80 object-cover" src={item?.img} />
+              <img
+                className="w-full md:h-96 h-80 object-cover"
+                src={item?.img}
+              />
             </div>
             <p className="legend">{item?.name}</p>
           </div>

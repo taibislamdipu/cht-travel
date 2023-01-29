@@ -142,27 +142,35 @@ const HotelList = () => {
               <Loading />
             ) : (
               <div>
-                {hotels
-                  .filter((item) => {
-                    return search.toLocaleLowerCase() === ""
-                      ? item
-                      : item?.title.toLocaleLowerCase().includes(search);
-                  })
-                  .map((item) => (
-                    <Link to={`hotel/${item?._id}`} key={item?._id}>
-                      <SuggestedHotelCard
-                        hotel_name={item?.title}
-                        image={item?.imageURL}
-                        address={item?.address}
-                        price={item?.price}
-                        isTabletOrMobile={isTabletOrMobile}
-                      />
-                    </Link>
-                  ))}
+                {hotels.length > 0 ? (
+                  hotels
+                    .filter((item) => {
+                      return search.toLocaleLowerCase() === ""
+                        ? item
+                        : item?.title
+                            .toLocaleLowerCase()
+                            .includes(search.toLocaleLowerCase());
+                    })
+                    .map((item) => (
+                      <Link to={`hotel/${item?._id}`} key={item?._id}>
+                        <SuggestedHotelCard
+                          hotel_name={item?.title}
+                          image={item?.imageURL}
+                          address={item?.address}
+                          price={item?.price}
+                          isTabletOrMobile={isTabletOrMobile}
+                        />
+                      </Link>
+                    ))
+                ) : (
+                  <Loading />
+                )}
                 {data.filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
-                    : item?.title.toLocaleLowerCase().includes(search);
+                    : item?.title
+                        .toLocaleLowerCase()
+                        .includes(search.toLocaleLowerCase());
                 }).length === 0 && <p>No results found.</p>}
               </div>
             )}
