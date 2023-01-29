@@ -8,14 +8,14 @@ const Profile = () => {
   );
 
   return (
-    <div class="py-20 bg-gray-200 dark:bg-gray-800 flex flex-wrap items-center justify-center ">
+    <div class="py-20 flex flex-wrap items-center justify-center">
       <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3  m-4 md:m-0  bg-white  shadow-lg    transform   duration-200 easy-in-out">
         <div class="h-32 overflow-hidden">
           <img class="w-full" src={profileCoverImg} alt="" />
         </div>
         <div class="flex justify-center px-5  -mt-12">
           <img
-            class="h-32 w-32 bg-white p-2 rounded-full   "
+            class="h-32 w-32 bg-white p-2 rounded-full"
             src={`${photoURL === null ? manualRegUserImg : photoURL}`}
             alt=""
           />
