@@ -1,5 +1,7 @@
 import React from "react";
+import ContactForm from "../../components/reusable/ContactForm";
 import Footer from "../../layout/Footer";
+import Contact from "../Contact";
 import About from "./About";
 import Demo from "./Demo";
 import HeroSection from "./HeroSection/HeroSection";
@@ -28,6 +30,7 @@ const Landing = () => {
 
       <Review />
       <About />
+      <Contact />
       <Footer />
     </div>
   );
