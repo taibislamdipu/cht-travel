@@ -1,14 +1,13 @@
 import React from "react";
 import { AiFillPhone, AiOutlineMail } from "react-icons/ai";
-import { BsTelephoneFill } from "react-icons/bs";
 import { IoLocationSharp } from "react-icons/io5";
 import ContactForm from "../components/reusable/ContactForm";
 
 const Contact = () => {
   return (
-    <div className="customContainer py-20">
-      <div className="md:grid grid-cols-2 gap-4">
-        <div className="space-y-4 p-10 md:p-0">
+    <div className="customContainer md:py-20 py-10">
+      <div className="md:grid grid-cols-2 gap-4 md:space-y-0 space-y-4">
+        <div className="space-y-4 md:p-10 p-2">
           <h2 className="text-black md:text-3xl text-2xl font-bold">
             Contact us
           </h2>
