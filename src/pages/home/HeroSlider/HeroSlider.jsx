@@ -24,16 +24,21 @@ const HeroSlider = () => {
   return (
     <div className="md:pt-32 pt-20 lg:mx-40 px-4">
       <Carousel
-        autoPlay={true}
+        autoPlay
+        infiniteLoop
         swipeable={true}
         stopOnHover={true}
         showThumbs={false}
         emulateTouch={true}
+        showStatus={false}
       >
         {data.map((item) => (
           <div key={item?.id}>
             <div>
-              <img className="w-full h-80 object-cover" src={item?.img} />
+              <img
+                className="w-full md:h-96 h-80 object-cover"
+                src={item?.img}
+              />
             </div>
             <p className="legend">{item?.name}</p>
           </div>

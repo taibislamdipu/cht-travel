@@ -32,7 +32,7 @@ const SuggestedHotelCard = ({
         </div>
       </div>
       <div className="col-span-4 space-y-3 p-4 border-r">
-        <h3 className="text-black font-bold">{hotel_name}</h3>
+        <h3 className="text-black font-bold capitalize">{hotel_name}</h3>
 
         {isTabletOrMobile ? (
           <span className="flex gap-1">
