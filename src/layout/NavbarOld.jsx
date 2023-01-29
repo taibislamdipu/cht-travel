@@ -5,7 +5,6 @@ import { signOut } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { logout } from "../features/auth/authSlice";
 import chtTravelLogoTwo from "../assets/images/cht-travel-logo-two.png";
-import manualRegUserImg from "../assets/images/manualRegUserImg.png";
 import { useMediaQuery } from "react-responsive";
 import { AiFillCar, AiOutlineShoppingCart } from "react-icons/ai";
 import { CiMap } from "react-icons/ci";
@@ -35,10 +34,10 @@ const Navbar = () => {
   const currentUrl = location?.pathname;
 
   return (
-    <div
+    <nav
       className={`${
         currentUrl === "/" && "navbar-fixed"
-      } navbar bg-white shadow lg:px-40`}
+      } navbar bg-white lg:px-40`}
     >
       {/* for mobile */}
       <div className="navbar-start">
@@ -150,7 +149,7 @@ const Navbar = () => {
       </div>
 
       {/* for web */}
-      <div className="hidden lg:flex">
+      <div className=" hidden lg:flex test">
         <ul className="menu menu-horizontal px-1 space-x-2 text-black font-bold ">
           <li>
             <Link to="/">Home</Link>
@@ -218,70 +217,60 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-
-      <div className="navbar-end ">
-        <div className="flex items-center gap-2">
-          {!email && (
+      {/* {!isTabletOrMobile && (
+        <div className="navbar-end gap-2">
+          {email ? (
+            <button className="btn btn-sm btn-primary" onClick={handleSignOut}>
+              Logout
+            </button>
+          ) : (
             <Link to="/login" className="btn btn-sm btn-primary">
               Login
             </Link>
           )}
 
-          {data?.admin && email && !isTabletOrMobile && (
+          {data?.admin && email && (
             <Link to="/dashboard" className="btn btn-sm btn-primary">
               Dashboard
             </Link>
           )}
-          {!isTabletOrMobile && (
-            <div className="w-fit flex items-center">
-              <button className="btn btn-sm btn-primary gap-1">
-                Eng <span className="font-bold">| বাংলা</span>
-              </button>
+          <div className="">
+            Eng <span className="font-bold">| বাংলা</span>
+          </div>
+          {photoURL && (
+            <div>
+              <img src={photoURL} className="rounded-full w-10" alt="" />
             </div>
           )}
-
-          <div className="dropdown dropdown-end">
-            <>
-              {photoURL && (
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={photoURL} />
-                  </div>
-                </label>
-              )}
-
-              {photoURL === null && (
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={manualRegUserImg} />
-                  </div>
-                </label>
-              )}
-            </>
-
-            {!isTabletOrMobile && (
-              <ul
-                tabIndex={0}
-                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
-              >
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a onClick={handleSignOut}>Logout</a>
-                </li>
-              </ul>
-            )}
-          </div>
+          {photoURL === null && <FaRegUserCircle size={40} />}
         </div>
-      </div>
-    </div>
+      )}
+
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          </div>
+        </label>
+        <ul
+          tabIndex={0}
+          className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+        >
+          <li>
+            <a className="justify-between">
+              Profile
+              <span className="badge">New</span>
+            </a>
+          </li>
+          <li>
+            <a>Settings</a>
+          </li>
+          <li>
+            <a>Logout</a>
+          </li>
+        </ul>
+      </div> */}
+    </nav>
   );
 };
 

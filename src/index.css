@@ -92,6 +92,7 @@ body {
   background-image: url("./assets/images/sidebarBgImg.jpg");
 }
 
+/* hero carousel */
 .carousel .control-dots .dot {
   width: 14px !important;
   height: 14px !important;
