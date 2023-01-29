@@ -24,7 +24,6 @@ const UpdateHotelForm = ({ preloadedValues }) => {
   const [enabled, setEnabled] = useState(data?.isAvailable);
 
   const submit = (data) => {
-    console.log("data--->", data);
     fetch(`${domain}/updateHotel/${hotelId}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
