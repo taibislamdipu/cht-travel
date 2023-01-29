@@ -1,40 +1,48 @@
 import React from "react";
+import "./HeroSlider.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
 const HeroSlider = () => {
   const data = [
     {
-      id: "1",
+      img: "https://i.ibb.co/JRG2gYH/gettyimages3.jpg",
+      name: "Boga Lake, Lake in Bangladesh",
+    },
+    {
       img: "https://i.ibb.co/XxGkqCp/hero-Slider-Img-1.jpg",
       name: "Sangu River, River in Bangladesh",
     },
     {
-      id: "2",
-      img: "https://i.ibb.co/Nt8hm0n/hero-Slider-Img-2.jpg",
+      img: "https://i.ibb.co/n8ghbsH/gettyimages4.jpg",
       name: "Boga Lake, Lake in Bangladesh",
     },
     {
-      id: "3",
-      img: "https://i.ibb.co/Ht4yMbt/hero-Slider-Img-3.jpg",
-      name: "Amiakhum WaterFall",
+      img: "https://i.ibb.co/phkdk0y/gettyimages5.jpg",
+      name: "Nilgiri Bandarban, A Wonderful Tourist Spot in Bangladesh",
+    },
+    {
+      img: "https://i.ibb.co/0ytzgJj/gettyimages6.jpg",
+      name: "Natural landscape pictures in Bandarban",
     },
   ];
 
   return (
     <div className="md:pt-32 pt-20 lg:mx-40 px-4">
       <Carousel
-        autoPlay={true}
+        autoPlay
+        infiniteLoop
+        showStatus={false}
         swipeable={true}
         stopOnHover={true}
         showThumbs={false}
         emulateTouch={true}
       >
-        {data.map((item) => (
-          <div key={item?.id}>
+        {data.map((item, i) => (
+          <div key={i}>
             <div>
               <img
-                className="w-full md:h-96 h-80 object-cover"
+                className="carousel-img w-full object-cover"
                 src={item?.img}
               />
             </div>
