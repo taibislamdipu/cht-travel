@@ -13,6 +13,8 @@ const HotelList = () => {
   const [search, setSearch] = useState("");
   const [data, setHotels] = useState([]);
   const [range, setRange] = useState(1000);
+  const [value, setValue] = useState(false);
+  const [star, setStar] = useState("");
 
   const dispatch = useDispatch();
 
@@ -27,6 +29,8 @@ const HotelList = () => {
   }, []);
 
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
+  const stars = ["5 star", "4 star", "3 star", "2 star", "1 star"];
 
   return (
     <div className=" bg-[#F2F2F2]">
@@ -72,21 +76,24 @@ const HotelList = () => {
                   step="1"
                 />
               </div>
-              <div className="text-slate-500 hover:cursor-not-allowed">
+              <div>
                 <h3 className="font-bold mb-2">Star Rating</h3>
                 <div className="space-y-2">
-                  <p className="flex items-center gap-2">
-                    <input type="checkbox" name="" id="" /> 5 Star
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <input type="checkbox" name="" id="" /> 4 Star
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <input type="checkbox" name="" id="" /> 3 Star
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <input type="checkbox" name="" id="" /> 2 Star
-                  </p>
+                  {stars.map((star) => (
+                    <p className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        name=""
+                        id=""
+                        onClick={(event) => {
+                          setValue(event.target.checked);
+                          setStar(star);
+                          // handleCheckboxChange(event.target.checked, star);
+                        }}
+                      />{" "}
+                      {star}
+                    </p>
+                  ))}
                 </div>
               </div>
             </section>
@@ -126,52 +133,43 @@ const HotelList = () => {
               </h2>
             </div>
 
-            {/* <div>
-              {hotels.map((item, i) => (
-                <SuggestedHotelCard
-                  key={i}
-                  hotel_name={item?.hotel_name}
-                  address={item?.address}
-                  price={item?.price}
-                  isTabletOrMobile={isTabletOrMobile}
-                />
-              ))}
-            </div> */}
-
             {isLoading ? (
               <Loading />
             ) : (
               <div>
-                {hotels.length > 0 ? (
-                  hotels
-                    .filter((item) => {
-                      return search.toLocaleLowerCase() === ""
-                        ? item
-                        : item?.title
-                            .toLocaleLowerCase()
-                            .includes(search.toLocaleLowerCase());
-                    })
-                    .map((item) => (
-                      <Link to={`hotel/${item?._id}`} key={item?._id}>
-                        <SuggestedHotelCard
-                          hotel_name={item?.title}
-                          image={item?.imageURL}
-                          address={item?.address}
-                          price={item?.price}
-                          isTabletOrMobile={isTabletOrMobile}
-                        />
-                      </Link>
-                    ))
-                ) : (
-                  <Loading />
-                )}
+                {hotels
+                  .filter((item) => {
+                    return value
+                      ? item?.classification?.includes(star)
+                      : search.toLocaleLowerCase() === ""
+                      ? item
+                      : item?.title
+                          .toLocaleLowerCase()
+                          .includes(search.toLocaleLowerCase());
+                  })
+                  .map((item) => (
+                    <Link to={`hotel/${item?._id}`} key={item?._id}>
+                      <SuggestedHotelCard
+                        hotel_name={item?.title}
+                        image={item?.imageURL}
+                        address={item?.address}
+                        price={item?.price}
+                        isTabletOrMobile={isTabletOrMobile}
+                      />
+                    </Link>
+                  ))}
+
                 {data.filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
                     : item?.title
                         .toLocaleLowerCase()
                         .includes(search.toLocaleLowerCase());
-                }).length === 0 && <p>No results found.</p>}
+                }).length === 0 && <p>No result found.</p>}
+
+                {data.filter((item) => {
+                  return item?.classification?.includes(star);
+                }).length === 0 && <p>No result found.</p>}
               </div>
             )}
 
