@@ -121,18 +121,9 @@ const Navbar = () => {
                 Dashboard
               </Link>
             )}
-            {email ? (
-              <button
-                className="btn bg-black hover:bg-[#333333] text-white border-0"
-                onClick={handleSignOut}
-              >
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                className="btn bg-black hover:bg-[#333333] text-white border-0"
-              >
+
+            {!email && (
+              <Link to="/login" className="btn btn-sm btn-primary">
                 Login
               </Link>
             )}
@@ -259,25 +250,25 @@ const Navbar = () => {
               )}
             </>
 
-            {!isTabletOrMobile && (
-              <ul
-                tabIndex={0}
-                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
-              >
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
+            >
+              <Link to="/profile">
                 <li>
                   <a className="justify-between">
                     Profile
                     <span className="badge">New</span>
                   </a>
                 </li>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a onClick={handleSignOut}>Logout</a>
-                </li>
-              </ul>
-            )}
+              </Link>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a onClick={handleSignOut}>Logout</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
