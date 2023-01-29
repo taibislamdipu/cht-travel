@@ -28,13 +28,13 @@ const Contact = () => {
               <div className="bg-gradient-to-r from-cyan-500 to-blue-500 w-min p-3 rounded-md">
                 <AiFillPhone size={23} color="white" />
               </div>
-              <p>+ xx xxx xxx</p>
+              <p>+8801728010810</p>
             </div>
             <div className="flex items-center gap-2">
               <div className="bg-gradient-to-r from-cyan-500 to-blue-500 w-min p-3 rounded-md">
                 <AiOutlineMail size={23} color="white" />
               </div>
-              <p>info@xxxxxxx.com</p>
+              <p>chttravel.htt@gmail.com</p>
             </div>
           </div>
         </div>
