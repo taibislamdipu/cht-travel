@@ -3,6 +3,9 @@ import paymentGatewayImg from "../assets/images/payment-gateway.png";
 
 const Footer = () => {
   let currentYear = new Date().getFullYear();
+
+  let facebookUrl = "https://www.facebook.com/ChattogramHillTracksTourguide";
+
   return (
     <footer className="text-center  lg:text-left bg-white text-gray-600">
       <div className="flex justify-center customContainer items-center lg:justify-between p-6 border-b border-gray-300">
@@ -10,11 +13,7 @@ const Footer = () => {
           <span>Get connected with us on social networks:</span>
         </div>
         <div className="flex justify-center">
-          <a
-            href="https://www.facebook.com/profile.php?id=100088619407746&mibextid=ZbWKwL"
-            target="_blank"
-            className="mr-6 text-gray-600"
-          >
+          <a href={facebookUrl} target="_blank" className="mr-6 text-gray-600">
             <svg
               aria-hidden="true"
               focusable="false"
