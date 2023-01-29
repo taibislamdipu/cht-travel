@@ -250,25 +250,27 @@ const Navbar = () => {
               )}
             </>
 
-            <ul
-              tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
-            >
-              <Link to="/profile">
+            {email && (
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
+              >
+                <Link to="/profile">
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                </Link>
                 <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
+                  <a>Settings</a>
                 </li>
-              </Link>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a onClick={handleSignOut}>Logout</a>
-              </li>
-            </ul>
+                <li>
+                  <a onClick={handleSignOut}>Logout</a>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>
