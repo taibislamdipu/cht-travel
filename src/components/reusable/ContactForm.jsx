@@ -32,7 +32,7 @@ const ContactForm = () => {
 
   return (
     <form className="bg-white p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
-      <h2 className="text-2xl font-bold text-black mb-4">Contact Us</h2>
+      {/* <h2 className="text-2xl font-bold text-black mb-4">Contact Us</h2> */}
       <div className="mb-4">
         <label className="block text-gray-700 font-medium mb-2">Name:</label>
         <input
@@ -73,7 +73,7 @@ const ContactForm = () => {
         />
       </div>
       <div className="text-center">
-        <button className="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600">
+        <button className="btn bg-black hover:bg-[#333333] text-white border-0">
           Submit
         </button>
       </div>
