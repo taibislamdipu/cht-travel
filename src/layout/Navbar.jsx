@@ -210,68 +210,71 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="navbar-end ">
-        <div className="flex items-center gap-2">
-          {!email && (
-            <Link to="/login" className="btn btn-sm btn-primary">
-              Login
-            </Link>
-          )}
+      <div className="navbar-end flex items-center space-x-8">
+        {!email && (
+          <Link to="/login" className="btn btn-sm btn-primary">
+            Login
+          </Link>
+        )}
 
-          {data?.admin && email && !isTabletOrMobile && (
+        {/* {data?.admin && email && !isTabletOrMobile && (
             <Link to="/dashboard" className="btn btn-sm btn-primary">
               Dashboard
             </Link>
-          )}
-          {!isTabletOrMobile && (
-            <div className="w-fit flex items-center">
-              <button className="btn btn-sm btn-primary gap-1">
-                Eng <span className="font-bold">| বাংলা</span>
-              </button>
-            </div>
-          )}
-
-          <div className="dropdown dropdown-end">
-            <>
-              {photoURL && (
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={photoURL} />
-                  </div>
-                </label>
-              )}
-
-              {photoURL === null && (
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={manualRegUserImg} />
-                  </div>
-                </label>
-              )}
-            </>
-
-            {email && (
-              <ul
-                tabIndex={0}
-                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
-              >
-                <Link to="/profile">
-                  <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
-                  </li>
-                </Link>
-                <li>
-                  <a>Settings</a>
-                </li>
-                <li>
-                  <a onClick={handleSignOut}>Logout</a>
-                </li>
-              </ul>
-            )}
+          )} */}
+        {!isTabletOrMobile && (
+          <div className="w-fit flex items-center">
+            <button className="btn btn-sm btn-primary gap-1">
+              Eng <span className="font-bold">| বাংলা</span>
+            </button>
           </div>
+        )}
+
+        <div className="dropdown dropdown-end">
+          <>
+            {photoURL && (
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={photoURL} />
+                </div>
+              </label>
+            )}
+
+            {photoURL === null && (
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={manualRegUserImg} />
+                </div>
+              </label>
+            )}
+          </>
+
+          {email && (
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-white rounded-box w-52"
+            >
+              <Link to="/profile">
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+              </Link>
+              <li>
+                {data?.admin && email && !isTabletOrMobile && (
+                  <Link to="/dashboard">Dashboard</Link>
+                )}
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a onClick={handleSignOut}>Logout</a>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </div>

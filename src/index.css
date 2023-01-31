@@ -108,3 +108,25 @@ body {
     font-size: 14px !important;
   }
 }
+
+.hero-img {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-img {
+    animation: hero-img-float infinite 3s ease-in-out;
+  }
+}
+
+@keyframes hero-img-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

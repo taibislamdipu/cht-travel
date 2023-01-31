@@ -44,7 +44,7 @@ const HeroSection = () => {
           className="md:w-1/2 flex items-center justify-center "
           data-aos="fade-left"
         >
-          <div>
+          <div className="hero-img">
             <img src={heroimg} className="w-full" alt="" />
           </div>
         </div>
