@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="App">
       {isLoading ? (
-        <div className="bg-black flex items-center justify-center h-screen">
+        <div className="bg-[#186E7D] flex items-center justify-center h-screen">
           <img src={preLoader} alt="...loading"></img>
         </div>
       ) : (
