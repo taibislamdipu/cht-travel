@@ -8,7 +8,9 @@ const initialState = {
 };
 
 export const getBookings = createAsyncThunk("auth/getBookings", async () => {
-  const res = await fetch("https://cht-travel-server.vercel.app/api/bookings");
+  const res = await fetch(
+    "https://cht-travel-server.onrender.com/api/bookings"
+  );
   const data = await res.json();
   return data;
 });
