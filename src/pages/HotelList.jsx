@@ -159,7 +159,7 @@ const HotelList = () => {
                     </Link>
                   ))}
 
-                {data.filter((item) => {
+                {data?.filter((item) => {
                   return search.toLocaleLowerCase() === ""
                     ? item
                     : item?.title
@@ -167,7 +167,7 @@ const HotelList = () => {
                         .includes(search.toLocaleLowerCase());
                 }).length === 0 && <p>No result found.</p>}
 
-                {data.filter((item) => {
+                {data?.filter((item) => {
                   return item?.classification?.includes(star);
                 }).length === 0 && <p>No result found.</p>}
               </div>

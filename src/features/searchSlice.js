@@ -9,9 +9,7 @@ const initialState = {
 };
 
 export const getHotel = createAsyncThunk("auth/getHotel", async () => {
-  const res = await fetch(
-    "https://cht-travel-server-production.up.railway.app/hotels"
-  );
+  const res = await fetch("https://cht-travel-server.vercel.app/hotels");
   const data = await res.json();
   return data;
 });
