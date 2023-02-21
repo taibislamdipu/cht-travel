@@ -20,7 +20,13 @@ const ServiceCard = ({ service }) => {
         </h2>
         <p className="text-justify line-clamp-3">{service?.about}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Explore Now</button>
+          {service?.status ? (
+            <button className="btn btn-primary">Explore Now</button>
+          ) : (
+            <button className="btn btn-primary" disabled>
+              Coming Soon!
+            </button>
+          )}
         </div>
       </div>
     </div>
