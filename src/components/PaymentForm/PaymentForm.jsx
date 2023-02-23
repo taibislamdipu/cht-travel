@@ -26,7 +26,7 @@ const PaymentForm = ({ price, title }) => {
     data.startDate = startDate;
     data.endDate = endDate;
 
-    fetch("https://cht-travel-server.onrender.com/init", {
+    fetch("https://cht-travel-server-dipu.vercel.app/init", {
       method: "POST",
       headers: {
         "content-type": "application/json",
