@@ -15,7 +15,7 @@ import Loading from "../reusable/Loading";
 const UserList = () => {
   const [users, setUsers] = useState([]);
 
-  const domain = "https://cht-travel-server-dipu.vercel.app/api/users";
+  const domain = "https://cht-travel-server.onrender.com/api/users";
 
   async function getUsers() {
     try {
